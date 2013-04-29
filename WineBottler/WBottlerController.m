@@ -1,10 +1,25 @@
-//
-//  WBottleController.m
-//  WineBottler
-//
-//  Created by Mike Kronenberg on 23.04.09.
-//  Copyright 2009 Kronenberg Informatik Lösungen. All rights reserved.
-//
+/*
+ * WBottlerController.m
+ * of the 'WineBottler' target in the 'WineBottler' project
+ *
+ * Copyright 2009 Mike Kronenberg
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+
+
 
 #import "WBottlerController.h"
 
@@ -33,6 +48,7 @@
  vcrun2008 (mfc90, msvcp90, msvcr90)
  vcrun2010 (mfc100, msvcp100, msvcr100)
 */
+
 
 
 @implementation WBottlerController
@@ -109,15 +125,16 @@
 
 
 -(void) revealBottlerWindow:(id)sender
-{    
+{
+    NSRect viewFrame;
+    NSView *titleBarView;
+    
     [progressIndicator setDoubleValue:[progressIndicator doubleValue] + 50.0];
 
     bottlerWindow.titleBarHeight = 46.0;
     bottlerWindow.trafficLightButtonsLeftMargin = 13.0;
-    NSView *titleBarView = bottlerWindow.titleBarView;
-    //NSView *titleBarView = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 234.0f, 24.0f)];
+    titleBarView = bottlerWindow.titleBarView;
     
-    NSRect viewFrame;
     viewFrame = NSMakeRect(NSMidX(titleBarView.bounds) - (234.0 / 2.f), NSMidY(titleBarView.bounds) - (bottlerWindow.titleBarHeight / 2.f), 234.0, bottlerWindow.titleBarHeight);
     [toolbar setAutoresizingMask:NSViewMinXMargin|NSViewMaxXMargin];
     [toolbar setFrame:viewFrame];
@@ -147,6 +164,7 @@
     [bottlerWindow makeKeyAndOrderFront:self];
     [updatePanel orderOut:self];
 }
+
 
 
 #pragma mark -
@@ -448,7 +466,6 @@
     if (prefixFound)
         [prefixFound release];
 	prefixFound = knownPrefixes;
-	//prefixFound = [knownPrefixes sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
     [prefixFound retain];
     
 	[userDefaults setObject:prefixFound forKey:@"knownPrefixes"];

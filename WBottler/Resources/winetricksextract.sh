@@ -1,13 +1,30 @@
 #!/bin/bash
 
-#  winetricksextract.sh
-#  WineBottler
 #
-#  Created by Mike Kronenberg on 04.07.12.
-#  Copyright (c) 2012 Tapenta GmbH. All rights reserved.
+# winetricksextract.sh
+# of the 'WBottler' target in the 'WineBottler' project
+#
+# Copyright 2009 Mike Kronenberg
+#
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or (at your option) any later version.
+#
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
+#
 
 
 
+##########     Merge our cutom verbs, then create plcist out of it     #########
+################################################################################
 w_metadata() {
     echo "\t<dict>\n\t\t<key>verb</key>\n\t\t<string>$1</string>\n\t\t<key>category</key>\n\t\t<string>$2</string>\n\t\t<key>status</key>\n\t\t<string>0</string>" >>"$WINETRICKS_TMP"
     shift
@@ -25,7 +42,6 @@ export WINETRICKS_TMP="/tmp/winetricks.plist"
 
 # add our custom verbs
 cat "$HOME/Library/Application Support/Wine/winetricks" "$HOME/Library/Application Support/Wine/customverbs" > /tmp/winetricks_custom
-#cp "$HOME/Library/Application Support/Wine/winetricks" > /tmp/winetricks_custom
 
 # remove everything so that we can get the verbs
 tr '\n' '^' < /tmp/winetricks_custom | sed -e "s/\$USERNAME/$USER/g" -e 's/\$W_PROGRAMS_X86_WIN/\%ProgramFiles\%/g' -e 's/\$W_SYSTEM32_DLLS_WIN/C:\/windows\/system32/g' -e 's/^.*# Runtimes//' -e 's/#---- Derived Metadata ----.*WineBottler Custom Verbs//' | tr '^' '\n' > "/tmp/winetricks_verbs.sh"

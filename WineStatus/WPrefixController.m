@@ -1,10 +1,25 @@
-//
-//  WPrefixController.m
-//  WineBottler
-//
-//  Created by Mike Kronenberg on 17.04.09.
-//  Copyright 2009 Kronenberg Informatik Lösungen. All rights reserved.
-//
+/*
+ * WPrefixController.m
+ * of the 'WineStatus' target in the 'WineBottler' project
+ *
+ * Copyright 2010 Mike Kronenberg
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+
+
 
 #import "WPrefixController.h"
 #import "WBottlerController.h"
@@ -184,70 +199,12 @@
 }
 
 
-/*
-- (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)cell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex mouseLocation:(NSPoint)mouseLocation
-{
-	return [[userDefaults objectForKey:@"knownPrefixes"] objectAtIndex:rowIndex];
-}
-*/
-
-/*
-- (NSDragOperation)tableView:(NSTableView*)tv validateDrop:(id <NSDraggingInfo>)info proposedRow:(int)row proposedDropOperation:(NSTableViewDropOperation)op 
-{
-	NSPasteboard *paste = [info draggingPasteboard];
-    NSArray *types = [NSArray arrayWithObjects: NSFilenamesPboardType, nil];
-    NSString *desiredType = [paste availableTypeFromArray:types];
-	
-    [table setDropRow:[table numberOfRows] dropOperation: NSTableViewDropAbove];
-	
-	if ([desiredType isEqualToString:NSFilenamesPboardType]) { // we only accept files to be dragged onto Q Control
-		if ([@"app" isEqual:[[[paste propertyListForType:@"NSFilenamesPboardType"] objectAtIndex:0] pathExtension]]) { // add an existing VM to the Browser
-			if ([[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/Contents/Resources/system.reg", [[paste propertyListForType:@"NSFilenamesPboardType"] objectAtIndex:0]]]) {
-				[table setDropRow:[table numberOfRows] dropOperation: NSTableViewDropAbove]; //drop to last row
-				return NSDragOperationEvery;
-			}
-		}
-	}
-    return NSDragOperationNone;
-}
-
-
-
-- (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id <NSDraggingInfo>)info row:(int)row dropOperation:(NSTableViewDropOperation)operation
-{	
-    NSPasteboard *paste = [info draggingPasteboard];
-    NSArray *types = [NSArray arrayWithObjects: NSFilenamesPboardType, nil];
-    NSString *desiredType = [paste availableTypeFromArray:types];
-    NSData *carriedData = [paste dataForType:desiredType];
-	NSMutableArray *knownPrefixes;
-	NSString *path;
-	
-    if (nil == carriedData) {
-        NSRunAlertPanel(@"Paste Error", @"Sorry, but the paste operation failed", nil, nil, nil);
-        return NO;
-    } else {
-		if ([@"app" isEqual:[[[paste propertyListForType:@"NSFilenamesPboardType"] objectAtIndex:0] pathExtension]]) {
-			knownPrefixes = [[[userDefaults objectForKey:@"knownPrefixes"] mutableCopy] autorelease];
-			path = [NSString stringWithFormat:@"%@/Contents/Resources", [[paste propertyListForType:@"NSFilenamesPboardType"] objectAtIndex:0]];
-			if (![knownPrefixes containsObject:path]) {
-				[knownPrefixes addObject:path];
-				[userDefaults setObject:knownPrefixes forKey:@"knownPrefixes"];
-				[userDefaults synchronize];
-				[table reloadData];
-			}
-		}
-    }
-    return YES;
-}
-*/
-
 
 #pragma mark -
 #pragma mark NSTableView clicks
 - (void) tableDoubleClick:(id)sender
 {
-//    [self changePrefix:self];
-	// staring prefix would be better
+
 }
 
 

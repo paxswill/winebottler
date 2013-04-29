@@ -1,10 +1,25 @@
-//
-//  WWinetricksController.m
-//  WineBottler
-//
-//  Created by Mike Kronenberg on 20.05.09.
-//  Copyright 2009 Kronenberg Informatik Lösungen. All rights reserved.
-//
+/*
+ * WWinetricksController.m
+ * of the 'WBottler' target in the 'WineBottler' project
+ *
+ * Copyright 2009 Mike Kronenberg
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+
+
 
 #import "WWinetricksController.h"
 #import "WBottler.h"
@@ -15,29 +30,14 @@
 #define APPSUPPORT_WINE [[NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingString:@"/Wine/"]
 
 
+
 @implementation WWinetricksController
 - (id) init
 {
     BOOL dir;
-    NSAlert *alert;
     
 	self = [super init];
 	if (self) {
-        
-        // make sure X11 is installed
-        if ([[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:@"org.macosforge.xquartz.X11"]) {
-            
-        } else if (![[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:@"org.x.X11"]) {
-            alert = [NSAlert alertWithMessageText:@"Wine requires X Window System."
-                                    defaultButton:nil
-                                  alternateButton:nil
-                                      otherButton:nil
-                        informativeTextWithFormat:@"You will be asked by OS X to install X11. Please restart the Application after the installation of X11."];
-            [alert runModal];
-            [[NSWorkspace sharedWorkspace] launchApplication:@"X11"];
-            [NSApp terminate:self];
-        }
-        
         if (![[NSFileManager defaultManager] fileExistsAtPath:APPSUPPORT_WINE isDirectory:&dir])
             [[NSFileManager defaultManager] createDirectoryAtPath:APPSUPPORT_WINE withIntermediateDirectories:YES attributes:nil error:nil];
         

@@ -1,36 +1,36 @@
-//
-//  WTController.m
-//  Winetricks
-//
-//  Created by Mike Kronenberg on 26.05.10.
-//  Copyright 2010 Kronenberg Informatik Lösungen. All rights reserved.
-//
+/*
+ * WTController.m
+ * of the 'Winetricks' target in the 'WineBottler' project
+ *
+ * Copyright 2010 Mike Kronenberg
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+
+
 
 #import "WTController.h"
+
 
 
 @implementation WTController
 - (void) awakeFromNib {
 	NSArray *args;
-//	float c[4];
-//	NSMutableString *colorScheme;
 		
 	args = [[NSProcessInfo processInfo] arguments];
 	if ([args count] > 1) {
-/*
-		colorScheme = [NSMutableString stringWithString:@"REGEDIT4\n\n[HKEY_CURRENT_USER\\Control Panel\\Colors]"];
-		
-//		[[[NSColor colorForControlTint:[NSColor currentControlTint]] colorUsingColorSpaceName:NSDeviceRGBColorSpace] getRed:&c[0] green:&c[1] blue:&c[2] alpha:&c[3]];
-//		[colorScheme appendFormat:@"\n\"MenuHilight\"=\"%d %d %d\"", (int)(255 * c[0]), (int)(255 * c[1]), (int)(255 * c[2])]; // Returns the system color used for the background of large controls.
-		
-		[[[NSColor selectedTextColor] colorUsingColorSpaceName:NSDeviceRGBColorSpace] getRed:&c[0] green:&c[1] blue:&c[2] alpha:&c[3]];
-		[colorScheme appendFormat:@"\n\"HilightText\"=\"%d %d %d\"", (int)(255 * c[0]), (int)(255 * c[1]), (int)(255 * c[2])];	// Returns the system color used for the background of selected text.
-		
-		[[[NSColor selectedTextBackgroundColor] colorUsingColorSpaceName:NSDeviceRGBColorSpace] getRed:&c[0] green:&c[1] blue:&c[2] alpha:&c[3]];
-		[colorScheme appendFormat:@"\n\"Hilight\"=\"%d %d %d\"", (int)(255 * c[0]), (int)(255 * c[1]), (int)(255 * c[2])];	// Returns the system color used for the background of selected text.
-				
-		NSLog(@"%@", colorScheme);
-*/		
 		[self copyPrefixFromPath:[args objectAtIndex:1] toPath:[args objectAtIndex:2] withTitle:[args objectAtIndex:3]];
 	} else {
 		[winetricksWindow setDelegate:self];
@@ -40,11 +40,9 @@
 }
 
 
-
 - (void) windowWillClose:(NSNotification *)notification {
 	[NSApp terminate:self];
 }
-
 
 
 - (void) copyPrefixFromPath:(NSString *)fromPath toPath:(NSString *)toPath withTitle:(NSString *)tTitle {
@@ -62,7 +60,6 @@
 				  forTarget:self];
 	[copyAction setProgress:0.0];
 	if (![[NSFileManager defaultManager] fileExistsAtPath:toPath]) {
-		//[[NSFileManager defaultManager] createDirectoryAtURL:[NSURL fileURLWithPath:toPath] withIntermediateDirectories:YES attributes:nil error:nil];
 		[[NSFileManager defaultManager] createDirectoryAtPath:toPath withIntermediateDirectories:YES attributes:nil error:nil];  //createDirectoryAtURL:[NSURL fileURLWithPath:toPath] withIntermediateDirectories:YES attributes:nil error:nil];
 		filesToCopy = [[[NSFileManager defaultManager] subpathsAtPath:fromPath] count];
 		filesCopied = 0;
@@ -91,8 +88,6 @@
 		
 	[NSApp terminate:self];
 }
-
-
 
 
 - (IBAction) abort:(id)sender {	

@@ -1,10 +1,25 @@
-//
-//  WSPreferencesController.m
-//  WineBottler
-//
-//  Created by Mike Kronenberg on 17.04.09.
-//  Copyright 2009 Kronenberg Informatik Lösungen. All rights reserved.
-//
+/*
+ * WSPreferencesController.h
+ * of the 'WineStatus' target in the 'WineBottler' project
+ *
+ * Copyright 2009 Mike Kronenberg
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+
+
 
 #import "WSPreferencesController.h"
 
@@ -25,7 +40,6 @@
 	}
 	return self;
 }
-
 
 
 - (void) awakeFromNib
@@ -61,7 +75,6 @@
 }
 
 
-
 - (void) dealloc
 {
 	[super dealloc];
@@ -92,7 +105,6 @@
 }
 
 
-
 - (void) showAdvanced:(id)sender
 {
 	if ([preferencesViewGeneral superview]) {
@@ -113,6 +125,7 @@
 	[preferencesWindow setMinSize:NSMakeSize(422, 135 + 21)];
 	[preferencesWindow setMaxSize:NSMakeSize(422, 135 + 21)];
 }
+
 
 
 #pragma mark NSToolbar Delegates
@@ -142,7 +155,6 @@
 }
 
 
-
 - (NSArray *) toolbarAllowedItemIdentifiers: (NSToolbar *)toolbar
 {
 	return [NSArray arrayWithObjects:
@@ -153,14 +165,12 @@
 }
 
 
-
 - (NSArray *) toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar
 {
 	return [NSArray arrayWithObjects:
 			@"general",
 			nil];
 }
-
 
 
 - (NSArray *) toolbarSelectableItemIdentifiers:(NSToolbar *)toolbar
@@ -175,8 +185,8 @@
 
 
 #pragma mark IBActions
-
-- (IBAction) showWineWindow:(id)sender {
+- (IBAction) showWineWindow:(id)sender
+{
 	if ([sender state] == NSOnState) {
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"showWineWindow"];
 	} else {
@@ -184,6 +194,7 @@
 	}
 	[[NSUserDefaults standardUserDefaults] synchronize];
 }
+
 
 - (IBAction) changeLogfile:(id)sender
 {

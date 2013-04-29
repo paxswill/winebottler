@@ -1,17 +1,30 @@
-//
-//  WSController.m
-//  WineBottler
-//
-//  Created by Mike Kronenberg on 31.03.09.
-//  Copyright 2009 Kronenberg Informatik Lösungen. All rights reserved.
-//
+/*
+ * WController.h
+ * of the 'WineStatus' target in the 'WineBottler' project
+ *
+ * Copyright 2009 Mike Kronenberg
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+
+
 
 #import "WSController.h"
 #import "WTask.h"
-//#import "WBottler.h"
 #import <WBottler/WBottler.h>
 #import "WHLnk.h"
-
 #include <sys/stat.h>
 
 
@@ -31,7 +44,6 @@
 		 [NSDictionary dictionaryWithObjects:
 		  [NSArray arrayWithObjects:
 		   [NSString stringWithFormat:@"%@/Wine_bin.app/Contents/Resources", [[NSBundle mainBundle] resourcePath]],// winePath
-		   //[NSString stringWithFormat:@"%@/usr", [[NSBundle mainBundle] resourcePath]],// winePath
 		   [NSString stringWithFormat:@"%@/Wine Files", NSHomeDirectory()],		// prefix
 		   @"",																	// arguments
 		   [NSNumber numberWithBool:NO],										// doLog
@@ -57,7 +69,6 @@
 		
 		// force our wine package
 		[userDefaults setObject:[[NSBundle mainBundle] resourcePath] forKey:@"winePath"];
-        //[userDefaults setObject:[NSString stringWithFormat:@"%@/Wine_bin.app/Contents/Resources", [[NSBundle mainBundle] resourcePath]] forKey:@"winePath"];
 		[userDefaults synchronize];
 		
 		runningExes = [[NSMutableArray alloc] initWithCapacity:16];
@@ -83,7 +94,8 @@
 }
 
 
-- (void) dealloc {
+- (void) dealloc
+{
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	
 	// save defaults
@@ -116,7 +128,6 @@
 	} else {
 		if (fileHandle)
 			[fileHandle release];
-		//fileHandle = [NSFileHandle fileHandleWithNullDevice];
 		fileHandle = nil;
 	}
 }
@@ -191,9 +202,6 @@
 	}
 	
 	// add current tasks
-//	if ([runningExes count] > 0) {
-//		[menuProcesses insertItem:[NSMenuItem separatorItem] atIndex:0];
-//	}
 	for (i = 0; i < [runningExes count]; i++) {
 		menuItem = [[NSMenuItem alloc] initWithTitle:[[runningExes objectAtIndex:i] objectForKey:@"path"] action:@selector(kill:) keyEquivalent:@""];
 		[menuItem setTag:[[[runningExes objectAtIndex:i] objectForKey:@"pid"] intValue]];
@@ -260,12 +268,14 @@
 }
 
 
-- (IBAction) wineWindowAbort:(id)sender {
+- (IBAction) wineWindowAbort:(id)sender
+{
 	[wineWindow orderOut:self];
 }
 
 
-- (IBAction) wineWindowGo:(id)sender {
+- (IBAction) wineWindowGo:(id)sender
+{
 	[wineWindow orderOut:self];
 	if ([buttonRunInPrefix state] == NSOnState) {
 		[[NSUserDefaults standardUserDefaults] setObject:[buttonPrefixes titleOfSelectedItem] forKey:@"prefix"];
@@ -277,7 +287,8 @@
 }
 
 
-- (IBAction) showWineWindow:(id)sender {
+- (IBAction) showWineWindow:(id)sender
+{
 	if ([sender state] == NSOnState) {
 		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"showWineWindow"];
 	} else {
@@ -287,8 +298,8 @@
 }
 
 
-- (void) startFile:(NSString *)filename {
-
+- (void) startFile:(NSString *)filename
+{
 	// start file
 	if ([[filename pathExtension] caseInsensitiveCompare:@"msi"] == NSOrderedSame) {
 		[self startApplication:[NSArray arrayWithObjects:@"msiexec.exe", @"/i", filename, nil]];
@@ -366,7 +377,6 @@
 		// need some error handling here
 	}
 }
-
 
 
 - (void) changePrefixTo:(NSString *)tPrefix

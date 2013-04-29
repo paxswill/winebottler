@@ -1,10 +1,25 @@
-//
-//  WTask.m
-//  WineBottler
-//
-//  Created by Mike Kronenberg on 01.04.09.
-//  Copyright 2009 Kronenberg Informatik Lösungen. All rights reserved.
-//
+/*
+ * WTask.h
+ * of the 'WineStatus' target in the 'WineBottler' project
+ *
+ * Copyright 2009 Mike Kronenberg
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+
+
 
 #import "WTask.h"
 
@@ -38,7 +53,6 @@
 
 - (id)initWithArguments:(NSArray *)arguments controller:(id)tController
 {
-//	NSString *display;
 	NSString *wineDebug;
 	
 	self = [self init];
@@ -52,14 +66,7 @@
 		// Pipes
 		[task setStandardOutput:stdPipe];
 		[task setStandardError:errPipe];
-/*
-		// Fix for Tiger environment bug
-		display = [[[NSProcessInfo processInfo] environment] objectForKey:@"DISPLAY"];
-		if (display == nil) {
-			display = @":0.0";
-			[[NSWorkspace sharedWorkspace] launchApplication:@"X11"];
-		}
-*/		
+
 		// supress err & fixme messages if there is no log file
 		if ([controller fileHandle]) {
 			wineDebug = @"err+all,fixme+all";
@@ -71,15 +78,11 @@
 		[task setEnvironment:[NSDictionary dictionaryWithObjects:
 							  [NSArray arrayWithObjects:
 							   [NSString stringWithFormat:@"%@/bin", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]],						// WINEPATH
-//							   [NSString stringWithFormat:@"/usr/lib:%@/lib:/usr/X11R6/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]],		// DYLD_FALLBACK_LIBRARY_PATH
-//							   [NSString stringWithFormat:@"%@/lib:/usr/X11R6/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]],		// LD_LIBRARY_PATH
 							   [NSString stringWithFormat:@"/usr/lib:%@/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]],		// DYLD_FALLBACK_LIBRARY_PATH
 							   [NSString stringWithFormat:@"%@/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]],		// LD_LIBRARY_PATH
 							   [NSString stringWithFormat:@"%@/etc/fonts/fonts.conf", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]],	// FONTCONFIG_FILE
-//							   [NSString stringWithFormat:@"%@/ssl/openssl.cnf", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // OPENSSL_CONF
 							   [[NSUserDefaults standardUserDefaults] objectForKey:@"prefix"],					// WINEPREFIX
 							   wineDebug,																		// WINEDEBUG
-//							   display,																			// DISPLAY
 							   NSUserName(),																	// USER
 							   NSHomeDirectory(),																// HOME
 							   nil]
@@ -89,10 +92,8 @@
 							   @"DYLD_FALLBACK_LIBRARY_PATH",
 							   @"LD_LIBRARY_PATH",
 							   @"FONTCONFIG_FILE",
-//							   @"OPENSSL_CONF",
 							   @"WINEPREFIX",
 							   @"WINEDEBUG",
-//							   @"DISPLAY",
 							   @"USER",
 							   @"HOME",
 							   nil]]];

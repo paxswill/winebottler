@@ -1,10 +1,25 @@
-//
-//  WBottler.m
-//  WineBottler
-//
-//  Created by Mike Kronenberg on 26.04.09.
-//  Copyright 2009 Kronenberg Informatik Lösungen. All rights reserved.
-//
+/*
+ * WBottler.m
+ * of the 'WBottler' target in the 'WineBottler' project
+ *
+ * Copyright 2009 Mike Kronenberg
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+
+
 
 #import "WBottler.h"
 
@@ -223,9 +238,6 @@
                 error:&error])
                 NSLog(@"Error %@", error);
 		}
-		
-//		NSString *display;
-//		display = [[[NSProcessInfo processInfo] environment] objectForKey:@"DISPLAY"];
 
 		task = [[NSTask alloc] init];
 		
@@ -236,13 +248,9 @@
 		environment = [NSMutableDictionary dictionaryWithObjects:
 							  [NSArray arrayWithObjects:
 							   [NSString stringWithFormat:@"%@/bin", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // WINEPATH
-//							   [NSString stringWithFormat:@"/usr/lib:%@/lib:/usr/X11R6/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // DYLD_FALLBACK_LIBRARY_PATH
-//							   [NSString stringWithFormat:@"%@/lib:/usr/X11R6/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // LD_LIBRARY_PATH
 							   [NSString stringWithFormat:@"/usr/lib:%@/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // DYLD_FALLBACK_LIBRARY_PATH
 							   [NSString stringWithFormat:@"%@/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // LD_LIBRARY_PATH
 							   [NSString stringWithFormat:@"%@/etc/fonts/fonts.conf", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // FONTCONFIG_FILE
-//							   [NSString stringWithFormat:@"%@/ssl/openssl.cnf", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // OPENSSL_CONF
-//							   display,											// DISPLAY
 							   NSUserName(),									// USER
 							   NSHomeDirectory(),								// HOME
 							   
@@ -268,8 +276,6 @@
 							   @"DYLD_FALLBACK_LIBRARY_PATH",
 							   @"LD_LIBRARY_PATH",
 							   @"FONTCONFIG_FILE",
-//							   @"OPENSSL_CONF",
-//							   @"DISPLAY",
 							   @"USER",
 							   @"HOME",
 							   
@@ -335,12 +341,8 @@
 - (void) dealloc
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	if (task) {
-/*		if ([task isRunning]) {
-			[task terminate];
-		}*/
+	if (task)
 		[task release];
-	}
 	if (installAction)
 		[[KBActionWindow sharedKBActionWindow] removeAction:installAction];
 	if (stringBuffer)
