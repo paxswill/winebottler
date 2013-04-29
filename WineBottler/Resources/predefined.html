@@ -1,0 +1,544 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+            <style>
+                * {
+                    font-family:                        "Lucida Grande";
+                    font-size:                          11px;
+                }
+                
+                BODY {
+                    margin:                             0;
+                    width:                              100%%;
+                    background:                         url(images/paper.png);
+                    overflow-x:                         hidden;
+                }
+                
+                TABLE {
+                    border-collapse:                    collapse;
+                    width:                              100%%;
+                }
+                
+                TD {
+                    border:                             0;
+                    padding:                            0;
+                    vertical-align:                     top;
+                }
+                
+                H1 {
+                    margin:                             0 0 16px 8px;
+                    font-size:                          2em;
+                    color:                              white;
+                }
+                
+                
+                code {
+                    font-family: 'Courier New', Courier, Fixed;
+                }
+                
+                
+                div.explanation {
+                    //padding:							10px 24px 10px 24px;
+                    background:							-webkit-gradient(linear,0 0,0 100%%,from(rgba(255,255,0,1.0)),to(rgba(255,192,0,1.0))) ! important;
+                    //-webkit-box-shadow:                 0 0 8px rgba(0,0,0,0.75);
+                    color:                              black ! important;
+                    margin-bottom:                      0px ! important;
+                }
+                img.explanation {
+                    position:							absolute;
+                    top:								12px;
+                    top:								36px;
+                    right:								16px;
+                    right:								40px;
+                }
+                div.explanation h1 {
+                    margin:                             0 0 16px 0;
+                    color:                              black;
+                    font-size:							13px;
+                }
+                
+                div.explanation,
+                TD > DIV,
+                #belt DIV,
+                DIV.app:hover {
+                    -webkit-box-shadow:                 1px 2px 6px rgba(0,0,0,1);
+                    background:                         rgb(32,32,32);
+                    background:							-webkit-gradient(linear,0 0,100%% 100%%,from(rgba(255,255,255,0.333)),to(rgba(255,255,255,0))) rgb(32,32,32);
+                    background:                         -webkit-linear-gradient(top left, rgba(255,255,255,0.333), rgba(255,255,255,0)) rgb(32,32,32);
+                }
+                
+                DIV.iapp {
+                    position:                           relative;
+                    margin:                             0;
+                    border:                             solid rgba(255,255,255,0.05);
+                    border-width:                       0 0 1px 0;
+                    padding:                            8px;
+                    color:                              white;
+                    -webkit-box-sizing:                 border-box;
+                    -webkit-transition:                 all 0.25s;
+                    width:                              99.99%%;
+                }
+                
+                DIV.iapp:last-child {
+                    border:                             none;
+                }
+                
+                DIV.iapp > * {
+                    vertical-align:                     middle;
+                }
+                
+                DIV.iapp IMG.icon {
+                    width:                              32px;
+                    height:                             32px;
+                    padding:                            0 8px 0 0;
+                    vertical-align:                     middle;
+                }
+                
+                DIV.iapp A.title {
+                    color:                              inherit;
+                    font-weight:                        bold;
+                    text-decoration:                    none;
+                }
+                
+                DIV.iapp A.path {
+                    font-size:                          9px;
+                    color:                              inherit;
+                    text-decoration:                    none;
+                }
+                
+                DIV.iapp > DIV {
+                    position:                           absolute;
+                    top:                                14px;
+                    right:                              8px;
+                }
+                
+                IMG.miniicon {
+                    position:                           relative;
+                    top:                                2px;
+                    left:                               8px;
+                    opacity:                            0.25;
+                }
+                
+                IMG.miniicon:hover {
+                    opacity:                            0.75;
+                }
+                
+                DIV.app {
+                    position:                           relative;
+                    display:                            inline-block;
+                    vertical-align:                     top;
+                    margin:                             0;
+                    border-style:                       solid;
+                    border-width:                       1px;
+                    border-color:                       rgba(255,255,255,0.05) rgba(255,255,255,0.05) transparent transparent;
+                    padding:                            8px;
+                    height:                             80px;
+                    color:                              white;
+                    width:                              33.333%%;
+                    -webkit-box-sizing:                 border-box;
+                }
+                
+                DIV.app:nth-of-type(1),
+                DIV.app:nth-of-type(2),
+                DIV.app:nth-of-type(3) {
+                    border-top-color:                   transparent;
+                }
+                
+                DIV.app:nth-of-type(3n+0) {
+                    border-right-color:                 transparent;
+                }
+                
+                DIV.app:last-child {
+                    border-right-color:                 transparent;
+                }
+                
+                DIV.app:hover {
+                    border-color:                       rgba(255,255,255,0.15) rgba(0,0,0,0.15) rgba(0,0,0,0.15) rgba(255,255,255,0.15);
+                }
+                
+                DIV.app IMG.icon {
+                    float:                              left;
+                    width:                              48px;
+                    height:                             48px;
+                    padding:                            0 8px 8px 0;
+                    border:                             none 0;
+                }
+                
+                DIV.app A.title {
+                    display:                            block;
+                    margin:                             16px 0 0 0;
+                    text-decoration:                    none;
+                    color:                              inherit;
+                    font-weight:                        bold;
+                }
+                
+                DIV.app A.title:not([href="(null)"]):after {
+                    position:                           relative;
+                    display:                            inline-block;
+                    font-weight:                        normal;
+                    font-size:                          6px;
+                    content:                            '◥';
+                    top:                                -1em;
+                    left:                               0.5em;
+                    height:                             1em;
+                }
+                
+                DIV.app A.title:not([href="(null)"]):hover {
+                    color:                              rgb(0,128,255);
+                }
+                
+                A.install {
+                    display:                            inline-block;
+                    font-size:                          8px;
+                    border:                             solid 1px;
+                    border-color:                       rgba(255,255,255,0.5) rgba(0,0,0,0.125) rgba(0,0,0,0.25) rgba(0,0,0,0.125);
+                    background:							-webkit-gradient(linear,0 0,0 100%%,from(rgba(255,255,255,0.333)),to(rgba(255,255,255,0))) rgb(128,128,128);
+                    background:                         -webkit-linear-gradient(top, rgba(255,255,255,0.333), rgba(255,255,255,0)) rgb(128,128,128);
+                    padding:                            0 7px 1px 7px;
+                    width:                              48px;
+                    color:                              white;
+                    text-decoration:                    none;
+                    text-align:                         center;
+                }
+                
+                DIV.app A.install {
+                    position:                           absolute;
+                    bottom:                             8px;
+                    right:                              8px;
+                    display:                            none;
+                }
+                
+                DIV.app:hover A.install {
+                    display:                            inline-block;
+                }
+                
+                A.install:hover {
+                    background:							-webkit-gradient(linear,0 0,0 100%%,from(rgba(255,255,255,0.333)),to(rgba(0,0,0,0.2))) rgb(0,128,255);
+                    background:                         -webkit-linear-gradient(top, rgba(255,255,255,0.333), rgba(0,0,0,0.2)) rgb(0,128,255);
+                }
+                
+                #sidebar {
+                    vertical-align:                     top;
+                    width:                              216px;
+                }
+                
+                #sidebar DIV {
+                    width:                              192px;
+                    margin-left:                        0;
+                }
+                
+                div.explanation,
+                TD > DIV {
+                    margin:                             24px;
+                    padding:                            16px;
+                    color:                              white;
+                }
+                
+                #showcase {
+                    position:                           relative;
+                    -webkit-box-sizing:                 border-box;
+                    margin:                             24px 0 0 0;
+                    height:                             192px;
+                    width:                              100%%;
+                    padding:                            0 24px;
+                    -webkit-perspective:                5000;
+                }
+                
+                #belt {
+                    position:                           relative;
+                    -webkit-transition:                 all 0.5s;
+                    height:                             100%%;
+                    width:                              100%%;
+                    -webkit-transform-style:            preserve-3d;
+                    -webkit-transform:                  translateZ(-96px);
+                }
+                
+                #belt DIV {
+                    position:                           absolute;
+                    left:                               0;
+                    top:                                0;
+                    width:                              100%%;
+                    height:                             192;
+                    -webkit-backface-visibility:        hidden;
+                }
+                
+                #belt DIV:nth-child(1) {
+                    -webkit-transform:                  rotateX(0deg) translateZ(96px);
+                }
+                
+                #belt DIV:nth-child(2) {
+                    -webkit-transform:                  rotateX(90deg) translateZ(96px);
+                }
+                
+                #belt DIV:nth-child(3) {
+                    -webkit-transform:                  rotateX(180deg) translateZ(96px);
+                }
+                
+                #belt DIV:nth-child(4) {
+                    -webkit-transform:                  rotateX(270deg) translateZ(96px);
+                }
+                
+                .credits {
+                    margin:                             1em 0 -1em 0;
+                    padding:                            0 0 0 2em;
+                    text-align:                         center;
+                    color:                              rgb(192,192,192);
+                    -webkit-box-shadow:                 none;
+                    background:                         none;
+                    font-family:                        Zapfino;
+                    line-height:                        1.75em;
+                }
+                
+                .credits:first-letter {
+                    font-size:                          1.5em;
+                }
+                
+                .credits A {
+                    color:                              white;
+                    text-decoration:                    none;
+                    font-family:                        inherit;
+                }
+                
+                .credits A:first-letter {
+                    font-size:                          1.5em;
+                }
+                
+                .credits A:hover {
+                    text-decoration:                    underline;
+                }
+                
+                A.feature {
+                    position:                           absolute;
+                    top:                                4px;
+                    right:                              28px;
+                    color:                              rgb(128,128,128);
+                    text-decoration:                    none;
+                }
+                
+                A.feature:hover {
+                    color:                              white;
+                    z-index:                            -1;
+                }
+                
+                
+                FORM {
+                    text-align: center;
+                    margin: 0 0 8px 0;
+                }
+                #dbutton {
+                    margin: 16px 0 0 8px;
+                    border:                             none;
+                    border-radius:                      1em;
+                    color:                              rgb(0,0,80);
+                    font-weight:                        bold;
+                    font-style:                         italic;
+                    padding:                            0.25em 1.5em 0.125em 1.5em;
+                    background:							-webkit-gradient(linear,0 0,0 100%%,from(rgba(255,255,255,0.5)), color-stop(40%%, rgba(255,255,255,0.75)), color-stop(60%%, rgba(255,255,255,0)), to(rgba(255,255,255,0.5))) orange;
+                    background:                         -webkit-linear-gradient(top, rgba(255,255,255,0.5), rgba(255,255,255,0.75) 40%%, rgba(255,255,255,0) 60%%, rgba(255,255,255,0.5)), orange;
+                    -webkit-box-shadow:                 0 0.125em 0.25em rgba(0,0,0,0.5);
+                    width:                              15em;
+                }
+                
+                #sidebar DIV.blockchain-btn {
+                    position:                           relative;
+                    font-size:                          11px ! important;
+                    width:                              100%% ! important;
+                    text-align:                         center;
+                    margin:                             0 0 3em -3px ! important;
+                }
+                #sidebar DIV.blockchain.stage-begin {
+                    width:                              200px ! important;
+                }
+                
+                #sidebar DIV.blockchain.stage-begin A {
+                    display:                            inline-block;
+                    padding:                            0.25em 2.5em 0.125em 2.5em ! important;
+                    width:                              10em ! important;
+                    box-shadow:                         0 0.125em 0.25em rgba(0,0,0,0.5);
+                    position:                           relative;
+                    border-radius:                      1em;
+                    background-color:                   rgb(80,80,80);
+                    background-image:                   url(bitcoinLogo.svg);
+                    background-size:                    18px 18px;
+                    background-repeat:                  no-repeat;
+                    background-position:                0px;
+                    color:                              rgb(192,192,192);
+                    text-shadow:                        0 1px 1px black;
+                    text-align:                         center;
+                    font-style:                         italic;
+                }
+                
+                #sidebar DIV.blockchain.stage-ready code {
+                    font-size:                          13px;
+                    font-weight:                        normal;
+                }
+                
+                #sidebar DIV.blockchain.stage-loading,
+                #sidebar DIV.blockchain.stage-ready,
+                #sidebar DIV.blockchain.stage-paid,
+                #sidebar DIV.blockchain.stage-error {
+                    margin:                             1em 0 0 -52px;
+                    background:                         white;
+                    color:                              black;
+                    width:                              288px;
+                    padding:                            1em 0;
+                    text-align:                         center;
+                    z-index:                            1000;
+                    box-shadow:                         1px 2px 6px 0px rgb(0, 0, 0) ;
+                    font-weight:                        bold;
+                }
+                @-webkit-keyframes smoke {
+                    0%% {
+                        -webkit-transform:              translateY(0px);
+                        opacity: 0.0;
+                    }
+                    25%% {
+                        -webkit-transform:              translateY(-16px);
+                        opacity: 0.25;
+                    }
+                    50%% {
+                        -webkit-transform:              translateY(-32px);
+                        opacity: 0.25;
+                    }
+                    100%% {
+                        -webkit-transform:              translateY(-48px);
+                        opacity: 0.0;
+                    }
+                }
+                @-webkit-keyframes steam {
+                    0%% {
+                        -webkit-transform:              translateY(0px);
+                        opacity: 0.0;
+                    }
+                    25%% {
+                        -webkit-transform:              translateY(-32px);
+                        opacity: 0.25;
+                    }
+                    50%% {
+                        -webkit-transform:              translateY(-64px);
+                        opacity: 1;
+                    }
+                    100%% {
+                        -webkit-transform:              translateY(-96px);
+                        opacity: 0.0;
+                    }
+                }
+                
+                .coffeedonation {
+                    background:                         url(icon_cup_256.png);
+                    background-size:                    48px 48px;
+                    background-position:                0 0;
+                    background-repeat:                  no-repeat;
+                    padding:                            8px 0 12px 56px;
+                    cursor:                             pointer;
+                    position:                           relative;
+                    font-style:                         italic;
+                    font-family:                        Courier;
+                    line-height:                        1em;
+                    font-size:                          14px;
+                }
+                
+                .coffeedonation IMG {
+                    position:                           absolute;
+                    top:                                -128px;
+                    left:                               -32px;
+                    -webkit-animation:                  smoke 5s linear infinite;
+                }
+                .coffeedonation IMG:nth-of-type(2) {
+                    -webkit-animation:                  smoke 6s linear infinite;
+                }
+                .coffeedonation IMG:nth-of-type(3) {
+                    -webkit-animation:                  smoke 7s linear infinite;
+                }
+                
+                #dbar:hover .coffeedonation IMG:nth-of-type(1) {
+                    -webkit-animation:                  steam 2.1s linear 0s infinite;
+                }
+                #dbar:hover .coffeedonation IMG:nth-of-type(2) {
+                    -webkit-animation:                  steam 2.1s linear 0.7s infinite;
+                }
+                #dbar:hover .coffeedonation IMG:nth-of-type(3) {
+                    -webkit-animation: s                team 2.1s linear 1.4s infinite;
+                }
+            </style>
+            <script>
+                var rot = 0;
+                spinning = true;
+                setInterval(function() {
+                            if (window.spinning) {
+                            rot += 90;
+                            document.getElementById('belt').style.webkitTransform = 'translateZ(-96px) rotateX(' + rot + 'deg)';
+                            }
+                            }, 5000);
+                </script>
+            </head>
+    <body>
+		<body>
+            <a class="feature" href="mailto:mikesmassivemess@kronenberg.org">Feature your application</a>
+            <!--div id="showcase" onmouseover="window.spinning = false;" onmouseout="window.spinning = true;">
+                <div id="belt">
+                    <div id="p1">Side 1</div>
+                    <div id="p2">Side 2</div>
+                    <div id="p3">Side 3</div>
+                    <div id="p4">Side 4</div>
+                </div>
+             </div-->
+            %@
+            <table>
+                <tr>
+                    <td id="content">
+                        %@
+                    </td>
+                    <td id="sidebar">
+                        <div id="dbar">
+                            <div class="coffeedonation" onclick="document.getElementById('paypal').submit();">Keep me going,<br />give me Coffee!
+                                <img src="cup_smoke_1.png" />
+                                <img src="cup_smoke_2.png" />
+                                <img src="cup_smoke_3.png" />
+                            </div>
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="get" id="paypal">
+                                <input type="hidden" name="cmd" value="_xclick">
+                                <input type="hidden" name="business" value="mike.kronenberg@tapenta.com">
+                                <input type="hidden" name="item_name" value="Donation for WineBottler">
+                                <input type="hidden" name="no_shipping" value="0">
+                                <input type="hidden" name="no_note" value="1">
+                                <input type="hidden" name="currency_code" value="USD">
+                                <input type="hidden" name="tax" value="0">
+                                <input type="hidden" name="lc" value="CH">
+                                <input type="hidden" name="bn" value="PP-DonationsBF">
+                                <!--input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but21.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!"-->
+                                <input id="dbutton" type="submit" value="Make A Donation" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+                                <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                            </form>
+                            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+                            <script type="text/javascript" src="https://blockchain.info//Resources/wallet/pay-now-button.js"></script>
+                            <div style="font-size:16px;margin:10px;width:300px" class="blockchain-btn"
+                                data-address="1PvaWQouvP64gvqyhiddDfGhxNVYGScyfi">
+                                <div class="blockchain stage-begin">
+                                    <a>We Love Bitcoins</a>
+                                </div>
+                                <div class="blockchain stage-loading" style="text-align:center">
+                                    <img src="https://blockchain.info//Resources/loading-large.gif">
+                                        </div>
+                                <div class="blockchain stage-ready">
+                                    Please send donations to this bitcoin address <code>[[address]]</code>
+                                    <p align="center" class="qr-code"></p>
+                                </div>
+                                <div class="blockchain stage-paid">
+                                    Payment Received <b>[[value]] BTC</b>. Thank You.
+                                </div>
+                                <div class="blockchain stage-error">
+                                    <font color="red">[[error]]</font>
+                                </div>
+                            </div>
+                        </div><br />
+                        <div class="credits">
+                            WineBottler is standing on <br />the shoulders of giants:<br /><br />
+                            ~ <a href="http://www.winehq.org">Wine</a> &amp; <a href="http://www.kegel.com/wine/winetricks">Winetricks</a> ~
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            
+    </body>
+</html>

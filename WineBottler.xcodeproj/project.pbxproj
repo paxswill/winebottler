@@ -1,0 +1,1728 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		2702ECDA1080BC49009B2405 /* WineBottler dmg */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 2702ECE71080BC67009B2405 /* Build configuration list for PBXAggregateTarget "WineBottler dmg" */;
+			buildPhases = (
+				2702ECD91080BC49009B2405 /* ShellScript */,
+			);
+			dependencies = (
+				2702ECF11080BCFE009B2405 /* PBXTargetDependency */,
+			);
+			name = "WineBottler dmg";
+			productName = dmg;
+		};
+		27C52AFE10933F9D00303AA6 /* WineStatus dmg */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 27C52B0310933FCE00303AA6 /* Build configuration list for PBXAggregateTarget "WineStatus dmg" */;
+			buildPhases = (
+				27C52AFD10933F9D00303AA6 /* ShellScript */,
+			);
+			dependencies = (
+				27C52B0210933FB000303AA6 /* PBXTargetDependency */,
+			);
+			name = "WineStatus dmg";
+			productName = "Wine dmg";
+		};
+		27C52B891093660400303AA6 /* WineBottlerCombo dmg */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 27C52B8D1093660400303AA6 /* Build configuration list for PBXAggregateTarget "WineBottlerCombo dmg" */;
+			buildPhases = (
+				27C52B8C1093660400303AA6 /* ShellScript */,
+			);
+			dependencies = (
+				27ED52E3109684B1009A7BA9 /* PBXTargetDependency */,
+				27ED52E5109684B4009A7BA9 /* PBXTargetDependency */,
+			);
+			name = "WineBottlerCombo dmg";
+			productName = "Wine dmg";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		27029B30107292740071F80B /* options_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 27029B2F107292740071F80B /* options_bg.png */; };
+		270BB95611B2A16D000E25A2 /* WBottler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270BB94E11B2A146000E25A2 /* WBottler.framework */; };
+		270BB95911B2A171000E25A2 /* WBottler.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 270BB94E11B2A146000E25A2 /* WBottler.framework */; };
+		270BB96A11B2A3F4000E25A2 /* WBottler.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C52C261095F87800303AA6 /* WBottler.m */; };
+		270BB97411B2A51F000E25A2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		270BB98411B2A7DD000E25A2 /* default.sh in Resources */ = {isa = PBXBuildFile; fileRef = 277F2B460FB0376E0053775B /* default.sh */; };
+		270BB98511B2A7E7000E25A2 /* bottler.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4640FA0BF64003802D1 /* bottler.sh */; };
+		270BB98611B2A808000E25A2 /* customprefix.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4650FA0BF64003802D1 /* customprefix.sh */; };
+		270BB98711B2A829000E25A2 /* applywinetricks.sh in Resources */ = {isa = PBXBuildFile; fileRef = 27ECB2FB0FCD62910050C76A /* applywinetricks.sh */; };
+		270BB98811B2A831000E25A2 /* icon.sh in Resources */ = {isa = PBXBuildFile; fileRef = 277D3C59107A1A9B004611C3 /* icon.sh */; };
+		270BB9AD11B2A9BA000E25A2 /* WBottler.h in Headers */ = {isa = PBXBuildFile; fileRef = 27C52C251095F87800303AA6 /* WBottler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2721D4740FA0BF64003802D1 /* kill.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4660FA0BF64003802D1 /* kill.png */; };
+		2721D4750FA0BF64003802D1 /* killwine.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4670FA0BF64003802D1 /* killwine.sh */; };
+		2721D4760FA0BF64003802D1 /* mDelete.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4680FA0BF64003802D1 /* mDelete.png */; };
+		2721D4770FA0BF64003802D1 /* mFinder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4690FA0BF64003802D1 /* mFinder.png */; };
+		27526E3911B4C79800EE1AEB /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 27526E3811B4C79800EE1AEB /* Credits.html */; };
+		27596AA915AFEF6500B14674 /* WTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 27596AA815AFEF6500B14674 /* WTask.m */; };
+		27596AB115AFEFA800B14674 /* WHLnk.m in Sources */ = {isa = PBXBuildFile; fileRef = 27596AAC15AFEFA700B14674 /* WHLnk.m */; };
+		27596AB215AFEFA800B14674 /* WPrefixController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27596AAE15AFEFA700B14674 /* WPrefixController.m */; };
+		27596AB315AFEFA800B14674 /* WPrefixTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27596AB015AFEFA700B14674 /* WPrefixTableView.m */; };
+		276080191196E835004BEA36 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 271B30170F9F435C003C41D7 /* Sparkle.framework */; };
+		2760801D1196E843004BEA36 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271B30170F9F435C003C41D7 /* Sparkle.framework */; };
+		276080461196E98C004BEA36 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271B30170F9F435C003C41D7 /* Sparkle.framework */; };
+		276080481196E997004BEA36 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 271B30170F9F435C003C41D7 /* Sparkle.framework */; };
+		276D9B6811B2AFDC00F23F0F /* WBottler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270BB94E11B2A146000E25A2 /* WBottler.framework */; };
+		277950F111B2B99C00E2A76F /* WBottler.xib in Resources */ = {isa = PBXBuildFile; fileRef = 277950EF11B2B99C00E2A76F /* WBottler.xib */; };
+		277950FE11B2BB8600E2A76F /* WWinetricksController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C52C2E1095F87800303AA6 /* WWinetricksController.m */; };
+		2779511311B2BCE300E2A76F /* WWinetricksController.h in Headers */ = {isa = PBXBuildFile; fileRef = 27C52C2D1095F87800303AA6 /* WWinetricksController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2779513211B2C06800E2A76F /* wrestool in Resources */ = {isa = PBXBuildFile; fileRef = 277D3B381079E9C1004611C3 /* wrestool */; };
+		2779513311B2C06B00E2A76F /* cabextract in Resources */ = {isa = PBXBuildFile; fileRef = 277D3BB21079FAD0004611C3 /* cabextract */; };
+		277D3D13107A3450004611C3 /* BottleStarter.icns in Resources */ = {isa = PBXBuildFile; fileRef = 27C3E1C90FD01A81006D9B75 /* BottleStarter.icns */; };
+		277D3D62107A3D00004611C3 /* dsapubkey.pem in Resources */ = {isa = PBXBuildFile; fileRef = 277D3D61107A3D00004611C3 /* dsapubkey.pem */; };
+		278A5E6A15D9240A003246BC /* cup_smoke_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 278A5E6615D9240A003246BC /* cup_smoke_1.png */; };
+		278A5E6B15D9240A003246BC /* cup_smoke_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 278A5E6715D9240A003246BC /* cup_smoke_2.png */; };
+		278A5E6C15D9240A003246BC /* cup_smoke_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 278A5E6815D9240A003246BC /* cup_smoke_3.png */; };
+		278A5E6D15D9240A003246BC /* icon_cup_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 278A5E6915D9240A003246BC /* icon_cup_256.png */; };
+		278CEB4F11F57C9B0082CD2C /* WBottler.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 270BB94E11B2A146000E25A2 /* WBottler.framework */; };
+		278CEB8C11F5804C0082CD2C /* WBottler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270BB94E11B2A146000E25A2 /* WBottler.framework */; };
+		278CEB9111F580520082CD2C /* WBottler.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 270BB94E11B2A146000E25A2 /* WBottler.framework */; };
+		278CECAF11F5FB4C0082CD2C /* Winetricks.app in Resources */ = {isa = PBXBuildFile; fileRef = 27F3BF8B11AD511C00B11B00 /* Winetricks.app */; };
+		27956F7A15A523EF0076FF2E /* KBActionWindow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27956F7915A523EF0076FF2E /* KBActionWindow.framework */; };
+		27956F7B15A524010076FF2E /* KBActionWindow.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 27956F7915A523EF0076FF2E /* KBActionWindow.framework */; };
+		27956F7C15A524180076FF2E /* KBActionWindow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27956F7915A523EF0076FF2E /* KBActionWindow.framework */; };
+		27956F7D15A5241F0076FF2E /* KBActionWindow.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 27956F7915A523EF0076FF2E /* KBActionWindow.framework */; };
+		27956F8215A5810B0076FF2E /* winetricksextract.sh in Resources */ = {isa = PBXBuildFile; fileRef = 27956F8115A5810B0076FF2E /* winetricksextract.sh */; };
+		27C3E1D00FD01D9C006D9B75 /* Msi.icns in Resources */ = {isa = PBXBuildFile; fileRef = 27C3E1CB0FD01A93006D9B75 /* Msi.icns */; };
+		27C52A3D10930F6F00303AA6 /* dsapubkey.pem in Resources */ = {isa = PBXBuildFile; fileRef = 277D3D61107A3D00004611C3 /* dsapubkey.pem */; };
+		27C52A4810930FF800303AA6 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 27C52A4210930FF800303AA6 /* Credits.html */; };
+		27C52A4910930FF800303AA6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27C52A4410930FF800303AA6 /* InfoPlist.strings */; };
+		27C52A4A10930FF800303AA6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27C52A4610930FF800303AA6 /* MainMenu.xib */; };
+		27C52A4F1093106100303AA6 /* kill.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4660FA0BF64003802D1 /* kill.png */; };
+		27C52A501093106100303AA6 /* killwine.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4670FA0BF64003802D1 /* killwine.sh */; };
+		27C52A511093106100303AA6 /* mDelete.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4680FA0BF64003802D1 /* mDelete.png */; };
+		27C52A521093106100303AA6 /* mFinder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4690FA0BF64003802D1 /* mFinder.png */; };
+		27C52A531093106100303AA6 /* WineFolder.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4700FA0BF64003802D1 /* WineFolder.icns */; };
+		27C52A591093110B00303AA6 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D46F0FA0BF64003802D1 /* reload.png */; };
+		27C52A5A1093113600303AA6 /* options_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 27029B2F107292740071F80B /* options_bg.png */; };
+		27C52A5D109311A500303AA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C52A5B109311A500303AA6 /* main.m */; };
+		27C52A74109332E100303AA6 /* WSController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C52A73109332E100303AA6 /* WSController.m */; };
+		27C52A77109333A400303AA6 /* WSPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C52A76109333A400303AA6 /* WSPreferencesController.m */; };
+		27C52A851093348F00303AA6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		27C52BE81095F46E00303AA6 /* WBController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C52BDC1095F46E00303AA6 /* WBController.m */; };
+		27C52BE91095F46E00303AA6 /* WBottlerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C52BDE1095F46E00303AA6 /* WBottlerController.m */; };
+		27C52BEA1095F46E00303AA6 /* WBPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C52BE01095F46E00303AA6 /* WBPreferencesController.m */; };
+		27C52BEB1095F46E00303AA6 /* WCustomController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C52BE21095F46E00303AA6 /* WCustomController.m */; };
+		27C52BF21095F4A900303AA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C52BF11095F4A900303AA6 /* main.m */; };
+		27C52BF71095F4FC00303AA6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27C52BF31095F4FC00303AA6 /* InfoPlist.strings */; };
+		27C52BF81095F4FC00303AA6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27C52BF51095F4FC00303AA6 /* MainMenu.xib */; };
+		27C52BFA1095F55F00303AA6 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 27C52BF91095F55F00303AA6 /* Credits.html */; };
+		27C52E7E109643C900303AA6 /* Sparkle.icns in Resources */ = {isa = PBXBuildFile; fileRef = 27C52E7D109643C900303AA6 /* Sparkle.icns */; };
+		27C52E7F109643C900303AA6 /* Sparkle.icns in Resources */ = {isa = PBXBuildFile; fileRef = 27C52E7D109643C900303AA6 /* Sparkle.icns */; };
+		27E1421F15BB55F3009542BB /* INAppStoreWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FF12E515A6B01400B21AEE /* INAppStoreWindow.m */; };
+		27E4FCA9172EDFA800EA1DAF /* bitcoinLogo.svg in Resources */ = {isa = PBXBuildFile; fileRef = 27E4FCA8172EDFA800EA1DAF /* bitcoinLogo.svg */; };
+		27F3B6E711A5BF5500B11B00 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F3B6E611A5BF5500B11B00 /* WebKit.framework */; };
+		27F3B8AE11A6109200B11B00 /* WineStatusIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 27F3B8AD11A6109200B11B00 /* WineStatusIcon.png */; };
+		27F3B97811A619A900B11B00 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 27ECB3000FCD62EB0050C76A /* Icon.icns */; };
+		27F3B9E111A6A29900B11B00 /* predefined.html in Resources */ = {isa = PBXBuildFile; fileRef = 27F3B9E011A6A29900B11B00 /* predefined.html */; };
+		27F3BCB811AA9DF600B11B00 /* WBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F3BCB711AA9DF600B11B00 /* WBWebViewController.m */; };
+		27F3BD8111AAFCE100B11B00 /* Programs.icns in Resources */ = {isa = PBXBuildFile; fileRef = 27F3BD8011AAFCE100B11B00 /* Programs.icns */; };
+		27F3BD8F11AAFDE700B11B00 /* Application.icns in Resources */ = {isa = PBXBuildFile; fileRef = 27F3BD8E11AAFDE700B11B00 /* Application.icns */; };
+		27F3BDCF11AB058C00B11B00 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27F3BDCD11AB058C00B11B00 /* Localizable.strings */; };
+		27F3BFAA11AD523500B11B00 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27F3BFA311AD523500B11B00 /* InfoPlist.strings */; };
+		27F3BFAB11AD523500B11B00 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27F3BFA511AD523500B11B00 /* Localizable.strings */; };
+		27F3BFAC11AD523500B11B00 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27F3BFA711AD523500B11B00 /* MainMenu.xib */; };
+		27F3BFAF11AD524D00B11B00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F3BFAD11AD524D00B11B00 /* main.m */; };
+		27F3BFB011AD527A00B11B00 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		27F3BFBB11AD542900B11B00 /* WTController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F3BFBA11AD542900B11B00 /* WTController.m */; };
+		27FF12EA15A6B05D00B21AEE /* paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FF12E815A6B05D00B21AEE /* paper.png */; };
+		27FF12EB15A6B05D00B21AEE /* paper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FF12E915A6B05D00B21AEE /* paper@2x.png */; };
+		27FF12ED15A6B07100B21AEE /* T5PaperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FF12E715A6B01400B21AEE /* T5PaperView.m */; };
+		27FF12F415A6B27C00B21AEE /* custom.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FF12EE15A6B27C00B21AEE /* custom.png */; };
+		27FF12F515A6B27C00B21AEE /* custom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FF12EF15A6B27C00B21AEE /* custom@2x.png */; };
+		27FF12F615A6B27C00B21AEE /* onmymac.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FF12F015A6B27C00B21AEE /* onmymac.png */; };
+		27FF12F715A6B27C00B21AEE /* onmymac@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FF12F115A6B27C00B21AEE /* onmymac@2x.png */; };
+		27FF12F815A6B27C00B21AEE /* programs.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FF12F215A6B27C00B21AEE /* programs.png */; };
+		27FF12F915A6B27C00B21AEE /* programs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FF12F315A6B27C00B21AEE /* programs@2x.png */; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2702ECF01080BCFE009B2405 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = WineBottler;
+		};
+		270BB95311B2A164000E25A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 270BB94D11B2A146000E25A2;
+			remoteInfo = WBottler;
+		};
+		275E6E9911B3FE41005B8EF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27F3BF8A11AD511C00B11B00;
+			remoteInfo = Winetricks;
+		};
+		276D9B6C11B2B00800F23F0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 270BB94D11B2A146000E25A2;
+			remoteInfo = WBottler;
+		};
+		276D9B6E11B2B00E00F23F0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 270BB94D11B2A146000E25A2;
+			remoteInfo = WBottler;
+		};
+		2779512E11B2C05C00E2A76F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 277D3BB11079FAD0004611C3;
+			remoteInfo = cabextract;
+		};
+		2779513011B2C05F00E2A76F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 277D3B371079E9C1004611C3;
+			remoteInfo = wrestool;
+		};
+		27C52B0110933FB000303AA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27C52A2110930DD900303AA6;
+			remoteInfo = WineStatus;
+		};
+		27ED52E2109684B1009A7BA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2702ECDA1080BC49009B2405;
+			remoteInfo = "WineBottler dmg";
+		};
+		27ED52E4109684B4009A7BA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27C52AFE10933F9D00303AA6;
+			remoteInfo = "WineStatus dmg";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		270BB97111B2A4EC000E25A2 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				27956F7B15A524010076FF2E /* KBActionWindow.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		271B30240F9F4385003C41D7 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				270BB95911B2A171000E25A2 /* WBottler.framework in Copy Frameworks */,
+				276080481196E997004BEA36 /* Sparkle.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		278CEB4C11F57C680082CD2C /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				278CEB4F11F57C9B0082CD2C /* WBottler.framework in Copy Frameworks */,
+				27956F7D15A5241F0076FF2E /* KBActionWindow.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27C52AA4109334DB00303AA6 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				278CEB9111F580520082CD2C /* WBottler.framework in Copy Frameworks */,
+				276080191196E835004BEA36 /* Sparkle.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		27029B2F107292740071F80B /* options_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = options_bg.png; path = "Shared Resources/options_bg.png"; sourceTree = "<group>"; };
+		270BB91511B29EEC000E25A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = WBottler/Info.plist; sourceTree = "<group>"; };
+		270BB94E11B2A146000E25A2 /* WBottler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WBottler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		270BB95D11B2A21A000E25A2 /* WBottler_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBottler_Prefix.pch; path = WBottler/WBottler_Prefix.pch; sourceTree = "<group>"; };
+		271B30170F9F435C003C41D7 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
+		2721D4640FA0BF64003802D1 /* bottler.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = bottler.sh; path = WBottler/Resources/bottler.sh; sourceTree = "<group>"; };
+		2721D4650FA0BF64003802D1 /* customprefix.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = customprefix.sh; path = WBottler/Resources/customprefix.sh; sourceTree = "<group>"; };
+		2721D4660FA0BF64003802D1 /* kill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kill.png; path = "Shared Resources/kill.png"; sourceTree = "<group>"; };
+		2721D4670FA0BF64003802D1 /* killwine.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = killwine.sh; path = "Shared Resources/killwine.sh"; sourceTree = "<group>"; };
+		2721D4680FA0BF64003802D1 /* mDelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mDelete.png; path = "Shared Resources/mDelete.png"; sourceTree = "<group>"; };
+		2721D4690FA0BF64003802D1 /* mFinder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mFinder.png; path = "Shared Resources/mFinder.png"; sourceTree = "<group>"; };
+		2721D46F0FA0BF64003802D1 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reload.png; path = "Shared Resources/reload.png"; sourceTree = "<group>"; };
+		2721D4700FA0BF64003802D1 /* WineFolder.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = WineFolder.icns; path = "Shared Resources/WineFolder.icns"; sourceTree = "<group>"; };
+		27526E3811B4C79800EE1AEB /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Credits.html; path = WBottler/Resources/Credits.html; sourceTree = "<group>"; };
+		27596AA715AFEF6500B14674 /* WTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WTask.h; path = WineStatus/WTask.h; sourceTree = "<group>"; };
+		27596AA815AFEF6500B14674 /* WTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WTask.m; path = WineStatus/WTask.m; sourceTree = "<group>"; };
+		27596AAB15AFEFA700B14674 /* WHLnk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHLnk.h; path = WineStatus/WHLnk.h; sourceTree = "<group>"; };
+		27596AAC15AFEFA700B14674 /* WHLnk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHLnk.m; path = WineStatus/WHLnk.m; sourceTree = "<group>"; };
+		27596AAD15AFEFA700B14674 /* WPrefixController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WPrefixController.h; path = WineStatus/WPrefixController.h; sourceTree = "<group>"; };
+		27596AAE15AFEFA700B14674 /* WPrefixController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WPrefixController.m; path = WineStatus/WPrefixController.m; sourceTree = "<group>"; };
+		27596AAF15AFEFA700B14674 /* WPrefixTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WPrefixTableView.h; path = WineStatus/WPrefixTableView.h; sourceTree = "<group>"; };
+		27596AB015AFEFA700B14674 /* WPrefixTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WPrefixTableView.m; path = WineStatus/WPrefixTableView.m; sourceTree = "<group>"; };
+		277950F011B2B99C00E2A76F /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = WBottler/Resources/English.lproj/WBottler.xib; sourceTree = "<group>"; };
+		277D3B381079E9C1004611C3 /* wrestool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wrestool; sourceTree = BUILT_PRODUCTS_DIR; };
+		277D3BB21079FAD0004611C3 /* cabextract */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cabextract; sourceTree = BUILT_PRODUCTS_DIR; };
+		277D3C59107A1A9B004611C3 /* icon.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = icon.sh; path = WBottler/Resources/icon.sh; sourceTree = "<group>"; };
+		277D3D61107A3D00004611C3 /* dsapubkey.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsapubkey.pem; path = "Shared Resources/dsapubkey.pem"; sourceTree = "<group>"; };
+		277F2B460FB0376E0053775B /* default.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = default.sh; path = WBottler/Resources/default.sh; sourceTree = "<group>"; };
+		278A5E6615D9240A003246BC /* cup_smoke_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cup_smoke_1.png; path = WineBottler/Resources/cup_smoke_1.png; sourceTree = "<group>"; };
+		278A5E6715D9240A003246BC /* cup_smoke_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cup_smoke_2.png; path = WineBottler/Resources/cup_smoke_2.png; sourceTree = "<group>"; };
+		278A5E6815D9240A003246BC /* cup_smoke_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cup_smoke_3.png; path = WineBottler/Resources/cup_smoke_3.png; sourceTree = "<group>"; };
+		278A5E6915D9240A003246BC /* icon_cup_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_cup_256.png; path = WineBottler/Resources/icon_cup_256.png; sourceTree = "<group>"; };
+		27956F7915A523EF0076FF2E /* KBActionWindow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KBActionWindow.framework; path = Frameworks/KBActionWindow.framework; sourceTree = "<group>"; };
+		27956F8115A5810B0076FF2E /* winetricksextract.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = winetricksextract.sh; path = WBottler/Resources/winetricksextract.sh; sourceTree = "<group>"; };
+		27C3E1C90FD01A81006D9B75 /* BottleStarter.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = BottleStarter.icns; path = "Shared Resources/BottleStarter.icns"; sourceTree = "<group>"; };
+		27C3E1CB0FD01A93006D9B75 /* Msi.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Msi.icns; path = "Shared Resources/Msi.icns"; sourceTree = "<group>"; };
+		27C52A2210930DD900303AA6 /* Wine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		27C52A2410930DD900303AA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = WineStatus/Info.plist; sourceTree = "<group>"; };
+		27C52A4210930FF800303AA6 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Credits.html; path = WineStatus/Resources/Credits.html; sourceTree = "<group>"; };
+		27C52A4510930FF800303AA6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = InfoPlist.strings; sourceTree = "<group>"; };
+		27C52A4710930FF800303AA6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = MainMenu.xib; sourceTree = "<group>"; };
+		27C52A5B109311A500303AA6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = WineStatus/main.m; sourceTree = "<group>"; };
+		27C52A5C109311A500303AA6 /* WineStatus_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineStatus_Prefix.pch; path = WineStatus/WineStatus_Prefix.pch; sourceTree = "<group>"; };
+		27C52A72109332E100303AA6 /* WSController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WSController.h; path = WineStatus/WSController.h; sourceTree = "<group>"; };
+		27C52A73109332E100303AA6 /* WSController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WSController.m; path = WineStatus/WSController.m; sourceTree = "<group>"; };
+		27C52A75109333A400303AA6 /* WSPreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WSPreferencesController.h; path = WineStatus/WSPreferencesController.h; sourceTree = "<group>"; };
+		27C52A76109333A400303AA6 /* WSPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WSPreferencesController.m; path = WineStatus/WSPreferencesController.m; sourceTree = "<group>"; };
+		27C52BDB1095F46E00303AA6 /* WBController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBController.h; path = WineBottler/WBController.h; sourceTree = "<group>"; };
+		27C52BDC1095F46E00303AA6 /* WBController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBController.m; path = WineBottler/WBController.m; sourceTree = "<group>"; };
+		27C52BDD1095F46E00303AA6 /* WBottlerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBottlerController.h; path = WineBottler/WBottlerController.h; sourceTree = "<group>"; };
+		27C52BDE1095F46E00303AA6 /* WBottlerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBottlerController.m; path = WineBottler/WBottlerController.m; sourceTree = "<group>"; };
+		27C52BDF1095F46E00303AA6 /* WBPreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBPreferencesController.h; path = WineBottler/WBPreferencesController.h; sourceTree = "<group>"; };
+		27C52BE01095F46E00303AA6 /* WBPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBPreferencesController.m; path = WineBottler/WBPreferencesController.m; sourceTree = "<group>"; };
+		27C52BE11095F46E00303AA6 /* WCustomController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCustomController.h; path = WineBottler/WCustomController.h; sourceTree = "<group>"; };
+		27C52BE21095F46E00303AA6 /* WCustomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCustomController.m; path = WineBottler/WCustomController.m; sourceTree = "<group>"; };
+		27C52BE31095F46E00303AA6 /* WineBottler_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineBottler_Prefix.pch; path = WineBottler/WineBottler_Prefix.pch; sourceTree = "<group>"; };
+		27C52BF11095F4A900303AA6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = WineBottler/main.m; sourceTree = "<group>"; };
+		27C52BF41095F4FC00303AA6 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = WineBottler/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		27C52BF61095F4FC00303AA6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = WineBottler/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		27C52BF91095F55F00303AA6 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Credits.html; path = WineBottler/Resources/Credits.html; sourceTree = "<group>"; };
+		27C52C251095F87800303AA6 /* WBottler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBottler.h; path = WBottler/WBottler.h; sourceTree = "<group>"; };
+		27C52C261095F87800303AA6 /* WBottler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBottler.m; path = WBottler/WBottler.m; sourceTree = "<group>"; };
+		27C52C2D1095F87800303AA6 /* WWinetricksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WWinetricksController.h; path = WBottler/WWinetricksController.h; sourceTree = "<group>"; };
+		27C52C2E1095F87800303AA6 /* WWinetricksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WWinetricksController.m; path = WBottler/WWinetricksController.m; sourceTree = "<group>"; };
+		27C52E7D109643C900303AA6 /* Sparkle.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Sparkle.icns; path = "Shared Resources/Sparkle.icns"; sourceTree = "<group>"; };
+		27E1421C15BB487F009542BB /* MASWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MASWindow.h; path = WineBottler/MASWindow.h; sourceTree = "<group>"; };
+		27E1421D15BB487F009542BB /* MASWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MASWindow.m; path = WineBottler/MASWindow.m; sourceTree = "<group>"; };
+		27E4FCA8172EDFA800EA1DAF /* bitcoinLogo.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = bitcoinLogo.svg; path = WineBottler/Resources/bitcoinLogo.svg; sourceTree = "<group>"; };
+		27ECB2FB0FCD62910050C76A /* applywinetricks.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = applywinetricks.sh; path = WBottler/Resources/applywinetricks.sh; sourceTree = "<group>"; };
+		27ECB3000FCD62EB0050C76A /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = "Shared Resources/Icon.icns"; sourceTree = "<group>"; };
+		27F3B6E611A5BF5500B11B00 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		27F3B8AD11A6109200B11B00 /* WineStatusIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WineStatusIcon.png; path = WineStatus/Resources/WineStatusIcon.png; sourceTree = "<group>"; };
+		27F3B9E011A6A29900B11B00 /* predefined.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = predefined.html; path = WineBottler/Resources/predefined.html; sourceTree = "<group>"; };
+		27F3BCB611AA9DF600B11B00 /* WBWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBWebViewController.h; path = WineBottler/WBWebViewController.h; sourceTree = "<group>"; };
+		27F3BCB711AA9DF600B11B00 /* WBWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBWebViewController.m; path = WineBottler/WBWebViewController.m; sourceTree = "<group>"; };
+		27F3BD8011AAFCE100B11B00 /* Programs.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Programs.icns; path = WineBottler/Resources/Programs.icns; sourceTree = "<group>"; };
+		27F3BD8E11AAFDE700B11B00 /* Application.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Application.icns; path = WineBottler/Resources/Application.icns; sourceTree = "<group>"; };
+		27F3BDCE11AB058C00B11B00 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = WineBottler/English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		27F3BF8B11AD511C00B11B00 /* Winetricks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Winetricks.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		27F3BFA411AD523500B11B00 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = InfoPlist.strings; sourceTree = "<group>"; };
+		27F3BFA611AD523500B11B00 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = Localizable.strings; sourceTree = "<group>"; };
+		27F3BFA811AD523500B11B00 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = MainMenu.xib; sourceTree = "<group>"; };
+		27F3BFAD11AD524D00B11B00 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Winetricks/main.m; sourceTree = "<group>"; };
+		27F3BFAE11AD524D00B11B00 /* Winetricks_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Winetricks_Prefix.pch; path = Winetricks/Winetricks_Prefix.pch; sourceTree = "<group>"; };
+		27F3BFB911AD542900B11B00 /* WTController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WTController.h; path = Winetricks/WTController.h; sourceTree = "<group>"; };
+		27F3BFBA11AD542900B11B00 /* WTController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WTController.m; path = Winetricks/WTController.m; sourceTree = "<group>"; };
+		27FF12E415A6B01300B21AEE /* INAppStoreWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = INAppStoreWindow.h; path = WineBottler/INAppStoreWindow.h; sourceTree = "<group>"; };
+		27FF12E515A6B01400B21AEE /* INAppStoreWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = INAppStoreWindow.m; path = WineBottler/INAppStoreWindow.m; sourceTree = "<group>"; };
+		27FF12E615A6B01400B21AEE /* T5PaperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = T5PaperView.h; path = WineBottler/T5PaperView.h; sourceTree = "<group>"; };
+		27FF12E715A6B01400B21AEE /* T5PaperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = T5PaperView.m; path = WineBottler/T5PaperView.m; sourceTree = "<group>"; };
+		27FF12E815A6B05D00B21AEE /* paper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = paper.png; path = WineBottler/Resources/paper.png; sourceTree = "<group>"; };
+		27FF12E915A6B05D00B21AEE /* paper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "paper@2x.png"; path = "WineBottler/Resources/paper@2x.png"; sourceTree = "<group>"; };
+		27FF12EE15A6B27C00B21AEE /* custom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = custom.png; path = WineBottler/Resources/custom.png; sourceTree = "<group>"; };
+		27FF12EF15A6B27C00B21AEE /* custom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "custom@2x.png"; path = "WineBottler/Resources/custom@2x.png"; sourceTree = "<group>"; };
+		27FF12F015A6B27C00B21AEE /* onmymac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = onmymac.png; path = WineBottler/Resources/onmymac.png; sourceTree = "<group>"; };
+		27FF12F115A6B27C00B21AEE /* onmymac@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "onmymac@2x.png"; path = "WineBottler/Resources/onmymac@2x.png"; sourceTree = "<group>"; };
+		27FF12F215A6B27C00B21AEE /* programs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = programs.png; path = WineBottler/Resources/programs.png; sourceTree = "<group>"; };
+		27FF12F315A6B27C00B21AEE /* programs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "programs@2x.png"; path = "WineBottler/Resources/programs@2x.png"; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WineBottler/Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* WineBottler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WineBottler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		270BB94C11B2A146000E25A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				270BB97411B2A51F000E25A2 /* Cocoa.framework in Frameworks */,
+				27956F7A15A523EF0076FF2E /* KBActionWindow.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27C52A2010930DD900303AA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				278CEB8C11F5804C0082CD2C /* WBottler.framework in Frameworks */,
+				2760801D1196E843004BEA36 /* Sparkle.framework in Frameworks */,
+				27C52A851093348F00303AA6 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27F3BF8911AD511C00B11B00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				276D9B6811B2AFDC00F23F0F /* WBottler.framework in Frameworks */,
+				27F3BFB011AD527A00B11B00 /* Cocoa.framework in Frameworks */,
+				27956F7C15A524180076FF2E /* KBActionWindow.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				270BB95611B2A16D000E25A2 /* WBottler.framework in Frameworks */,
+				276080461196E98C004BEA36 /* Sparkle.framework in Frameworks */,
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				27F3B6E711A5BF5500B11B00 /* WebKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27956F7915A523EF0076FF2E /* KBActionWindow.framework */,
+				27F3B6E611A5BF5500B11B00 /* WebKit.framework */,
+				271B30170F9F435C003C41D7 /* Sparkle.framework */,
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				270BB94E11B2A146000E25A2 /* WBottler.framework */,
+				8D1107320486CEB800E47090 /* WineBottler.app */,
+				277D3B381079E9C1004611C3 /* wrestool */,
+				277D3BB21079FAD0004611C3 /* cabextract */,
+				27C52A2210930DD900303AA6 /* Wine.app */,
+				27F3BF8B11AD511C00B11B00 /* Winetricks.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		270BB92911B29FE9000E25A2 /* WBottler */ = {
+			isa = PBXGroup;
+			children = (
+				270BB91511B29EEC000E25A2 /* Info.plist */,
+				270BB92E11B2A034000E25A2 /* Resources */,
+				270BB92D11B2A025000E25A2 /* Other Sources */,
+				270BB92C11B2A01B000E25A2 /* Classes */,
+			);
+			name = WBottler;
+			sourceTree = "<group>";
+		};
+		270BB92C11B2A01B000E25A2 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				27C52C251095F87800303AA6 /* WBottler.h */,
+				27C52C261095F87800303AA6 /* WBottler.m */,
+				27C52C2D1095F87800303AA6 /* WWinetricksController.h */,
+				27C52C2E1095F87800303AA6 /* WWinetricksController.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		270BB92D11B2A025000E25A2 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				270BB95D11B2A21A000E25A2 /* WBottler_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		270BB92E11B2A034000E25A2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				27956F8115A5810B0076FF2E /* winetricksextract.sh */,
+				27526E3811B4C79800EE1AEB /* Credits.html */,
+				277950EF11B2B99C00E2A76F /* WBottler.xib */,
+				277D3C59107A1A9B004611C3 /* icon.sh */,
+				27ECB2FB0FCD62910050C76A /* applywinetricks.sh */,
+				277F2B460FB0376E0053775B /* default.sh */,
+				2721D4640FA0BF64003802D1 /* bottler.sh */,
+				2721D4650FA0BF64003802D1 /* customprefix.sh */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		27C52A1A10930CE600303AA6 /* WineStatus */ = {
+			isa = PBXGroup;
+			children = (
+				27C52A2410930DD900303AA6 /* Info.plist */,
+				27C52A3810930E4C00303AA6 /* Other Sources */,
+				27C52A3710930E4600303AA6 /* Classes */,
+				27C52A3910930E6C00303AA6 /* Resources */,
+			);
+			name = WineStatus;
+			sourceTree = "<group>";
+		};
+		27C52A3710930E4600303AA6 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				27596AAB15AFEFA700B14674 /* WHLnk.h */,
+				27596AAC15AFEFA700B14674 /* WHLnk.m */,
+				27596AAD15AFEFA700B14674 /* WPrefixController.h */,
+				27596AAE15AFEFA700B14674 /* WPrefixController.m */,
+				27596AAF15AFEFA700B14674 /* WPrefixTableView.h */,
+				27596AB015AFEFA700B14674 /* WPrefixTableView.m */,
+				27596AA715AFEF6500B14674 /* WTask.h */,
+				27596AA815AFEF6500B14674 /* WTask.m */,
+				27C52A72109332E100303AA6 /* WSController.h */,
+				27C52A73109332E100303AA6 /* WSController.m */,
+				27C52A75109333A400303AA6 /* WSPreferencesController.h */,
+				27C52A76109333A400303AA6 /* WSPreferencesController.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		27C52A3810930E4C00303AA6 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				27C52A5B109311A500303AA6 /* main.m */,
+				27C52A5C109311A500303AA6 /* WineStatus_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		27C52A3910930E6C00303AA6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				27F3B8AD11A6109200B11B00 /* WineStatusIcon.png */,
+				27C52A4210930FF800303AA6 /* Credits.html */,
+				27C52A4310930FF800303AA6 /* English.lproj */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		27C52A4310930FF800303AA6 /* English.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				27C52A4410930FF800303AA6 /* InfoPlist.strings */,
+				27C52A4610930FF800303AA6 /* MainMenu.xib */,
+			);
+			name = English.lproj;
+			path = WineStatus/English.lproj;
+			sourceTree = "<group>";
+		};
+		27C52BC11095F27E00303AA6 /* WineBottler */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107310486CEB800E47090 /* Info.plist */,
+				27C52BC41095F2A800303AA6 /* Resources */,
+				27C52BC31095F29F00303AA6 /* Other Sources */,
+				27C52BC21095F28A00303AA6 /* Classes */,
+			);
+			name = WineBottler;
+			sourceTree = "<group>";
+		};
+		27C52BC21095F28A00303AA6 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				27FF12E415A6B01300B21AEE /* INAppStoreWindow.h */,
+				27FF12E515A6B01400B21AEE /* INAppStoreWindow.m */,
+				27FF12E615A6B01400B21AEE /* T5PaperView.h */,
+				27FF12E715A6B01400B21AEE /* T5PaperView.m */,
+				27C52BDB1095F46E00303AA6 /* WBController.h */,
+				27C52BDC1095F46E00303AA6 /* WBController.m */,
+				27C52BDD1095F46E00303AA6 /* WBottlerController.h */,
+				27C52BDE1095F46E00303AA6 /* WBottlerController.m */,
+				27C52BE11095F46E00303AA6 /* WCustomController.h */,
+				27C52BE21095F46E00303AA6 /* WCustomController.m */,
+				27F3BCB611AA9DF600B11B00 /* WBWebViewController.h */,
+				27F3BCB711AA9DF600B11B00 /* WBWebViewController.m */,
+				27C52BDF1095F46E00303AA6 /* WBPreferencesController.h */,
+				27C52BE01095F46E00303AA6 /* WBPreferencesController.m */,
+				27E1421C15BB487F009542BB /* MASWindow.h */,
+				27E1421D15BB487F009542BB /* MASWindow.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		27C52BC31095F29F00303AA6 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				27C52BF11095F4A900303AA6 /* main.m */,
+				27C52BE31095F46E00303AA6 /* WineBottler_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		27C52BC41095F2A800303AA6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				27E4FCA8172EDFA800EA1DAF /* bitcoinLogo.svg */,
+				278A5E6615D9240A003246BC /* cup_smoke_1.png */,
+				278A5E6715D9240A003246BC /* cup_smoke_2.png */,
+				278A5E6815D9240A003246BC /* cup_smoke_3.png */,
+				278A5E6915D9240A003246BC /* icon_cup_256.png */,
+				27FF12EE15A6B27C00B21AEE /* custom.png */,
+				27FF12EF15A6B27C00B21AEE /* custom@2x.png */,
+				27FF12F015A6B27C00B21AEE /* onmymac.png */,
+				27FF12F115A6B27C00B21AEE /* onmymac@2x.png */,
+				27FF12F215A6B27C00B21AEE /* programs.png */,
+				27FF12F315A6B27C00B21AEE /* programs@2x.png */,
+				27FF12E815A6B05D00B21AEE /* paper.png */,
+				27FF12E915A6B05D00B21AEE /* paper@2x.png */,
+				27F3BD8E11AAFDE700B11B00 /* Application.icns */,
+				27F3BD8011AAFCE100B11B00 /* Programs.icns */,
+				27C52C4B1095F96200303AA6 /* English.lproj */,
+				27C52BF91095F55F00303AA6 /* Credits.html */,
+				27F3B9E011A6A29900B11B00 /* predefined.html */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		27C52C4B1095F96200303AA6 /* English.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				27C52BF31095F4FC00303AA6 /* InfoPlist.strings */,
+				27C52BF51095F4FC00303AA6 /* MainMenu.xib */,
+				27F3BDCD11AB058C00B11B00 /* Localizable.strings */,
+			);
+			name = English.lproj;
+			sourceTree = "<group>";
+		};
+		27F3BF9B11AD517E00B11B00 /* Winetricks */ = {
+			isa = PBXGroup;
+			children = (
+				27F3BF9F11AD520400B11B00 /* Other Sources */,
+				27F3BF9E11AD51F800B11B00 /* Classes */,
+				27F3BF9D11AD51EE00B11B00 /* Resources */,
+			);
+			name = Winetricks;
+			sourceTree = "<group>";
+		};
+		27F3BF9D11AD51EE00B11B00 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				27F3BFA011AD523500B11B00 /* English.lproj */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		27F3BF9E11AD51F800B11B00 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				27F3BFB911AD542900B11B00 /* WTController.h */,
+				27F3BFBA11AD542900B11B00 /* WTController.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		27F3BF9F11AD520400B11B00 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				27F3BFAD11AD524D00B11B00 /* main.m */,
+				27F3BFAE11AD524D00B11B00 /* Winetricks_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		27F3BFA011AD523500B11B00 /* English.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				27F3BFA311AD523500B11B00 /* InfoPlist.strings */,
+				27F3BFA511AD523500B11B00 /* Localizable.strings */,
+				27F3BFA711AD523500B11B00 /* MainMenu.xib */,
+			);
+			name = English.lproj;
+			path = Winetricks/Resources/English.lproj;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* WineBottler */ = {
+			isa = PBXGroup;
+			children = (
+				270BB92911B29FE9000E25A2 /* WBottler */,
+				27F3BF9B11AD517E00B11B00 /* Winetricks */,
+				27C52A1A10930CE600303AA6 /* WineStatus */,
+				27C52BC11095F27E00303AA6 /* WineBottler */,
+				29B97317FDCFA39411CA2CEA /* Shared Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = WineBottler;
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Shared Resources */ = {
+			isa = PBXGroup;
+			children = (
+				27C52E7D109643C900303AA6 /* Sparkle.icns */,
+				277D3D61107A3D00004611C3 /* dsapubkey.pem */,
+				27029B2F107292740071F80B /* options_bg.png */,
+				27C3E1CB0FD01A93006D9B75 /* Msi.icns */,
+				27C3E1C90FD01A81006D9B75 /* BottleStarter.icns */,
+				27ECB3000FCD62EB0050C76A /* Icon.icns */,
+				2721D4660FA0BF64003802D1 /* kill.png */,
+				2721D4670FA0BF64003802D1 /* killwine.sh */,
+				2721D4680FA0BF64003802D1 /* mDelete.png */,
+				2721D4690FA0BF64003802D1 /* mFinder.png */,
+				2721D46F0FA0BF64003802D1 /* reload.png */,
+				2721D4700FA0BF64003802D1 /* WineFolder.icns */,
+			);
+			name = "Shared Resources";
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		270BB94911B2A146000E25A2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				270BB9AD11B2A9BA000E25A2 /* WBottler.h in Headers */,
+				2779511311B2BCE300E2A76F /* WWinetricksController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		270BB94D11B2A146000E25A2 /* WBottler */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 270BB95211B2A147000E25A2 /* Build configuration list for PBXNativeTarget "WBottler" */;
+			buildPhases = (
+				270BB94911B2A146000E25A2 /* Headers */,
+				270BB94A11B2A146000E25A2 /* Resources */,
+				270BB94B11B2A146000E25A2 /* Sources */,
+				270BB94C11B2A146000E25A2 /* Frameworks */,
+				270BB97111B2A4EC000E25A2 /* Copy Frameworks */,
+				278CEBBA11F585630082CD2C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2779513111B2C05F00E2A76F /* PBXTargetDependency */,
+				2779512F11B2C05C00E2A76F /* PBXTargetDependency */,
+			);
+			name = WBottler;
+			productName = WBottler;
+			productReference = 270BB94E11B2A146000E25A2 /* WBottler.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		277D3B371079E9C1004611C3 /* wrestool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 277D3B3E1079EA01004611C3 /* Build configuration list for PBXNativeTarget "wrestool" */;
+			buildPhases = (
+				277D3B3D1079E9E3004611C3 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = wrestool;
+			productName = wrestool;
+			productReference = 277D3B381079E9C1004611C3 /* wrestool */;
+			productType = "com.apple.product-type.tool";
+		};
+		277D3BB11079FAD0004611C3 /* cabextract */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 277D3BB81079FB0D004611C3 /* Build configuration list for PBXNativeTarget "cabextract" */;
+			buildPhases = (
+				277D3BB71079FADF004611C3 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = cabextract;
+			productName = cabextract;
+			productReference = 277D3BB21079FAD0004611C3 /* cabextract */;
+			productType = "com.apple.product-type.tool";
+		};
+		27C52A2110930DD900303AA6 /* WineStatus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27C52A2710930DDA00303AA6 /* Build configuration list for PBXNativeTarget "WineStatus" */;
+			buildPhases = (
+				27C52A1E10930DD900303AA6 /* Resources */,
+				27C52A1F10930DD900303AA6 /* Sources */,
+				27C52A2010930DD900303AA6 /* Frameworks */,
+				27C52AA4109334DB00303AA6 /* Copy Frameworks */,
+				27C52D3F10961E1800303AA6 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				276D9B6D11B2B00800F23F0F /* PBXTargetDependency */,
+			);
+			name = WineStatus;
+			productName = WineStatus;
+			productReference = 27C52A2210930DD900303AA6 /* Wine.app */;
+			productType = "com.apple.product-type.application";
+		};
+		27F3BF8A11AD511C00B11B00 /* Winetricks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27F3BF9011AD511D00B11B00 /* Build configuration list for PBXNativeTarget "Winetricks" */;
+			buildPhases = (
+				27F3BF8711AD511C00B11B00 /* Resources */,
+				27F3BF8811AD511C00B11B00 /* Sources */,
+				27F3BF8911AD511C00B11B00 /* Frameworks */,
+				278CEB4011F579D10082CD2C /* ShellScript */,
+				278CEB4C11F57C680082CD2C /* Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				276D9B6F11B2B00E00F23F0F /* PBXTargetDependency */,
+			);
+			name = Winetricks;
+			productName = Winetricks;
+			productReference = 27F3BF8B11AD511C00B11B00 /* Winetricks.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8D1107260486CEB800E47090 /* WineBottler */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "WineBottler" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+				271B30240F9F4385003C41D7 /* Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				270BB95411B2A164000E25A2 /* PBXTargetDependency */,
+				275E6E9A11B3FE41005B8EF6 /* PBXTargetDependency */,
+			);
+			name = WineBottler;
+			productInstallPath = "$(HOME)/Applications";
+			productName = WineBottler;
+			productReference = 8D1107320486CEB800E47090 /* WineBottler.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "WineBottler" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* WineBottler */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				277D3B371079E9C1004611C3 /* wrestool */,
+				277D3BB11079FAD0004611C3 /* cabextract */,
+				270BB94D11B2A146000E25A2 /* WBottler */,
+				27F3BF8A11AD511C00B11B00 /* Winetricks */,
+				27C52A2110930DD900303AA6 /* WineStatus */,
+				8D1107260486CEB800E47090 /* WineBottler */,
+				2702ECDA1080BC49009B2405 /* WineBottler dmg */,
+				27C52AFE10933F9D00303AA6 /* WineStatus dmg */,
+				27C52B891093660400303AA6 /* WineBottlerCombo dmg */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		270BB94A11B2A146000E25A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2779513311B2C06B00E2A76F /* cabextract in Resources */,
+				2779513211B2C06800E2A76F /* wrestool in Resources */,
+				270BB98411B2A7DD000E25A2 /* default.sh in Resources */,
+				270BB98511B2A7E7000E25A2 /* bottler.sh in Resources */,
+				270BB98611B2A808000E25A2 /* customprefix.sh in Resources */,
+				270BB98711B2A829000E25A2 /* applywinetricks.sh in Resources */,
+				270BB98811B2A831000E25A2 /* icon.sh in Resources */,
+				277950F111B2B99C00E2A76F /* WBottler.xib in Resources */,
+				27526E3911B4C79800EE1AEB /* Credits.html in Resources */,
+				27956F8215A5810B0076FF2E /* winetricksextract.sh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27C52A1E10930DD900303AA6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27F3B97811A619A900B11B00 /* Icon.icns in Resources */,
+				27C52A4910930FF800303AA6 /* InfoPlist.strings in Resources */,
+				27C52A4A10930FF800303AA6 /* MainMenu.xib in Resources */,
+				27C52A4810930FF800303AA6 /* Credits.html in Resources */,
+				27C52A4F1093106100303AA6 /* kill.png in Resources */,
+				27C52A501093106100303AA6 /* killwine.sh in Resources */,
+				27C52A511093106100303AA6 /* mDelete.png in Resources */,
+				27C52A521093106100303AA6 /* mFinder.png in Resources */,
+				27C52A591093110B00303AA6 /* reload.png in Resources */,
+				27C52A531093106100303AA6 /* WineFolder.icns in Resources */,
+				27C52A5A1093113600303AA6 /* options_bg.png in Resources */,
+				27C52A3D10930F6F00303AA6 /* dsapubkey.pem in Resources */,
+				27C52E7E109643C900303AA6 /* Sparkle.icns in Resources */,
+				27F3B8AE11A6109200B11B00 /* WineStatusIcon.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27F3BF8711AD511C00B11B00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27F3BFAA11AD523500B11B00 /* InfoPlist.strings in Resources */,
+				27F3BFAB11AD523500B11B00 /* Localizable.strings in Resources */,
+				27F3BFAC11AD523500B11B00 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				278CECAF11F5FB4C0082CD2C /* Winetricks.app in Resources */,
+				277D3D13107A3450004611C3 /* BottleStarter.icns in Resources */,
+				27C3E1D00FD01D9C006D9B75 /* Msi.icns in Resources */,
+				2721D4740FA0BF64003802D1 /* kill.png in Resources */,
+				2721D4750FA0BF64003802D1 /* killwine.sh in Resources */,
+				2721D4760FA0BF64003802D1 /* mDelete.png in Resources */,
+				2721D4770FA0BF64003802D1 /* mFinder.png in Resources */,
+				27029B30107292740071F80B /* options_bg.png in Resources */,
+				277D3D62107A3D00004611C3 /* dsapubkey.pem in Resources */,
+				27C52BF71095F4FC00303AA6 /* InfoPlist.strings in Resources */,
+				27C52BF81095F4FC00303AA6 /* MainMenu.xib in Resources */,
+				27C52BFA1095F55F00303AA6 /* Credits.html in Resources */,
+				27C52E7F109643C900303AA6 /* Sparkle.icns in Resources */,
+				27F3B9E111A6A29900B11B00 /* predefined.html in Resources */,
+				27F3BD8111AAFCE100B11B00 /* Programs.icns in Resources */,
+				27F3BD8F11AAFDE700B11B00 /* Application.icns in Resources */,
+				27F3BDCF11AB058C00B11B00 /* Localizable.strings in Resources */,
+				27FF12EA15A6B05D00B21AEE /* paper.png in Resources */,
+				27FF12EB15A6B05D00B21AEE /* paper@2x.png in Resources */,
+				27FF12F415A6B27C00B21AEE /* custom.png in Resources */,
+				27FF12F515A6B27C00B21AEE /* custom@2x.png in Resources */,
+				27FF12F615A6B27C00B21AEE /* onmymac.png in Resources */,
+				27FF12F715A6B27C00B21AEE /* onmymac@2x.png in Resources */,
+				27FF12F815A6B27C00B21AEE /* programs.png in Resources */,
+				27FF12F915A6B27C00B21AEE /* programs@2x.png in Resources */,
+				278A5E6A15D9240A003246BC /* cup_smoke_1.png in Resources */,
+				278A5E6B15D9240A003246BC /* cup_smoke_2.png in Resources */,
+				278A5E6C15D9240A003246BC /* cup_smoke_3.png in Resources */,
+				278A5E6D15D9240A003246BC /* icon_cup_256.png in Resources */,
+				27E4FCA9172EDFA800EA1DAF /* bitcoinLogo.svg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2702ECD91080BC49009B2405 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "PROJECT=$PROJECT_NAME\nVERSION=$(pl < \"$TARGET_BUILD_DIR/$PROJECT.app/Contents/Info.plist\" | grep CFBundleVersion | sed 's/    CFBundleVersion = \"//g' | sed 's/\";//g')\n\nrm \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dmg\" &>/dev/null\nrm -rf \"$TEMP_FILES_DIR/DMG\" &>/dev/null\nmkdir \"$TEMP_FILES_DIR/DMG\"\n\ncd dmg\ncp bg.png \"$TEMP_FILES_DIR/DMG/\"\ncp WineBottler_DMG_DS_Store \"$TEMP_FILES_DIR/DMG/.DS_Store\"\nditto \"$TARGET_BUILD_DIR/$PROJECT.app\" \"$TEMP_FILES_DIR/DMG/$PROJECT.app/\"\nln -s /Applications \"$TEMP_FILES_DIR/DMG/Applications\"\n\nSetFile -a V \"$TEMP_FILES_DIR/DMG/bg.png\"\nSetFile -a V \"$TEMP_FILES_DIR/DMG/.DS_Store\"\n\nhdiutil makehybrid -hfs -hfs-volume-name \"$PROJECT\" -hfs-openfolder \"$TEMP_FILES_DIR/DMG\" \"$TEMP_FILES_DIR/DMG\" -o \"$TEMP_FILES_DIR/TMP.dmg\"\nhdiutil convert -format UDZO \"$TEMP_FILES_DIR/TMP.dmg\" -o \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dmg\"\n\nrm \"$TEMP_FILES_DIR/TMP.dmg\"\nrm -rf \"$TEMP_FILES_DIR/DMG\"\n\nruby \"/Users/mike/Documents/Xcode Projects/Sparkle-current/Extras/Signing Tools/sign_update.rb\" \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dmg\" ~/.sparkleUpdateKey/dsaprivkey.pem > \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dsa\"";
+		};
+		277D3B3D1079E9E3004611C3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/usr/bin/env bash\n\n#VERSION=0.28.0\nVERSION=0.29.1\nWB_ICOUTILS_BUILDPATH=\"/tmp/icoutils_$VERSION\"\n\n#rm -rf \"$WB_ICOUTILS_BUILDPATH\"\necho \"building $TARGET_NAME...\"\nif [ ! -f \"$TARGET_BUILD_DIR/$TARGET_NAME\" ]; then\n\necho \"creating builddirectory...\"\nif [ ! -d \"$WB_ICOUTILS_BUILDPATH\" ]; then\nmkdir -p \"$WB_ICOUTILS_BUILDPATH\"\nfi\ncd \"$WB_ICOUTILS_BUILDPATH\"\n\necho \"downloading sources...\"\nif [ ! -f \"$WB_ICOUTILS_BUILDPATH/icoutils-$VERSION.tar.bz2\" ]; then\necho \"Downloading $TARGET_NAME-$ICOUTILS_VERSION...\"\ncurl -L -f -s -O \"http://download.savannah.gnu.org/releases/icoutils/icoutils-$VERSION.tar.bz2\"\nfi\n\necho \"building sources in tmp, so we can avoid spaces in paths...\"\nif [ ! -f \"$WB_ICOUTILS_BUILDPATH/icoutils-$VERSION/$TARGET_NAME/$TARGET_NAME\" ]; then\ntar xfz \"icoutils-$VERSION.tar.bz2\"\necho \"Building $TARGET_NAME-$VERSION...\"\n#export CC=gcc-4.2\ncd \"$WB_ICOUTILS_BUILDPATH/icoutils-$VERSION\"\n./configure --disable-nls\nmake\nfi\n\necho \"Copying $TARGET_NAME-$VERSION...\"\nmkdir -p \"$TARGET_BUILD_DIR/\"\ncp \"$WB_ICOUTILS_BUILDPATH/icoutils-$VERSION/$TARGET_NAME/$TARGET_NAME\" \"$TARGET_BUILD_DIR/\"\ncp \"$WB_ICOUTILS_BUILDPATH/icoutils-$VERSION/icotool/icotool\" \"$TARGET_BUILD_DIR/\"\nfi\necho \"done\"\n";
+		};
+		277D3BB71079FADF004611C3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/usr/bin/env bash\n\n#VERSION=1.2\nVERSION=1.4\nWB_CABEXTRACT_BUILDPATH=\"/tmp/cabextract_$VERSION\"\n\n#rm -rf \"$WB_CABEXTRACT_BUILDPATH\"\necho \"building $TARGET_NAME...\"\nif [ ! -f \"$TARGET_BUILD_DIR/$TARGET_NAME\" ]; then\n\necho \"creating builddirectory...\"\nif [ ! -d \"$WB_CABEXTRACT_BUILDPATH\" ]; then\nmkdir -p \"$WB_CABEXTRACT_BUILDPATH\"\nfi\ncd \"$WB_CABEXTRACT_BUILDPATH\"\n\necho \"downloading sources...\"\nif [ ! -f \"$WB_CABEXTRACT_BUILDPATH/$TARGET_NAME-$VERSION.tar.gz\" ]; then\necho \"Downloading $TARGET_NAME-$VERSION...\"\n#curl -L -f -s -O \"http://www.cabextract.org.uk/cabextract-$VERSION.tar.gz\"\ncurl -L -f -s -O \"http://pkgs.fedoraproject.org/repo/pkgs/cabextract/cabextract-$VERSION.tar.gz/79f41f568cf1a3ac105e0687e8bfb7c0/cabextract-$VERSION.tar.gz\"\n\nfi\n\necho \"building sources in tmp, so we can avoid spaces in paths...\"\nif [ ! -f \"$WB_CABEXTRACT_BUILDPATH/$TARGET_NAME-$VERSION/$TARGET_NAME\" ]; then\necho \"Building $TARGET_NAME-$VERSION...\"\ncd \"$WB_CABEXTRACT_BUILDPATH\"\ntar xfz \"$TARGET_NAME-$VERSION.tar.gz\"\ncd \"$WB_CABEXTRACT_BUILDPATH/$TARGET_NAME-$VERSION\"\n#export CC=gcc-4.2\n./configure\nmake\nfi\n\necho \"moving bin into place...\"\necho \"Copying $TARGET_NAME-$VERSION...\"\nmkdir -p \"$TARGET_BUILD_DIR/\"\ncp \"$WB_CABEXTRACT_BUILDPATH/$TARGET_NAME-$VERSION/$TARGET_NAME\" \"$TARGET_BUILD_DIR/\"\nfi\necho \"done\"\n";
+		};
+		278CEB4011F579D10082CD2C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+		278CEBBA11F585630082CD2C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# make frameworks with @loader_path usable\ncd \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Versions\"\nrm -f Frameworks &> /dev/null\nln -s Current/Frameworks Frameworks\n\n#cp \"$TARGET_BUILD_DIR/libz.1.dylib\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Resources/\"\n#cp \"$TARGET_BUILD_DIR/libpng.3.dylib\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Resources/\"\n#cp \"$TARGET_BUILD_DIR/libjasper.1.dylib\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Resources/\"\n#cp \"$TARGET_BUILD_DIR/libicns.1.dylib\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Resources/\"\n\ncp \"$TARGET_BUILD_DIR/icotool\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Resources/\"\n";
+		};
+		27C52AFD10933F9D00303AA6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "PROJECT=\"Wine\"\nVERSION=$(pl < \"$TARGET_BUILD_DIR/$PROJECT.app/Contents/Info.plist\" | grep CFBundleVersion | sed 's/    CFBundleVersion = \"//g' | sed 's/\";//g')\n\n\nrm \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dmg\" &>/dev/null\nrm -rf \"$TEMP_FILES_DIR/DMG\" &>/dev/null\nmkdir \"$TEMP_FILES_DIR/DMG\"\n\ncd dmg\ncp bg.png \"$TEMP_FILES_DIR/DMG/\"\ncp WineStatus_DMG_DS_Store \"$TEMP_FILES_DIR/DMG/.DS_Store\"\nditto \"$TARGET_BUILD_DIR/$PROJECT.app\" \"$TEMP_FILES_DIR/DMG/$PROJECT.app/\"\nditto \"$TARGET_BUILD_DIR/Wine.app/Contents/Resources\" \"$TEMP_FILES_DIR/DMG/$PROJECT.app/Contents/Resources/\"\ncp Readme.rtf \"$TEMP_FILES_DIR/DMG/Readme.rtf\"\nln -s /Applications \"$TEMP_FILES_DIR/DMG/Applications\"\n\nSetFile -a V \"$TEMP_FILES_DIR/DMG/bg.png\"\nSetFile -a V \"$TEMP_FILES_DIR/DMG/.DS_Store\"\n\nhdiutil makehybrid -hfs -hfs-volume-name \"$PROJECT\" -hfs-openfolder \"$TEMP_FILES_DIR/DMG\" \"$TEMP_FILES_DIR/DMG\" -o \"$TEMP_FILES_DIR/TMP.dmg\"\nhdiutil convert -format UDZO \"$TEMP_FILES_DIR/TMP.dmg\" -o \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dmg\"\n\nrm \"$TEMP_FILES_DIR/TMP.dmg\"\nrm -rf \"$TEMP_FILES_DIR/DMG\"\n\nruby \"/Users/mike/Documents/Xcode Projects/Sparkle-current/Extras/Signing Tools/sign_update.rb\" \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dmg\" ~/.sparkleUpdateKey/dsaprivkey.pem > \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dsa\"";
+		};
+		27C52B8C1093660400303AA6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "PROJECT=\"Wine\"\nVERSION=$(pl < \"$TARGET_BUILD_DIR/$PROJECT.app/Contents/Info.plist\" | grep CFBundleVersion | sed 's/    CFBundleVersion = \"//g' | sed 's/\";//g')\n\n\nrm \"$TARGET_BUILD_DIR/WineBottlerCombo_$(echo $VERSION).dmg\" &>/dev/null\nrm -rf \"$TEMP_FILES_DIR/DMG\" &>/dev/null\nmkdir \"$TEMP_FILES_DIR/DMG\"\n\ncd dmg\ncp bg.png \"$TEMP_FILES_DIR/DMG/\"\ncp WineBottlerCombo_DMG_DS_Store \"$TEMP_FILES_DIR/DMG/.DS_Store\"\nditto \"$TARGET_BUILD_DIR/WineBottler.app\" \"$TEMP_FILES_DIR/DMG/WineBottler.app/\"\nditto \"$TARGET_BUILD_DIR/$PROJECT.app\" \"$TEMP_FILES_DIR/DMG/$PROJECT.app/\"\ncp WineBottlerCombo_Readme.rtf \"$TEMP_FILES_DIR/DMG/Readme.rtf\"\nln -s /Applications \"$TEMP_FILES_DIR/DMG/Applications\"\n\nSetFile -a V \"$TEMP_FILES_DIR/DMG/bg.png\"\nSetFile -a V \"$TEMP_FILES_DIR/DMG/.DS_Store\"\n\nhdiutil makehybrid -hfs -hfs-volume-name \"WineBottler Combo\" -hfs-openfolder \"$TEMP_FILES_DIR/DMG\" \"$TEMP_FILES_DIR/DMG\" -o \"$TEMP_FILES_DIR/TMP.dmg\"\nhdiutil convert -format UDZO \"$TEMP_FILES_DIR/TMP.dmg\" -o \"$TARGET_BUILD_DIR/WineBottlerCombo_$(echo $VERSION).dmg\"\n\nrm \"$TEMP_FILES_DIR/TMP.dmg\"\nrm -rf \"$TEMP_FILES_DIR/DMG\"\n\n#ruby \"/Users/mike/Documents/Xcode Projects/Sparkle-current/Extras/Signing Tools/sign_update.rb\" \"$TARGET_BUILD_DIR/WineBottlerCombo_$(echo $VERSION).dmg\" ~/.sparkleUpdateKey/#dsaprivkey.pem > \"$TARGET_BUILD_DIR/WineBottlerCombo_$(echo $VERSION).dsa\"";
+		};
+		27C52D3F10961E1800303AA6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# add wine\n\n#ditto \"dmg/Wine_${CURRENT_PROJECT_VERSION}.app\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/Wine_bin.app\"\n#sed s/<plist>/<xxxx>/ wine > wine\nditto \"dmg/Wine_${CURRENT_PROJECT_VERSION}.bundle/Contents/Resources\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\nLANG=C sed \"s/<plist/xxxxxx/\" \"dmg/Wine_${CURRENT_PROJECT_VERSION}.bundle/Contents/Resources/bin/wine\" > \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/bin/wine\"\n#cp \"dmg/Wine_${CURRENT_PROJECT_VERSION}.bundle/Contents/MacOS/startwine\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/startwine\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		270BB94B11B2A146000E25A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				270BB96A11B2A3F4000E25A2 /* WBottler.m in Sources */,
+				277950FE11B2BB8600E2A76F /* WWinetricksController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27C52A1F10930DD900303AA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27C52A5D109311A500303AA6 /* main.m in Sources */,
+				27C52A74109332E100303AA6 /* WSController.m in Sources */,
+				27C52A77109333A400303AA6 /* WSPreferencesController.m in Sources */,
+				27596AA915AFEF6500B14674 /* WTask.m in Sources */,
+				27596AB115AFEFA800B14674 /* WHLnk.m in Sources */,
+				27596AB215AFEFA800B14674 /* WPrefixController.m in Sources */,
+				27596AB315AFEFA800B14674 /* WPrefixTableView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27F3BF8811AD511C00B11B00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27F3BFAF11AD524D00B11B00 /* main.m in Sources */,
+				27F3BFBB11AD542900B11B00 /* WTController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27C52BE81095F46E00303AA6 /* WBController.m in Sources */,
+				27C52BE91095F46E00303AA6 /* WBottlerController.m in Sources */,
+				27C52BEA1095F46E00303AA6 /* WBPreferencesController.m in Sources */,
+				27C52BEB1095F46E00303AA6 /* WCustomController.m in Sources */,
+				27C52BF21095F4A900303AA6 /* main.m in Sources */,
+				27F3BCB811AA9DF600B11B00 /* WBWebViewController.m in Sources */,
+				27FF12ED15A6B07100B21AEE /* T5PaperView.m in Sources */,
+				27E1421F15BB55F3009542BB /* INAppStoreWindow.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2702ECF11080BCFE009B2405 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* WineBottler */;
+			targetProxy = 2702ECF01080BCFE009B2405 /* PBXContainerItemProxy */;
+		};
+		270BB95411B2A164000E25A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 270BB94D11B2A146000E25A2 /* WBottler */;
+			targetProxy = 270BB95311B2A164000E25A2 /* PBXContainerItemProxy */;
+		};
+		275E6E9A11B3FE41005B8EF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27F3BF8A11AD511C00B11B00 /* Winetricks */;
+			targetProxy = 275E6E9911B3FE41005B8EF6 /* PBXContainerItemProxy */;
+		};
+		276D9B6D11B2B00800F23F0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 270BB94D11B2A146000E25A2 /* WBottler */;
+			targetProxy = 276D9B6C11B2B00800F23F0F /* PBXContainerItemProxy */;
+		};
+		276D9B6F11B2B00E00F23F0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 270BB94D11B2A146000E25A2 /* WBottler */;
+			targetProxy = 276D9B6E11B2B00E00F23F0F /* PBXContainerItemProxy */;
+		};
+		2779512F11B2C05C00E2A76F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 277D3BB11079FAD0004611C3 /* cabextract */;
+			targetProxy = 2779512E11B2C05C00E2A76F /* PBXContainerItemProxy */;
+		};
+		2779513111B2C05F00E2A76F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 277D3B371079E9C1004611C3 /* wrestool */;
+			targetProxy = 2779513011B2C05F00E2A76F /* PBXContainerItemProxy */;
+		};
+		27C52B0210933FB000303AA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27C52A2110930DD900303AA6 /* WineStatus */;
+			targetProxy = 27C52B0110933FB000303AA6 /* PBXContainerItemProxy */;
+		};
+		27ED52E3109684B1009A7BA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2702ECDA1080BC49009B2405 /* WineBottler dmg */;
+			targetProxy = 27ED52E2109684B1009A7BA9 /* PBXContainerItemProxy */;
+		};
+		27ED52E5109684B4009A7BA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27C52AFE10933F9D00303AA6 /* WineStatus dmg */;
+			targetProxy = 27ED52E4109684B4009A7BA9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		277950EF11B2B99C00E2A76F /* WBottler.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				277950F011B2B99C00E2A76F /* English */,
+			);
+			name = WBottler.xib;
+			sourceTree = "<group>";
+		};
+		27C52A4410930FF800303AA6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27C52A4510930FF800303AA6 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		27C52A4610930FF800303AA6 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27C52A4710930FF800303AA6 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		27C52BF31095F4FC00303AA6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27C52BF41095F4FC00303AA6 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		27C52BF51095F4FC00303AA6 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27C52BF61095F4FC00303AA6 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		27F3BDCD11AB058C00B11B00 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27F3BDCE11AB058C00B11B00 /* English */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		27F3BFA311AD523500B11B00 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27F3BFA411AD523500B11B00 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		27F3BFA511AD523500B11B00 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27F3BFA611AD523500B11B00 /* English */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		27F3BFA711AD523500B11B00 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27F3BFA811AD523500B11B00 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2702ECDB1080BC49009B2405 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = dmg;
+			};
+			name = Debug;
+		};
+		2702ECDC1080BC49009B2405 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = "${CURRENT_PROJECT_VERSION}";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = dmg;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		270BB95011B2A147000E25A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"/**",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WBottler/WBottler_Prefix.pch;
+				INFOPLIST_FILE = WBottler/Info.plist;
+				INSTALL_PATH = "@loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PRODUCT_NAME = WBottler;
+			};
+			name = Debug;
+		};
+		270BB95111B2A147000E25A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"/**",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WBottler/WBottler_Prefix.pch;
+				INFOPLIST_FILE = WBottler/Info.plist;
+				INSTALL_PATH = "@loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PRODUCT_NAME = WBottler;
+			};
+			name = Release;
+		};
+		277D3B3A1079E9C1004611C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = wrestool;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		277D3B3B1079E9C1004611C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = wrestool;
+				SKIP_INSTALL = YES;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		277D3BB41079FAD0004611C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = cabextract;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		277D3BB51079FAD0004611C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = cabextract;
+				SKIP_INSTALL = YES;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		27C52A2510930DDA00303AA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)/Frameworks\"",
+					"$(inherited)",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WineStatus/WineStatus_Prefix.pch;
+				INFOPLIST_FILE = WineStatus/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PRODUCT_NAME = Wine;
+			};
+			name = Debug;
+		};
+		27C52A2610930DDA00303AA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)/Frameworks\"",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WineStatus/WineStatus_Prefix.pch;
+				INFOPLIST_FILE = WineStatus/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PRODUCT_NAME = Wine;
+			};
+			name = Release;
+		};
+		27C52AFF10933F9D00303AA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Wine dmg";
+			};
+			name = Debug;
+		};
+		27C52B0010933F9D00303AA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = "${CURRENT_PROJECT_VERSION}";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = "Wine dmg";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		27C52B8E1093660400303AA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Wine dmg";
+			};
+			name = Debug;
+		};
+		27C52B8F1093660400303AA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = "${CURRENT_PROJECT_VERSION}";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = "Wine dmg";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		27F3BF8E11AD511C00B11B00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)/Frameworks\"",
+					"$(inherited)",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Winetricks/Winetricks_Prefix.pch;
+				INFOPLIST_FILE = Winetricks/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PRODUCT_NAME = Winetricks;
+			};
+			name = Debug;
+		};
+		27F3BF8F11AD511C00B11B00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)/Frameworks\"",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Winetricks/Winetricks_Prefix.pch;
+				INFOPLIST_FILE = Winetricks/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PRODUCT_NAME = Winetricks;
+			};
+			name = Release;
+		};
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)/Frameworks\"",
+					"$(inherited)",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WineBottler/WineBottler_Prefix.pch;
+				INFOPLIST_FILE = WineBottler/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = WineBottler;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)/Frameworks\"",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WineBottler/WineBottler_Prefix.pch;
+				INFOPLIST_FILE = WineBottler/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = WineBottler;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CURRENT_PROJECT_VERSION = 1.5.29;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				ONLY_ACTIVE_ARCH = NO;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
+				VALID_ARCHS = "i386 x86_64";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CURRENT_PROJECT_VERSION = 1.5.29;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				ONLY_ACTIVE_ARCH = NO;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
+				VALID_ARCHS = "i386 x86_64";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2702ECE71080BC67009B2405 /* Build configuration list for PBXAggregateTarget "WineBottler dmg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2702ECDB1080BC49009B2405 /* Debug */,
+				2702ECDC1080BC49009B2405 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		270BB95211B2A147000E25A2 /* Build configuration list for PBXNativeTarget "WBottler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				270BB95011B2A147000E25A2 /* Debug */,
+				270BB95111B2A147000E25A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		277D3B3E1079EA01004611C3 /* Build configuration list for PBXNativeTarget "wrestool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				277D3B3A1079E9C1004611C3 /* Debug */,
+				277D3B3B1079E9C1004611C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		277D3BB81079FB0D004611C3 /* Build configuration list for PBXNativeTarget "cabextract" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				277D3BB41079FAD0004611C3 /* Debug */,
+				277D3BB51079FAD0004611C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27C52A2710930DDA00303AA6 /* Build configuration list for PBXNativeTarget "WineStatus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27C52A2510930DDA00303AA6 /* Debug */,
+				27C52A2610930DDA00303AA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27C52B0310933FCE00303AA6 /* Build configuration list for PBXAggregateTarget "WineStatus dmg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27C52AFF10933F9D00303AA6 /* Debug */,
+				27C52B0010933F9D00303AA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27C52B8D1093660400303AA6 /* Build configuration list for PBXAggregateTarget "WineBottlerCombo dmg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27C52B8E1093660400303AA6 /* Debug */,
+				27C52B8F1093660400303AA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27F3BF9011AD511D00B11B00 /* Build configuration list for PBXNativeTarget "Winetricks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27F3BF8E11AD511C00B11B00 /* Debug */,
+				27F3BF8F11AD511C00B11B00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "WineBottler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "WineBottler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

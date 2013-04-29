@@ -1,0 +1,17 @@
+//
+// Prefix header for all source files of the 'Winetricks' target in the 'WineBottler' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
+
+//#define DEBUG
+#ifdef DEBUG
+#define W_DEBUG(...)  { (void) NSLog (@"[%@ %@] (%D)", [[NSString stringWithFormat:@"%s", __FILE__] lastPathComponent], [NSString stringWithFormat:__VA_ARGS__], __LINE__); }
+#else
+#define W_DEBUG(...)  ((void) 0)
+#endif
+
+
+#define cgrect(nsrect) (*(CGRect *)&(nsrect))

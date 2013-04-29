@@ -1,0 +1,73 @@
+/* 
+   Localizable.strings
+   WineBottler
+
+   Created by Mike Kronenberg on 24.05.10.
+   Copyright 2010 Kronenberg Informatik Lösungen. All rights reserved.
+ */
+
+
+
+/* WBController */
+"WBController:AlertWineNotFound:Text" = "Can't find Wine";
+"WBController:AlertWineNotFound:defaultButton" = "OK";
+"WBController:AlertWineNotFound:informativeTextWithFormat" = "Wine is required to run this program.";
+
+
+
+/* WBottlerController */
+"WBottlerController:predefined:explanation" = "<div class=\"explanation\">
+			<h1>Automated installers for a growing number of Windows Programs.</h1>
+			The automated installers take care of a lot of installation related tasks, like downloading the program from the internet, setting up Wine and sattisfing additional requirements. In the end, they pack everything snuggly into an OS X Application bundle. Then, start the program by double-clicking that bundle, like you would any other OS X Application.<br /><br />
+			<b>Important:<br />Because of the automated process, EULAs are not displayed. By using these automated installers, you agree to the EULAs.</b><br /><br />
+			If you don't find your program here, you can bottle any windows program in the <b>Advanced</b> section.
+			<a href=\"winebottlerhide://predefinedExplanation\"><img class=\"explanation\" src=\"kill.png\" /></a>
+		</div>";
+
+"WBottlerController:predefined:item" = "<div class=\"app\"><img class=\"icon\" src=\"%@\" onerror=\"this.src='Application.icns'\" /><a class=\"title\" href=\"%@\">%@</a>%@ %@<a class=\"install\" href=\"winebottlerinstall://%@\">INSTALL</a></div>";
+
+"WBottlerController:prefix:explanation" = "<div class=\"explanation\">
+			<h1>Installed Windows Programs on your Mac.</h1>
+			This is an overview of all Windows Programs installed by WineBottler. These Programs consist of two parts: The Application and the Application data.<br />
+			<br />
+			<b>If you want to remove a Program, we suggest, you do it from here.</b><br />WineBottler takes care of removing all the Application related Data, which can take a lot of space.
+			<a href=\"winebottlerhide://prefixExplanation\"><img class=\"explanation\" src=\"kill.png\" /></a>
+		</div>";
+
+"WBottlerController:prefix:item" = "<div class=\"iapp\"><a class=\"title\" href=\"winebottlerrunapp://%@\" title=\"Run App\"><img class=\"icon\" src=\"%@\" />%@</a><a href=\"winebottlershowinfinder://%@\" title=\"Show in Finder\"><img src=\"mFinder.png\" class=\"miniicon\" /></a> <div><a class=\"install\" href=\"winebottlerreset://%@\">RESET</a> <a class=\"install\" href=\"winebottlerremove://%@\">REMOVE</a></div></div>";
+"WBottlerController:prefix:prefix" = "<div class=\"iapp\"><a class=\"path\" title=\"Run App\"><img class=\"icon\" src=\"%@\" />%@</a><a href=\"winebottlershowinfinder://%@\" title=\"Show in Finder\"><img src=\"mFinder.png\" class=\"miniicon\" /></a> <div><a class=\"install\" href=\"winebottlerremove://%@\">REMOVE</a></div></div>";
+
+
+"WBottlerController:prefixDelete:setMessageText" = "Remove \"%@\"?";
+"WBottlerController:prefixDelete:setInformativeText" = "This will remove program \"%@\" and all it's application data.";
+"WBottlerController:prefixDelete:addButtonWithTitle:Remove" = "Remove";
+"WBottlerController:prefixDelete:addButtonWithTitle:Cancel" = "Cancel";
+
+"WBottlerController:prefixReset:setMessageText" = "Reset \"%@\"?";
+"WBottlerController:prefixReset:setInformativeText" = "This will remove the Application Data and Preferences of \"%@\".";
+"WBottlerController:prefixReset:addButtonWithTitle:Reset" = "Reset";
+"WBottlerController:prefixReset:addButtonWithTitle:Cancel" = "Cancel";
+
+
+
+/* WCustomController */
+"WCustomController:askForFilename:file" = "New App.app";
+
+
+
+/* WBPreferencesController */
+"WBPreferencesController:showGeneral:WindowTitle" = "WineBottler Preferences - General";
+"WBPreferencesController:showProxies:WindowTitle" = "WineBottler Preferences - Proxies";
+"WBPreferencesController:showUpdate:WindowTitle" = "WineBottler Preferences - Updates";
+
+"WBPreferencesController:TootlbarItem:General:setLabel" = "General";
+"WBPreferencesController:TootlbarItem:General:setPaletteLabel" = "General";
+"WBPreferencesController:TootlbarItem:General:setToolTip" = "General Settings";
+
+"WBPreferencesController:TootlbarItem:Proxies:setLabel" = "Proxies";
+"WBPreferencesController:TootlbarItem:Proxies:setPaletteLabel" = "Proxies";
+"WBPreferencesController:TootlbarItem:Proxies:setToolTip" = "Setup Proxies for WineBottler";
+
+"WBPreferencesController:TootlbarItem:Update:setLabel" = "Update";
+"WBPreferencesController:TootlbarItem:Update:setPaletteLabel" = "Update";
+"WBPreferencesController:TootlbarItem:Update:setToolTip" = "Update WineBottler";
