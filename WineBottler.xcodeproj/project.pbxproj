@@ -1597,7 +1597,7 @@
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
-				CURRENT_PROJECT_VERSION = 1.5.29;
+				CURRENT_PROJECT_VERSION = 1.5.29.1;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = "";
@@ -1616,7 +1616,7 @@
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
-				CURRENT_PROJECT_VERSION = 1.5.29;
+				CURRENT_PROJECT_VERSION = 1.5.29.1;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

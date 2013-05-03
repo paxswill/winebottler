@@ -248,7 +248,7 @@
 		environment = [NSMutableDictionary dictionaryWithObjects:
 							  [NSArray arrayWithObjects:
 							   [NSString stringWithFormat:@"%@/bin", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // WINEPATH
-							   [NSString stringWithFormat:@"/usr/lib:%@/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // DYLD_FALLBACK_LIBRARY_PATH
+							   [NSString stringWithFormat:@"%@/lib:/usr/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // DYLD_FALLBACK_LIBRARY_PATH
 							   [NSString stringWithFormat:@"%@/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // LD_LIBRARY_PATH
 							   [NSString stringWithFormat:@"%@/etc/fonts/fonts.conf", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // FONTCONFIG_FILE
 							   NSUserName(),									// USER
