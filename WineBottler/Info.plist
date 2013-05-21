@@ -27,7 +27,7 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string>http://winebottler.kronenberg.org/winebottler/appcast.php</string>
+	<string>http://winebottler.kronenberg.org/winebottler/appcast_1_5.php</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsapubkey.pem</string>
 	<key>SUScheduledCheckInterval</key>

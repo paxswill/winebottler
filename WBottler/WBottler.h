@@ -62,6 +62,7 @@ enum {
 	double percent;
 	NSURL *filename;
 	NSString *pathtoExecutable;
+    NSString *bundleSignature;
 	
 	NSMutableString *stringBuffer;
 	NSMutableString *log;
@@ -79,7 +80,8 @@ enum {
 				  exe:(NSString *)tExe
 		 exeArguments:(NSString *)tExeArguments
 		bundleVersion:(NSString *)tBundleVersion
-	 bundleIdentifier:(NSString *)tBundleIdentifier
+     bundleIdentifier:(NSString *)tBundleIdentifier
+      bundleSignature:(NSString *)tBundleSignature
 			   silent:(NSString *)tSilent
 		selfcontained:(BOOL)tSelfcontained
 			   sender:(id)tSender

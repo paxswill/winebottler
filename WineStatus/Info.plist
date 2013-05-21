@@ -138,7 +138,7 @@
 	<key>NSUIElement</key>
 	<string>1</string>
 	<key>SUFeedURL</key>
-	<string>http://winebottler.kronenberg.org/wine/appcast.php</string>
+	<string>http://winebottler.kronenberg.org/wine/appcast_1_5.php</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsapubkey.pem</string>
 	<key>SUScheduledCheckInterval</key>

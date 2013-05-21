@@ -98,6 +98,7 @@
                                  exeArguments:[executableArguments stringValue]
                                 bundleVersion:[bundleVersion stringValue]
                              bundleIdentifier:[bundleIdentifier stringValue]
+                              bundleSignature:[bundleSignature stringValue]
                                        silent:silent
                                 selfcontained:selfcontained
                                        sender:bottlerController

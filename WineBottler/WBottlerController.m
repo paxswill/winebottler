@@ -384,6 +384,7 @@
                                          exeArguments:nil
                                         bundleVersion:nil
                                      bundleIdentifier:[NSString stringWithFormat:@"org.kronenberg.winebottler.%@", [programProperties objectForKey:@"verb"]]
+                                      bundleSignature:nil
                                                silent:@"-q"
                                         selfcontained:FALSE
                                                sender:self

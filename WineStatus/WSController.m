@@ -356,6 +356,7 @@
 						 exeArguments:nil
 						bundleVersion:nil
 					 bundleIdentifier:nil
+                      bundleSignature:nil
 							   silent:nil
 						selfcontained:NO
 							   sender:self

@@ -161,6 +161,7 @@
 						 exeArguments:nil
 						bundleVersion:nil
 					 bundleIdentifier:nil
+                      bundleSignature:nil
 							   silent:silent
 						selfcontained:NO
 							   sender:self

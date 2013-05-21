@@ -136,6 +136,7 @@
 		 exeArguments:(NSString *)tExeArguments
 		bundleVersion:(NSString *)tBundleVersion
 	 bundleIdentifier:(NSString *)tBundleIdentifier
+      bundleSignature:(NSString *)tBundleSignature
 			   silent:(NSString *)tSilent
 		selfcontained:(BOOL)tSelfcontained
 			   sender:(id)tSender
@@ -221,6 +222,11 @@
 			tBundleVersion = @"1.0";
 		if (tBundleIdentifier == nil)
 			tBundleIdentifier = @"org.kronenberg.winebottler";
+        if (tBundleSignature != nil && ![tBundleSignature isEqual:@""]) {
+            bundleSignature = tBundleSignature;
+        } else {
+            bundleSignature = nil;
+        }
 		if (tSilent == nil)
 			tSilent = @"";
 		if (tSelfcontained) {
@@ -506,6 +512,10 @@
 	NSString *path;
 	NSAlert *alert;
 	NSTask *icontask;
+    NSPipe *outpipe;
+    NSPipe *errpipe;
+    NSData *outdata;
+    NSData *errdata;
 	
 	alert = nil;
 	
@@ -535,7 +545,49 @@
 				[icontask launch];
 				[icontask waitUntilExit];
 				[icontask release];
+                
+                NSLog(@"bundleSignature 1: %@ %@", bundleSignature, [filename path]);
+                // codesign
+                if (bundleSignature) {
+                    NSLog(@"bundleSignature 2: %@ %@", bundleSignature, [filename path]);
+                    icontask = [[NSTask alloc] init];
+                    [icontask setLaunchPath:@"/usr/bin/codesign"];
+                    [icontask setCurrentDirectoryPath:[[NSBundle bundleForClass:[self class]] resourcePath]];
+                    [icontask setArguments:[NSArray arrayWithObjects:
+                                            @"-s",
+                                            bundleSignature,
+                                            [filename path],
+                                            nil]];
+                    outpipe = [NSPipe pipe];
+                    [icontask setStandardOutput:outpipe];
+                    errpipe = [NSPipe pipe];
+                    [icontask setStandardError:errpipe];
+                    
+                    [icontask launch];
+                    
+                    outdata = [[outpipe fileHandleForReading] readDataToEndOfFile];
+                    errdata = [[errpipe fileHandleForReading] readDataToEndOfFile];
+                    
+                    
+                    [icontask waitUntilExit];
+                    [icontask release];
+                    
+                    if ([outdata length] || [errdata length]) {
+                        alert = [NSAlert alertWithMessageText:@"Can't Codesign"
+                                                defaultButton:@"OK"
+                                              alternateButton:nil
+                                                  otherButton:nil
+                                    informativeTextWithFormat:[NSString stringWithFormat:@"%@ %@",
+                                                               [[[NSString alloc] initWithData:outdata encoding:NSUTF8StringEncoding] autorelease],
+                                                               [[[NSString alloc] initWithData:errdata encoding:NSUTF8StringEncoding] autorelease]]];
+                        [alert runModal];
+                    }
+                }
 			}
+            
+            
+            
+   //         codesign -s "$PLC_CODESIGN" "$PLC_PRODUCT_DIR/$PLC_PRODUCT_NAME.app" >/dev/null 2>"$PLC_TEMP_DIR/log"
 			
 			// finish
 			if (runMode != BottlerRunModeWinetricks) {

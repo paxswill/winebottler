@@ -36,6 +36,7 @@
 	IBOutlet NSTextField *executableArguments;
 	IBOutlet NSTextField *bundleVersion;
 	IBOutlet NSTextField *bundleIdentifier;
+    IBOutlet NSTextField *bundleSignature;
 	IBOutlet NSTextField *overriedes;
 	IBOutlet NSTextField *installer;
 	IBOutlet NSMatrix *copyInstall;
