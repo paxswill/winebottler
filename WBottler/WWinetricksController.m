@@ -64,6 +64,19 @@
 }
 
 
+- (NSString *) stringWithContentsOfURLNoCache:(NSURL *)url {
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
+    NSData *urlData;
+    NSURLResponse *response;
+    NSError *error;
+    
+    urlData = [NSURLConnection sendSynchronousRequest:urlRequest
+                                    returningResponse:&response
+                                                error:&error];
+    return [[[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding] autorelease];
+}
+
+
 - (IBAction) update:(id)sender
 {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init]; // Top-level pool
@@ -76,7 +89,8 @@
     NSPipe *errpipe;
  
     // get a copy of the winetricks
-    string = [NSString stringWithContentsOfURL:[NSURL URLWithString:WINETRICKS_URL] encoding:NSUTF8StringEncoding error:nil];
+    //string = [NSString stringWithContentsOfURL:[NSURL URLWithString:WINETRICKS_URL] encoding:NSUTF8StringEncoding error:nil];
+    string = [self stringWithContentsOfURLNoCache:[NSURL URLWithString:WINETRICKS_URL]];
     if (string) {
         [string writeToURL:[NSString stringWithFormat:@"%@winetricks", APPSUPPORT_WINE] atomically:YES encoding:NSUTF8StringEncoding error:nil];
     } else {
@@ -84,7 +98,7 @@
     }
     
     // get a copy of the customverbs
-    string = [NSString stringWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@customverbs", PREDEFINED_URL ]] encoding:NSUTF8StringEncoding error:nil];
+    string = [self stringWithContentsOfURLNoCache:[NSURL URLWithString:[NSString stringWithFormat:@"%@customverbs", PREDEFINED_URL]]];
     if (string) {
         [string writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@customverbs", APPSUPPORT_WINE]] atomically:YES encoding:NSUTF8StringEncoding error:nil];
     } else {

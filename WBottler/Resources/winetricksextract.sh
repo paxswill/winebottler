@@ -71,6 +71,7 @@ mv "$WINETRICKS_TMP"2 "$WINETRICKS_PLIST"
 #cleanup
 rm "$WINETRICKS_TMP"
 rm /tmp/winetricks_custom
+rm /tmp/winetricks_verbs.sh
 
 
 exit 0

@@ -95,6 +95,19 @@
 }
 
 
+- (NSString *) stringWithContentsOfURLNoCache:(NSURL *)url {
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
+    NSData *urlData;
+    NSURLResponse *response;
+    NSError *error;
+    
+    urlData = [NSURLConnection sendSynchronousRequest:urlRequest
+                                    returningResponse:&response
+                                                error:&error];
+    return [[[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding] autorelease];
+}
+
+
 -(void) awakeFromNib
 {
     NSString *string;
@@ -105,7 +118,7 @@
     [progressIndicator setDoubleValue:0];
     
     // update showcase
-    string = [NSString stringWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@winebottler.plist", PREDEFINED_URL ]] encoding:NSUTF8StringEncoding error:nil];
+    string = [self stringWithContentsOfURLNoCache:[NSURL URLWithString:[NSString stringWithFormat:@"%@winebottler.plist", PREDEFINED_URL ]]];
     if (string) {
         [string writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@winebottler.plist", APPSUPPORT_WINEBOTTLER]] atomically:YES encoding:NSUTF8StringEncoding error:nil];
     } else {
@@ -114,7 +127,7 @@
     [progressIndicator setDoubleValue:[progressIndicator doubleValue] + 25.0];
     
     // update metadata
-    string = [NSString stringWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@metadata.plist", PREDEFINED_URL ]] encoding:NSUTF8StringEncoding error:nil];
+    string = [self stringWithContentsOfURLNoCache:[NSURL URLWithString:[NSString stringWithFormat:@"%@metadata.plist", PREDEFINED_URL ]]];
     if (string) {
         [string writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@metadata.plist", APPSUPPORT_WINEBOTTLER]] atomically:YES encoding:NSUTF8StringEncoding error:nil];
     } else {
@@ -293,6 +306,7 @@
 	NSString *explanation;
     NSString *category;
     NSString *verb;
+    NSArray *keys;
 	
     if (![sender isEqual:self])
         [self showPredefinedWeb:self];
@@ -303,8 +317,9 @@
     search = [predefinedSearchField stringValue];
     if ([search isEqual:@""]) {
         items = [NSMutableString stringWithString:@""];
+        keys = [[predefinedApps allKeys] sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
 
-        for (category in predefinedApps) {
+        for (category in keys) {
             [items appendFormat:@"<div><h1>%@</h1>", category];
             for (verb in [predefinedApps objectForKey:category]) {
                 for (programProperties in predefinedBottles) {
