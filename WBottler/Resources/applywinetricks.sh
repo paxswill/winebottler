@@ -39,6 +39,10 @@ export WINEPREFIX=$BOTTLE
 ##########                   Installation Script                       #########
 ################################################################################
 winebottlerWinetricks
+wait
+
+winebottlerCleanup
+wait
 
 echo "###FINISHED###"
 echo "###MAKESUREFINISHDISGETTINGTHRU###"

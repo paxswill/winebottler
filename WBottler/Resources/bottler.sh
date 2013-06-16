@@ -44,7 +44,6 @@ echo "WINEPATH.....................: $WINEPATH"
 echo "LD_LIBRARY_PATH..............: $LD_LIBRARY_PATH"
 echo "DYLD_FALLBACK_LIBRARY_PATH...: $DYLD_FALLBACK_LIBRARY_PATH"
 echo "FONTCONFIG_FILE..............: $FONTCONFIG_FILE"
-#echo "DIPSPLAY.....................: $DISPLAY"
 echo "SILENT.......................: $SILENT"
 echo "http_proxy...................: $http_proxy"
 echo "https_proxy..................: $https_proxy"
@@ -78,6 +77,7 @@ export WINE="$WINEPATH/wine"
 export WINESERVER="$WINEPATH/wineserver"
 export WINEPREFIX=$BOTTLE/Contents/Resources/wineprefix
 export USERNAME="$USER"
+export WINEBOTTLER_TMP="/private/tmp/winebottler_$(date +%s)"
 #export LANG=fr.UTF-8
 #export LC_CTYPE=fr_FR.UTF-8
 
@@ -85,7 +85,7 @@ export USERNAME="$USER"
 ################################################################################
 # - sometime people try to run multiple instances of winetricks, so we run them in separated places, so that we can tidy up afterwards
 # - winetricks is often not safe for paths with spaces, so we link everithing to save paths)
-export NOSPACE_PATH="/private/tmp/winebottler/"$(date +%s)
+export NOSPACE_PATH=$WINEBOTTLER_TMP"/nospace"
 mkdir -p "$NOSPACE_PATH"
 
 
@@ -653,18 +653,31 @@ export -f winebottlerBuiltin
 ################################################################################
 function runSanitized () {
     cat > "$WINEPREFIX/drive_c/windows/temp/sanitized.sh" << __EOF__
-export WINEPATH=$WINEPATH
-export DYLD_FALLBACK_LIBRARY_PATH=$DYLD_FALLBACK_LIBRARY_PATH
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
-export FONTCONFIG_FILE=$FONTCONFIG_FILE
-export WINEPREFIX=$WINEPREFIX
-export WINEDEBUG=$WINEDEBUG
-export DISPLAY=$DISPLAY
-export USER=$USER
-export HOME=$HOME
+export WINEPATH="$WINEPATH"
+export DYLD_FALLBACK_LIBRARY_PATH="$DYLD_FALLBACK_LIBRARY_PATH"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH"
+export FONTCONFIG_FILE="$FONTCONFIG_FILE"
+export WINEDEBUG="$WINEDEBUG"
+export DISPLAY="$DISPLAY"
+export PATH="$NOSPACE_PATH":"$PATH"
+export USER="$USER"
+export HOME="$HOME"
+
+
+
+# WORKAROUND create "no-spaces environment"
+mkdir -p "$NOSPACE_PATH"
+ln -s "$WINEPREFIX" "$NOSPACE_PATH/wineprefix"
+export WINEPREFIX="$NOSPACE_PATH/wineprefix"
+
+# DO
 $1
-#"$WINE" "C:\\windows\\temp\\installer\\$INSTALLER_NAME" $INSTALLER_ARGUMENTS
+
+# CLEANUP "no-spaces environment"
+rm -rf "$NOSPACE_PATH" &> /dev/null
+
 __EOF__
+
     winebottlerTry env -i sh "$WINEPREFIX/drive_c/windows/temp/sanitized.sh"
     rm "$WINEPREFIX/drive_c/windows/temp/sanitized.sh"
 }
@@ -762,3 +775,14 @@ function winebottlerInstall () {
 	chmod -R a+rw "$WINEPREFIX"
 }
 export -f winebottlerInstall
+
+
+
+
+##########                         Cleanup                             #########
+################################################################################
+function winebottlerCleanup () {
+    rm -rf "$WINEBOTTLER_TMP"
+echo "$WINEBOTTLER_TMP"
+}
+export -f winebottlerCleanup

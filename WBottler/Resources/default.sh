@@ -51,6 +51,9 @@ wait
 winebottlerProxy
 wait
 
+winebottlerCleanup
+wait
+
 echo "###FINISHED###"
 echo "###MAKESUREFINISHDISGETTINGTHRU###"
 sleep 1
