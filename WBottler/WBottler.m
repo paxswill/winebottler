@@ -166,7 +166,7 @@
 		
 		// tExe
 		if (tExe) {
-			pathtoExecutable = tExe;
+			pathtoExecutable = [tExe stringByReplacingOccurrencesOfString:@"\\" withString:@"/"];
 		} else {
 			pathtoExecutable = @"winefile";
 		}
@@ -488,7 +488,7 @@
 	
 	pathtoExecutable = [NSString stringWithFormat:@"C:\\%@", [exeSelector titleOfSelectedItem]];
 	plist = [NSString stringWithContentsOfFile:[NSString stringWithFormat:@"%@/Contents/Info.plist", [filename path]] usedEncoding:&encoding error:nil];
-	plist = [plist stringByReplacingOccurrencesOfString:@"winefile" withString:pathtoExecutable];
+	plist = [plist stringByReplacingOccurrencesOfString:@"winefile" withString:[pathtoExecutable stringByReplacingOccurrencesOfString:@"\\" withString:@"/"]];
 	[plist writeToFile:[NSString stringWithFormat:@"%@/Contents/Info.plist", [filename path]] atomically:NO encoding:encoding error:nil];
 	
     [NSApp endSheet:findExePanel];

@@ -264,13 +264,19 @@ export WINEPATH="\$WINEUSRPATH/bin"
 
 
 
-# start wine
-exec "\$WINEUSRPATH/bin/wine" "\$(defaults read "\$BUNDLERESOURCEPATH/../Info" WineProgramPath)" \$(defaults read "\$BUNDLERESOURCEPATH/../Info" WineProgramArguments)
+# start wine and program, if possible in the programs root directory, change to forwardslashes
+BIN_FILE="\$(sed 's|\\\\|/|g' <<< "\$(defaults read "\$BUNDLERESOURCEPATH/../Info" WineProgramPath)")"
+BIN_PATH="\$BUNDLERESOURCEPATH/wineprefix/drive_c\$(sed 's|C:||' <<< "\$(dirname "\$BIN_FILE")")"
+if [ -d "\$BIN_PATH" ]; then
+    cd "\$BIN_PATH"
+fi
+"\$WINEUSRPATH/bin/wine" "\$BIN_FILE" \$(defaults read "\$BUNDLERESOURCEPATH/../Info" WineProgramArguments)
+
 _EOF_
 	chmod a+x "$BOTTLE/Contents/MacOS/startwine"
 
     #Info.plist
-    SANITIZED_EXECUTABLE_PATH="$(echo "$EXECUTABLE_PATH" | sed 's/\&/\&amp;/')"
+    SANITIZED_EXECUTABLE_PATH="$(echo "$EXECUTABLE_PATH" | sed -e 's/\&/\&amp;/g' -e 's|\\|/|g')"
     cat > "$BOTTLE/Contents/Info.plist" <<_EOF_
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -732,9 +738,9 @@ function winebottlerInstall () {
 			else
                 cd "$WINEPREFIX/drive_c/windows/temp/installer"
                 if test $(echo "$INSTALLER_NAME" | grep .msi); then
-                    runSanitized "\"$WINE\" msiexec /i \"C:\\windows\\temp\\installer\\$INSTALLER_NAME\" $INSTALLER_ARGUMENTS"
+                    runSanitized "\"$WINE\" msiexec /i \"C:/windows/temp/installer/$INSTALLER_NAME/" $INSTALLER_ARGUMENTS"
                 else
-                    runSanitized "\"$WINE\" \"C:\\windows\\temp\\installer\\$INSTALLER_NAME\" $INSTALLER_ARGUMENTS"
+                    runSanitized "\"$WINE\" \"C:/windows/temp/installer/$INSTALLER_NAME/" $INSTALLER_ARGUMENTS"
                 fi
                 cd -
 			fi
@@ -760,9 +766,9 @@ function winebottlerInstall () {
                 cp "$INSTALLER_URL" "$WINEPREFIX/drive_c/windows/temp/installer/"
                 cd "$WINEPREFIX/drive_c/windows/temp/installer"
                 if test $(echo "$INSTALLER_NAME" | grep .msi); then
-                    runSanitized "\"$WINE\" msiexec /i \"C:\\windows\\temp\\installer\\$INSTALLER_NAME\" $INSTALLER_ARGUMENTS"
+                    runSanitized "\"$WINE\" msiexec /i \"C:/windows/temp/installer/$INSTALLER_NAME\" $INSTALLER_ARGUMENTS"
                 else
-                    runSanitized "\"$WINE\" \"C:\\windows\\temp\\installer\\$INSTALLER_NAME\" $INSTALLER_ARGUMENTS"
+                    runSanitized "\"$WINE\" \"C:/windows/temp/installer/$INSTALLER_NAME\" $INSTALLER_ARGUMENTS"
                 fi
                 cd -
                 winebottlerTry rm -rf "$WINEPREFIX/drive_c/windows/temp/installer"

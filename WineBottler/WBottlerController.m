@@ -643,6 +643,7 @@
 	NSString *path;
 	NSString *appIdentifier;
 	NSDictionary *info;
+    NSError *error;
 	
 	switch (returnCode) {
 		case NSAlertFirstButtonReturn:
@@ -652,20 +653,29 @@
 				path = [(NSString *)contextInfo substringToIndex:range.location + 4];
 				
 				// get app id out of Info.plist
-				info = [NSDictionary dictionaryWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"file://%@/Contents/Info.plist", path]]];
+				info = [NSDictionary dictionaryWithContentsOfURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/Contents/Info.plist", path]]];
 				appIdentifier = [info objectForKey:@"CFBundleIdentifier"];
 
 				// remove prefix from Application Data
 				path = [[NSString stringWithFormat:@"~/Library/Application Support/%@", appIdentifier] stringByExpandingTildeInPath];
-				[[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:path] error:nil];
+				[[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:path] error:&error];
+                if (error) {
+                    NSLog(@"Error: %@", error);
+                }
 				
 				// ~/Library/preferences/
 				path = [[NSString stringWithFormat:@"~/Library/Preferences/%@.plist", appIdentifier] stringByExpandingTildeInPath];
-				[[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:path] error:nil];
+				[[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:path] error:&error];
+                if (error) {
+                    NSLog(@"Error: %@", error);
+                }
 				
 				// ~/.xinitrc.d/
 				path = [[NSString stringWithFormat:@"~/.xinitrc.d/%@.sh", appIdentifier] stringByExpandingTildeInPath];
-				[[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:path] error:nil];
+				[[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:path] error:&error];
+                if (error) {
+                    NSLog(@"Error: %@", error);
+                }
 			}
 			
 			[[NSDistributedNotificationCenter defaultCenter] postNotificationName:@"WineBottlerPrefixesChanged" object:nil];
