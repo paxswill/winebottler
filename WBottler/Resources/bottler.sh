@@ -738,9 +738,9 @@ function winebottlerInstall () {
 			else
                 cd "$WINEPREFIX/drive_c/windows/temp/installer"
                 if test $(echo "$INSTALLER_NAME" | grep .msi); then
-                    runSanitized "\"$WINE\" msiexec /i \"C:/windows/temp/installer/$INSTALLER_NAME/" $INSTALLER_ARGUMENTS"
+                    runSanitized "\"$WINE\" msiexec /i \"C:/windows/temp/installer/$INSTALLER_NAME\" $INSTALLER_ARGUMENTS"
                 else
-                    runSanitized "\"$WINE\" \"C:/windows/temp/installer/$INSTALLER_NAME/" $INSTALLER_ARGUMENTS"
+                    runSanitized "\"$WINE\" \"C:/windows/temp/installer/$INSTALLER_NAME\" $INSTALLER_ARGUMENTS"
                 fi
                 cd -
 			fi
