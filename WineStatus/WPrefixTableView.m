@@ -26,8 +26,6 @@
 
 
 
-#define ICON_WIDTH 12.0
-#define ICON_HEIGHT 12.0
 #define ICON_X 3.0
 #define ICON_Y 15.0
 #define ICON_SPACE 3.0
@@ -41,8 +39,10 @@
 
     if ((self = [super initWithCoder: decoder]))
     {
-        wDeleteIcon = [NSImage imageNamed: @"mDelete.png"];
-        wFinderIcon = [NSImage imageNamed: @"mFinder.png"];
+        wDeleteIcon = [NSImage imageNamed: @"mDelete.tiff"];
+        wFinderIcon = [NSImage imageNamed: @"mFinder.tiff"];
+        icon_width = [wDeleteIcon size].width;
+        icon_height = [wDeleteIcon size].height;
 		[wFinderIcon setFlipped:YES];
     }
     
@@ -62,10 +62,10 @@
     
     for (i = 0; i < 2; i++) {
         if (NSPointInRect(pointClicked, NSMakeRect(
-			cellRect.origin.x + cellRect.size.width - (i + 1) * (ICON_WIDTH + ICON_SPACE),
+			cellRect.origin.x + cellRect.size.width - (i + 1) * (icon_width + ICON_SPACE),
             cellRect.origin.y + ICON_Y,
-            ICON_WIDTH,
-            ICON_HEIGHT
+            icon_width,
+            icon_height
         ))) {
             switch (i) {
                 case 1: // delete
@@ -103,10 +103,10 @@
 	
     for (i = 0; i < 2; i++) {
         if (NSPointInRect(pointClicked, NSMakeRect(
-			cellRect.origin.x + cellRect.size.width - (i + 1) * (ICON_WIDTH + ICON_SPACE),
+			cellRect.origin.x + cellRect.size.width - (i + 1) * (icon_width + ICON_SPACE),
             cellRect.origin.y + ICON_Y,
-            ICON_WIDTH,
-            ICON_HEIGHT
+            icon_width,
+            icon_height
         ))) {
             switch (i) {
 					
@@ -144,28 +144,28 @@
         cellRect = [self frameOfCellAtColumn:2 row:i];
         
         // delete icon
-        point = NSMakePoint(cellRect.origin.x + cellRect.size.width - 2 * (ICON_WIDTH + ICON_SPACE), cellRect.origin.y + ICON_Y);
-        if (NSPointInRect(pointClicked, NSMakeRect(point.x, point.y, ICON_WIDTH, ICON_HEIGHT))) {
+        point = NSMakePoint(cellRect.origin.x + cellRect.size.width - 2 * (icon_width + ICON_SPACE), cellRect.origin.y + ICON_Y);
+        if (NSPointInRect(pointClicked, NSMakeRect(point.x, point.y, icon_width, icon_height))) {
             wFraction = 1.0;
         } else {
 			wFraction = 0.5;
 		}
         [wDeleteIcon
-            drawInRect: NSMakeRect(point.x, point.y, ICON_WIDTH, ICON_HEIGHT)
+            drawInRect: NSMakeRect(point.x, point.y, icon_width, icon_height)
             fromRect: NSMakeRect(0, 0, [wDeleteIcon size].width, [wDeleteIcon size].height)
             operation: NSCompositeSourceOver
             fraction: wFraction
         ];
 
         // finder icon
-        point = NSMakePoint(cellRect.origin.x + cellRect.size.width - 1 * (ICON_WIDTH + ICON_SPACE), cellRect.origin.y + ICON_Y);
-        if (NSPointInRect(pointClicked, NSMakeRect(point.x, point.y, ICON_WIDTH, ICON_HEIGHT))) {
+        point = NSMakePoint(cellRect.origin.x + cellRect.size.width - 1 * (icon_width + ICON_SPACE), cellRect.origin.y + ICON_Y);
+        if (NSPointInRect(pointClicked, NSMakeRect(point.x, point.y, icon_width, icon_height))) {
             wFraction = 1.0;
 		} else {
 			wFraction = 0.5;
 		}
         [wFinderIcon
-            drawInRect: NSMakeRect(point.x, point.y, ICON_WIDTH, ICON_HEIGHT)
+            drawInRect: NSMakeRect(point.x, point.y, icon_width, icon_height)
             fromRect: NSMakeRect(0, 0, [wFinderIcon size].width, [wFinderIcon size].height)
             operation: NSCompositeSourceOver
             fraction: wFraction

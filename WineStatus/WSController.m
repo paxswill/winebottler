@@ -78,7 +78,7 @@
 		statusItem = [statusBar statusItemWithLength:NSVariableStatusItemLength];
 		[statusItem retain];
 		[statusItem setHighlightMode:YES];
-		[statusItem setImage:[NSImage imageNamed:@"WineStatusIcon.png"]];
+		[statusItem setImage:[NSImage imageNamed:@"WineStatusIcon.pdf"]];
 
 		// Logfile
 		[self toggleLogFile];
@@ -205,7 +205,7 @@
 	for (i = 0; i < [runningExes count]; i++) {
 		menuItem = [[NSMenuItem alloc] initWithTitle:[[runningExes objectAtIndex:i] objectForKey:@"path"] action:@selector(kill:) keyEquivalent:@""];
 		[menuItem setTag:[[[runningExes objectAtIndex:i] objectForKey:@"pid"] intValue]];
-		[menuItem setImage:[NSImage imageNamed:@"kill.png"]];
+		[menuItem setImage:[NSImage imageNamed:@"kill.tiff"]];
 		[menuProcesses insertItem:menuItem atIndex:i];
 		[menuItem release];
 	}
@@ -523,7 +523,7 @@
 	
 	task = [[NSTask alloc] init];
     [task setLaunchPath:@"/bin/kill"];
-	[task setArguments:[NSArray arrayWithObjects:@"-9", [NSString stringWithFormat:@"%ld", [sender tag]], nil]];
+	[task setArguments:[NSArray arrayWithObjects:@"-9", [NSString stringWithFormat:@"%ld", (long)[sender tag]], nil]];
 	[task launch];
 	[task waitUntilExit];
 	[task release];

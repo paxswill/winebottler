@@ -81,25 +81,17 @@
 	
 	winePaths = [NSArray arrayWithObjects:
 				 // in WineBottler
-				 [NSString stringWithFormat:@"%@/Wine.bundle/Contents/Resources/usr", [[NSBundle mainBundle] resourcePath]],
 				 [NSString stringWithFormat:@"%@/Wine.bundle/Contents/Resources", [[NSBundle mainBundle] resourcePath]],
 				
 				 // in selfcontained App
-				 [NSString stringWithFormat:@"%@../../../Wine.bundle/Contents/Resources/usr", [[NSBundle mainBundle] resourcePath]],
 				 [NSString stringWithFormat:@"%@../../../Wine.bundle/Contents/Resources", [[NSBundle mainBundle] resourcePath]],
                  
-                 //  find over NSWorkspace new style
-				 //[NSString stringWithFormat:@"%@/Contents/Resources/Wine_bin.app/Contents/Resources", [[NSWorkspace sharedWorkspace] fullPathForApplication:@"Wine.app"]],
-				 
-				 // find over NSWorkspace
+                 // find over NSWorkspace
 				 [NSString stringWithFormat:@"%@/Contents/Resources", [[NSWorkspace sharedWorkspace] fullPathForApplication:@"Wine.app"]],
-				 [NSString stringWithFormat:@"%@/Contents/Resources/usr", [[NSWorkspace sharedWorkspace] fullPathForApplication:@"Wine.app"]],
 				 
-				 // legacy hardcoded
+				 // hardcoded
 				 [@"~/Applications/Wine/Wine.bundle/Contents" stringByExpandingTildeInPath],
 				 @"/Applications/Wine/Wine.bundle/Contents",
-				 [@"~/Applications/Darwine/Wine.bundle/Contents" stringByExpandingTildeInPath],
-				 @"/Applications/Darwine/Wine.bundle/Contents",
 				 nil];
 	fileManager = [NSFileManager defaultManager];
 	tWinePath = nil;
@@ -200,8 +192,8 @@
             //[[NSFileManager defaultManager] createDirectoryAtURL:[NSURL fileURLWithPath:[targetPath stringByDeletingLastPathComponent]] withIntermediateDirectories:YES attributes:nil error:NULL];
             [[NSFileManager defaultManager] createDirectoryAtPath:[targetPath stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:NULL];
             [[NSFileManager defaultManager]
-                copyItemAtURL:[NSURL URLWithString:tTemplate]
-                toURL:[NSURL URLWithString:targetPath]
+                copyItemAtURL:[NSURL fileURLWithPath:tTemplate]
+                toURL:[NSURL fileURLWithPath:targetPath]
                 error:nil];
 		}
 		if (tInstallerURL == nil)
@@ -548,10 +540,9 @@
 				[icontask waitUntilExit];
 				[icontask release];
                 
-                NSLog(@"bundleSignature 1: %@ %@", bundleSignature, [filename path]);
                 // codesign
                 if (bundleSignature) {
-                    NSLog(@"bundleSignature 2: %@ %@", bundleSignature, [filename path]);
+                    NSLog(@"bundleSignature: %@ %@", bundleSignature, [filename path]);
                     icontask = [[NSTask alloc] init];
                     [icontask setLaunchPath:@"/usr/bin/codesign"];
                     [icontask setCurrentDirectoryPath:[[NSBundle bundleForClass:[self class]] resourcePath]];
@@ -579,9 +570,9 @@
                                                 defaultButton:@"OK"
                                               alternateButton:nil
                                                   otherButton:nil
-                                    informativeTextWithFormat:[NSString stringWithFormat:@"%@ %@",
+                                    informativeTextWithFormat:@"%@ %@",
                                                                [[[NSString alloc] initWithData:outdata encoding:NSUTF8StringEncoding] autorelease],
-                                                               [[[NSString alloc] initWithData:errdata encoding:NSUTF8StringEncoding] autorelease]]];
+                                                               [[[NSString alloc] initWithData:errdata encoding:NSUTF8StringEncoding] autorelease]];
                         [alert runModal];
                     }
                 }

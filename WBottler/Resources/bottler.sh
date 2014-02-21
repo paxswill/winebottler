@@ -81,18 +81,14 @@ export WINEBOTTLER_TMP="/private/tmp/winebottler_$(date +%s)"
 #export LANG=fr.UTF-8
 #export LC_CTYPE=fr_FR.UTF-8
 
+
+
 ##########              MULTIINSTANCE AND NOSPACE SUPPORT              #########
 ################################################################################
 # - sometime people try to run multiple instances of winetricks, so we run them in separated places, so that we can tidy up afterwards
 # - winetricks is often not safe for paths with spaces, so we link everithing to save paths)
 export NOSPACE_PATH=$WINEBOTTLER_TMP"/nospace"
 mkdir -p "$NOSPACE_PATH"
-
-
-
-##########                 no .desktop links and menues                #########
-################################################################################
-export WINEDLLOVERRIDES=winemenubuilder.exe=d
 
 
 
@@ -192,6 +188,15 @@ export -f winebottlerDownload
 
 
 
+##########                    Create exact copy                       ##########
+################################################################################
+tarcp() {
+    (cd "$1"; tar cfv - . ) | ( mkdir -p "$2"; cd "$2" ; tar xfpv - )
+}
+export -f tarcp
+
+
+
 ##########                Create a new app container                  ##########
 ################################################################################
 winebottlerApp () {
@@ -214,47 +219,36 @@ winebottlerApp () {
     cat > "$BOTTLE/Contents/MacOS/startwine" <<_EOF_
 #!/bin/bash
 
+
+
 BUNDLERESOURCEPATH="\$(dirname "\$0")/../Resources"
 
-#find wine
-WINEUSRPATH=""
-#spotlight
-[ -f "\$(mdfind 'kMDItemDisplayName == Wine.app' | grep -m 1 'Wine.app')/Contents/Resources/bin/wine" ] && {
-	export WINEUSRPATH="\$(mdfind 'kMDItemDisplayName == Wine.app' | grep -m 1 'Wine.app')/Contents/Resources"
-}
-[ -f "\$(mdfind 'kMDItemDisplayName == Wine.app' | grep -m 1 'Wine.app')/Contents/Resources/usr/bin/wine" ] && {
-	export WINEUSRPATH="\$(mdfind 'kMDItemDisplayName == Wine.app' | grep -m 1 'Wine.app')/Contents/Resources/usr"
-}
-#old style
-[ -f "/Applications/Wine.app/Contents/Resources/bin/wine" ] && {
-    export WINEUSRPATH="/Applications/Wine.app/Contents/Resources"
-}
-[ -f "\$HOME/Applications/Wine.app/Contents/Resources/bin/wine" ] && {
-    export WINEUSRPATH="\$HOME/Applications/Wine.app/Contents/Resources"
-}
-[ -f "\$BUNDLERESOURCEPATH/Wine.bundle/Contents/Resources/bin/wine" ] && {
+
+
+#find wine, try in Bundle, ~/Applications, /Applications, Spotlight
+if [ -f "\$BUNDLERESOURCEPATH/Wine.bundle/Contents/Resources/bin/wine" ]; then
     export WINEUSRPATH="\$BUNDLERESOURCEPATH/Wine.bundle/Contents/Resources"
-}
-#new style
-[ -f "/Applications/Wine.app/Contents/Resources/usr/bin/wine" ] && {
-    export WINEUSRPATH="/Applications/Wine.app/Contents/Resources/usr"
-}
-[ -f "\$HOME/Applications/Wine.app/Contents/Resources/usr/bin/wine" ] && {
-    export WINEUSRPATH="\$HOME/Applications/Wine.app/Contents/Resources/usr"
-}
-[ -f "\$BUNDLERESOURCEPATH/Wine.bundle/Contents/Resources/usr/bin/wine" ] && {
-    export WINEUSRPATH="\$BUNDLERESOURCEPATH/Wine.bundle/Contents/Resources/usr"
-}
-[ "\$WINEUSRPATH"x == ""x ] && {
+elif [ -f "\$HOME/Applications/Wine.app/Contents/Resources/bin/wine" ]; then
+    export WINEUSRPATH="\$HOME/Applications/Wine.app/Contents/Resources"
+elif [ -f "/Applications/Wine.app/Contents/Resources/bin/wine" ]; then
+    export WINEUSRPATH="/Applications/Wine.app/Contents/Resources"
+elif [ -f "\$(mdfind 'kMDItemDisplayName == Wine.app' | grep -m 1 'Wine.app')/Contents/Resources/bin/wine" ]; then
+    export WINEUSRPATH="\$(mdfind 'kMDItemDisplayName == Wine.app' | grep -m 1 'Wine.app')/Contents/Resources"
+else
     echo "Wine not found!"
     exit 1
-}
+fi
+
+
 
 # create working copy
 export WINEPREFIX="\$HOME/Library/Application Support/$APP_PREFS_DOMAIN"
-"\$BUNDLERESOURCEPATH/Winetricks.app/Contents/MacOS/./Winetricks" "\$BUNDLERESOURCEPATH/wineprefix" "\$WINEPREFIX" "\$(defaults read "\$BUNDLERESOURCEPATH/../Info" CFBundleName)"
+if [ ! -d "\$WINEPREFIX" ]; then
+    "\$BUNDLERESOURCEPATH/Winetricks.app/Contents/MacOS/./Winetricks" "\$BUNDLERESOURCEPATH/wineprefix" "\$WINEPREFIX" "\$(defaults read "\$BUNDLERESOURCEPATH/../Info" CFBundleName)"
+fi
 
-		
+
+
 # exports
 export PATH="\$WINEUSRPATH/bin":\$PATH
 export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:"\$WINEUSRPATH/lib"
@@ -486,9 +480,14 @@ REGEDIT4
 [HKEY_CURRENT_USER\Software\Wine\Drivers]
 "Audio"="coreaudio"
 
+[HKEY_CURRENT_USER\Software\Wine\DllOverrides]
+"winemenubuilder.exe"="native"
+
 _EOF_
     winebottlerTry "$WINE" regedit /tmp/reg.reg
     winebottlerTry rm /tmp/reg.reg
+
+    cp "BUNDLERESOURCEPATH/winemenubuilder.exe" "$WINEPREFIX/drive_c/windows/System32/"
 }
 export -f winebottlerReg
 
@@ -516,10 +515,10 @@ winebottlerPrefix () {
 		wait
 	}
 	cd "$WINEPREFIX/drive_c/windows"
-	winebottlerTry rm -rf "$WINEPREFIX/drive_c/windows/system"
-	wait
-	winebottlerTry ln -s "system32" "system"
-	wait
+#   winebottlerTry rm -rf "$WINEPREFIX/drive_c/windows/system"
+#	wait
+#	winebottlerTry ln -s "system32" "system"
+#	wait
     echo "###BOTTLING### Installing Truetype Fonts..."
     find /Library/Fonts -name \*.ttf -exec sh -c 'ln -s "{}" "$WINEPREFIX/drive_c/windows/Fonts/`basename "{}"`"' \;
     find ~/Library/Fonts -name \*.ttf -exec sh -c 'ln -s "{}" "$WINEPREFIX/drive_c/windows/Fonts/`basename "{}"`"' \;
@@ -540,9 +539,31 @@ export -f winebottlerPrefix
 
 
 
+##########                        copy prefix                         ##########
+################################################################################
+winebottlerPrefixCopy () {
+    echo "###BOTTLING### Copy prefix..."
+
+    tarcp "$TEMPLATE" "$WINEPREFIX"
+    wait
+
+    winebottlerTry "$WINESERVER" -k
+    wait
+
+    mv "$BOTTLE/Contents/Info.plist" "$BOTTLE/Contents/Info.plist2"
+    sed "s/%ProgramFiles%/$( sed 's/\\/\\\\/g' <<< $("$WINE" cmd.exe /c echo %ProgramFiles% | tr -d "\015"))/" "$BOTTLE/Contents/Info.plist2" > "$BOTTLE/Contents/Info.plist"
+    rm "$BOTTLE/Contents/Info.plist2"
+
+    # mark this as a WineBottler prefix
+    echo "Made by WineBottler" > "$WINEPREFIX/WineBottler.id"
+}
+export -f winebottlerPrefixCopy
+
+
+
 ##########                  Add items from winetricks                  #########
 ################################################################################
-function winebottlerWinetricks() {
+function winebottlerWinetricks () {
 	[ "$WINETRICKS_ITEMS" != "" ] && {
 
         # prepare winetricks
@@ -762,8 +783,9 @@ function winebottlerInstall () {
 			
 			# normal installation
 			else
-                mkdir -p "$WINEPREFIX/drive_c/windows/temp/installer"
-                cp "$INSTALLER_URL" "$WINEPREFIX/drive_c/windows/temp/installer/"
+#mkdir -p "$WINEPREFIX/drive_c/windows/temp/installer"
+#cp "$INSTALLER_URL" "$WINEPREFIX/drive_c/windows/temp/installer/"
+                ln -s "$(dirname "$INSTALLER_URL")" "$WINEPREFIX/drive_c/windows/temp/installer"
                 cd "$WINEPREFIX/drive_c/windows/temp/installer"
                 if test $(echo "$INSTALLER_NAME" | grep .msi); then
                     runSanitized "\"$WINE\" msiexec /i \"C:/windows/temp/installer/$INSTALLER_NAME\" $INSTALLER_ARGUMENTS"
@@ -771,9 +793,10 @@ function winebottlerInstall () {
                     runSanitized "\"$WINE\" \"C:/windows/temp/installer/$INSTALLER_NAME\" $INSTALLER_ARGUMENTS"
                 fi
                 cd -
-                winebottlerTry rm -rf "$WINEPREFIX/drive_c/windows/temp/installer"
+#winebottlerTry rm -rf "$WINEPREFIX/drive_c/windows/temp/installer"
+                winebottlerTry rm -f "$WINEPREFIX/drive_c/windows/temp/installer"
 			fi
-			
+
 		fi
 	}
 	

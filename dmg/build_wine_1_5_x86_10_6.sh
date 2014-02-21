@@ -1,31 +1,10 @@
 #!/usr/bin/env bash
 
-#
-# build_wine.sh
-# of the 'WineBottler' project
-#
-# Copyright 2009 Mike Kronenberg
-#
-# This library is free software; you can redistribute it and/or
-# modify it under the terms of the GNU Lesser General Public
-# License as published by the Free Software Foundation; either
-# version 2.1 of the License, or (at your option) any later version.
-#
-# This library is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-# Lesser General Public License for more details.
-#
-# You should have received a copy of the GNU Lesser General Public
-# License along with this library; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
-#
-
 #TODO:
 #USB http://forum.winehq.org/viewtopic.php?t=5663
 
 export BUILD_BUNDLE=1
-export WINE_VERSION=1.5.31
+export WINE_VERSION=1.7.13
 
 
 
@@ -221,8 +200,7 @@ export CPPFLAGS="\
     -I$BUILDDIRECTORY/usr/include/libexslt\
     -I$BUILDDIRECTORY/usr/include/libxml2\
     -I$BUILDDIRECTORY/usr/include/libxslt\
-    -I$BUILDDIRECTORY/usr/include/sane\
-    -I/usr/X11/include"
+    -I$BUILDDIRECTORY/usr/include/sane"
 export CFLAGS="-O2 -arch i386 -m32 -I$BUILDDIRECTORY/usr/include"
 export CXXFLAGS="$CFLAGS "
 export LDFLAGS=" -arch i386 -L$BUILDDIRECTORY/usr/lib"
@@ -328,8 +306,8 @@ export LIBTLD_VERSION=2.4.2 && prepare libtool $LIBTLD_VERSION "http://ftp.gnu.o
 export LIBMPG123_VERSION=1.15.3 && prepare mpg123 $LIBMPG123_VERSION "http://www.mpg123.de/download/mpg123-$LIBMPG123_VERSION.tar.bz2" '--silent --enable-shared --disable-static --prefix='$BUILDDIRECTORY'/usr --with-cpu=generic_fpu'
 
 # lcms2
-export LCMS_VERSION=1.19 && prepare lcms $LCMS_VERSION "http://kent.dl.sourceforge.net/project/lcms/lcms/"$LCMS_VERSION"/lcms-"$LCMS_VERSION".tar.gz" '--silent --enable-shared --disable-static --prefix='$BUILDDIRECTORY'/usr'
-#export LCMS_VERSION=2.3 && prepare lcms2 $LCMS_VERSION "http://ignum.dl.sourceforge.net/project/lcms/lcms/"$LCMS_VERSION"/lcms2-"$LCMS_VERSION".tar.gz" '--silent --enable-shared --prefix='$BUILDDIRECTORY'/usr'
+#export LCMS_VERSION=1.19 && prepare lcms $LCMS_VERSION "http://kent.dl.sourceforge.net/project/lcms/lcms/"$LCMS_VERSION"/lcms-"$LCMS_VERSION".tar.gz" '--silent --enable-shared --disable-static --prefix='$BUILDDIRECTORY'/usr'
+export LCMS_VERSION=2.5 && prepare lcms2 $LCMS_VERSION "http://freefr.dl.sourceforge.net/project/lcms/lcms/"$LCMS_VERSION"/lcms2-"$LCMS_VERSION".tar.gz" '--silent --enable-shared --prefix='$BUILDDIRECTORY'/usr'
 
 # libjpeg
 export LIBJPEG_VERSION=8d && prepare jpeg $LIBJPEG_VERSION "http://www.ijg.org/files/jpegsrc.v"$LIBJPEG_VERSION".tar.gz" '--silent --enable-shared --disable-static --prefix='$BUILDDIRECTORY'/usr'
@@ -339,12 +317,9 @@ export LIBJPEG_VERSION=8d && prepare jpeg $LIBJPEG_VERSION "http://www.ijg.org/f
 #export LIBTIFF_VERSION=4.0.2 && prepare tiff $LIBTIFF_VERSION "ftp://ftp.remotesensing.org/pub/libtiff/tiff-"$LIBTIFF_VERSION".tar.gz" '--silent --enable-shared --disable-static --prefix='$BUILDDIRECTORY'/usr'
 export LIBTIFF_VERSION=4.0.3 && prepare tiff $LIBTIFF_VERSION "ftp://ftp.remotesensing.org/pub/libtiff/tiff-"$LIBTIFF_VERSION".tar.gz" '--silent --enable-shared --disable-static --prefix='$BUILDDIRECTORY'/usr'
 
-
 # libpng
-if test $(echo $OSTYPE | grep darwin10); then
-#    export LIBPNG_VERSION=1.5.12 && prepare libpng $LIBPNG_VERSION "ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng-"$LIBPNG_VERSION".tar.gz" '--silent --enable-shared --disable-static --prefix='$BUILDDIRECTORY'/usr'
-    export LIBPNG_VERSION=1.6.1 && prepare libpng $LIBPNG_VERSION "http://ignum.dl.sourceforge.net/project/libpng/libpng16/older-releases/"$LIBPNG_VERSION"/libpng-"$LIBPNG_VERSION".tar.gz" '--silent --enable-shared --disable-static --prefix='$BUILDDIRECTORY'/usr'
-fi
+#export LIBPNG_VERSION=1.6.1 && prepare libpng $LIBPNG_VERSION "http://ignum.dl.sourceforge.net/project/libpng/libpng16/older-releases/"$LIBPNG_VERSION"/libpng-"$LIBPNG_VERSION".tar.gz" '--silent --enable-shared --disable-static --prefix='$BUILDDIRECTORY'/usr'
+export LIBPNG_VERSION=1.6.3 && prepare libpng $LIBPNG_VERSION "http://heanet.dl.sourceforge.net/project/libpng/libpng16/"$LIBPNG_VERSION"/libpng-"$LIBPNG_VERSION".tar.gz" '--silent --enable-shared --disable-static --prefix='$BUILDDIRECTORY'/usr'
 
 # pkg-config (used by libgphoto2), 0.23+ needs glib, so we stay with 0.23
 export PKG_CONFIG_VERSION=0.23 && prepare pkg-config $PKG_CONFIG_VERSION "http://pkgconfig.freedesktop.org/releases/pkg-config-"$PKG_CONFIG_VERSION".tar.gz" '--silent --enable-shared --disable-static --prefix='$BUILDDIRECTORY'/usr'
@@ -365,8 +340,9 @@ export LIBGPHOTO2_VERSION=2.4.14 && prepare libgphoto2 $LIBGPHOTO2_VERSION "http
 export LIBSANE_VERSION=1.0.23 && prepare sane-backends $LIBSANE_VERSION "ftp://ftp2.sane-project.org/pub/sane/sane-backends-$LIBSANE_VERSION.tar.gz" '--silent --enable-shared --prefix='$BUILDDIRECTORY'/usr --with-gphoto2'
 
 # freetype (needed by wine and fontconfig)
-#export FREETYPE_VERSION=2.4.10 && prepare freetype $FREETYPE_VERSION "http://mirrors.zerg.biz/nongnu/freetype/freetype-"$FREETYPE_VERSION".tar.gz" '--silent --enable-shared --disable-static --prefix='$BUILDDIRECTORY'/usr'
-export FREETYPE_VERSION=2.4.11 && prepare freetype $FREETYPE_VERSION "http://mirrors.zerg.biz/nongnu/freetype/freetype-"$FREETYPE_VERSION".tar.gz" '--silent --enable-shared --disable-static --prefix='$BUILDDIRECTORY'/usr'
+#export FREETYPE_VERSION=2.4.11 && prepare freetype $FREETYPE_VERSION "http://mirrors.zerg.biz/nongnu/freetype/freetype-"$FREETYPE_VERSION".tar.gz" '--silent --enable-shared --disable-static --prefix='$BUILDDIRECTORY'/usr'
+#export FREETYPE_VERSION=2.4.12 && prepare freetype $FREETYPE_VERSION "http://mirrors.zerg.biz/nongnu/freetype/freetype-"$FREETYPE_VERSION".tar.gz" '--silent --enable-shared --disable-static --prefix='$BUILDDIRECTORY'/usr'
+export FREETYPE_VERSION=2.5.2 && prepare freetype $FREETYPE_VERSION "http://mirrors.zerg.biz/nongnu/freetype/freetype-"$FREETYPE_VERSION".tar.gz" '--silent --enable-shared --disable-static --prefix='$BUILDDIRECTORY'/usr'
 
 # fontconfig
 #export FONTCONFIG_VERSION=2.9.92 && prepare fontconfig $FONTCONFIG_VERSION "http://www.fontconfig.org/release/fontconfig-"$FONTCONFIG_VERSION".tar.gz" '--silent --enable-shared --disable-static --prefix='$BUILDDIRECTORY'/usr --with-add-fonts=/usr/X11/lib/X11/fonts --with-add-fonts=/Library/Fonts --with-add-fonts=/Network/Library/Fonts --with-add-fonts=$BUILDDIRECTORY/share/fonts'
@@ -562,7 +538,7 @@ fi
 
 
 #gecko
-export GECKO_VERSION=1.9
+export GECKO_VERSION=2.24
 echo "\ngecko"
 logtext "    check availabiliy"
 if [ ! -f "$BUILDDIRECTORY/downloads/wine_gecko-$GECKO_VERSION-x86.msi" ]; then
@@ -583,7 +559,7 @@ logtextStatus "[OK]"
 
 
 #mono
-export MONO_VERSION=0.0.8
+export MONO_VERSION=4.5.2
 echo "\nmono"
 logtext "    check availabiliy"
 if [ ! -f "$BUILDDIRECTORY/downloads/wine-mono-$MONO_VERSION.msi" ]; then

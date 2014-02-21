@@ -37,11 +37,15 @@
     
 	IBOutlet INAppStoreWindow *bottlerWindow;
     
-	IBOutlet NSView *toolbar;
+    BOOL isWindowRevealed;
+
+//	IBOutlet NSView *toolbar;
 	IBOutlet NSButton *toolbarButton1;
 	IBOutlet NSButton *toolbarButton2;
 	IBOutlet NSButton *toolbarButton3;
-	
+
+
+    
 	IBOutlet NSView *bottlerViewRight;
 	
 	IBOutlet WebView *bottlerViewPrefixes;

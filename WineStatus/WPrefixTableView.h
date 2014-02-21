@@ -31,5 +31,7 @@
     NSPoint pointClicked;
     NSImage *wDeleteIcon;
 	NSImage *wFinderIcon;
+    float icon_width;
+    float icon_height;
 }
 @end

@@ -58,6 +58,8 @@
     
 	self = [super init];
 	if (self) {
+        isWindowRevealed = NO;
+        
         // see that we have an Application Support directory
         if (![[NSFileManager defaultManager] fileExistsAtPath:APPSUPPORT_WINEBOTTLER isDirectory:&dir])
             [[NSFileManager defaultManager] createDirectoryAtPath:APPSUPPORT_WINEBOTTLER withIntermediateDirectories:YES attributes:nil error:nil];
@@ -139,31 +141,13 @@
 
 -(void) revealBottlerWindow:(id)sender
 {
-    NSRect viewFrame;
-    NSView *titleBarView;
-    
     [progressIndicator setDoubleValue:[progressIndicator doubleValue] + 50.0];
-
-    bottlerWindow.titleBarHeight = 46.0;
-    bottlerWindow.trafficLightButtonsLeftMargin = 13.0;
-    titleBarView = bottlerWindow.titleBarView;
-    
-    viewFrame = NSMakeRect(NSMidX(titleBarView.bounds) - (234.0 / 2.f), NSMidY(titleBarView.bounds) - (bottlerWindow.titleBarHeight / 2.f), 234.0, bottlerWindow.titleBarHeight);
-    [toolbar setAutoresizingMask:NSViewMinXMargin|NSViewMaxXMargin];
-    [toolbar setFrame:viewFrame];
-    [titleBarView addSubview:toolbar];
-    
+    [predefinedSearchField setAutoresizingMask:NSViewMinXMargin];
     [toolbarButton1.image setTemplate:YES];
     [toolbarButton2.image setTemplate:YES];
     [toolbarButton3.image setTemplate:YES];
+    isWindowRevealed = YES;
     
-    predefinedSearchField = [[NSSearchField alloc] initWithFrame:NSMakeRect(titleBarView.bounds.size.width - 150.f - 10.f, 10.f, 150.f, 24.f)];
-    [predefinedSearchField setAutoresizingMask:NSViewMinXMargin];
-    [predefinedSearchField setTarget:self];
-    [predefinedSearchField setAction:@selector(predefinedSearch:)];
-    [titleBarView addSubview:predefinedSearchField];
-    [predefinedSearchField release];
-
 	// prefixes
     [bottlerViewPrefixes setDrawsBackground:NO];
 	[self prefixQuery:self];
@@ -288,7 +272,7 @@
     }
     [self predefinedSearch:self];
     
-    if (!predefinedSearchField) {
+    if (!isWindowRevealed) {
         [self revealBottlerWindow:self];
     }
     [tMetadata release];
@@ -586,6 +570,7 @@
 {
 	NSRange range;
 	NSString *path;
+    NSError *error;
 	
 	switch (returnCode) {
 		case NSAlertFirstButtonReturn:
@@ -598,10 +583,15 @@
 				
 				// get rid of app itself
 				path = [(NSString *)contextInfo substringToIndex:range.location + 4];
-				[[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:path] error:nil];
+                if ([[NSFileManager defaultManager] fileExistsAtPath:path])
+                    if (![[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:path] error:&error])
+                        NSLog(@"Removing App: %@ Error: %@", path, error);
 				
 			} else {
-				[[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:(NSString *)contextInfo] error:nil];
+				path = (NSString *)contextInfo;
+                if ([[NSFileManager defaultManager] fileExistsAtPath:path])
+                    if (![[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:path] error:&error])
+                        NSLog(@"Removing Wine.app prefix: %@ Error: %@", contextInfo, error);
             }
             [self prefixSearch:self];
 			break;
@@ -658,24 +648,21 @@
 
 				// remove prefix from Application Data
 				path = [[NSString stringWithFormat:@"~/Library/Application Support/%@", appIdentifier] stringByExpandingTildeInPath];
-				[[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:path] error:&error];
-                if (error) {
-                    NSLog(@"Error: %@", error);
-                }
+				if ([[NSFileManager defaultManager] fileExistsAtPath:path])
+                    if (![[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:path] error:&error])
+                        NSLog(@"Removing Application Data: %@ Error: %@", contextInfo, error);
 				
 				// ~/Library/preferences/
 				path = [[NSString stringWithFormat:@"~/Library/Preferences/%@.plist", appIdentifier] stringByExpandingTildeInPath];
-				[[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:path] error:&error];
-                if (error) {
-                    NSLog(@"Error: %@", error);
-                }
+                if ([[NSFileManager defaultManager] fileExistsAtPath:path])
+                    if (![[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:path] error:&error])
+                        NSLog(@"Removing Preferences: %@ Error: %@", contextInfo, error);
 				
 				// ~/.xinitrc.d/
 				path = [[NSString stringWithFormat:@"~/.xinitrc.d/%@.sh", appIdentifier] stringByExpandingTildeInPath];
-				[[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:path] error:&error];
-                if (error) {
-                    NSLog(@"Error: %@", error);
-                }
+                if ([[NSFileManager defaultManager] fileExistsAtPath:path])
+                    if (![[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:path] error:&error])
+                        NSLog(@"Removing xinitrc.d: %@ Error: %@", contextInfo, error);
 			}
 			
 			[[NSDistributedNotificationCenter defaultCenter] postNotificationName:@"WineBottlerPrefixesChanged" object:nil];

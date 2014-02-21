@@ -89,10 +89,9 @@
     NSPipe *errpipe;
  
     // get a copy of the winetricks
-    //string = [NSString stringWithContentsOfURL:[NSURL URLWithString:WINETRICKS_URL] encoding:NSUTF8StringEncoding error:nil];
     string = [self stringWithContentsOfURLNoCache:[NSURL URLWithString:WINETRICKS_URL]];
     if (string) {
-        [string writeToURL:[NSString stringWithFormat:@"%@winetricks", APPSUPPORT_WINE] atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        [string writeToURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@winetricks", APPSUPPORT_WINE]] atomically:YES encoding:NSUTF8StringEncoding error:nil];
     } else {
         NSLog(@"Can't update winetricks");
     }

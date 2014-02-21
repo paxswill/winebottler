@@ -21,7 +21,7 @@
 			The automated installers take care of a lot of installation related tasks, like downloading the program from the internet, setting up Wine and sattisfing additional requirements. In the end, they pack everything snuggly into an OS X Application bundle. Then, start the program by double-clicking that bundle, like you would any other OS X Application.<br /><br />
 			<b>Important:<br />Because of the automated process, EULAs are not displayed. By using these automated installers, you agree to the EULAs.</b><br /><br />
 			If you don't find your program here, you can bottle any windows program in the <b>Advanced</b> section.
-			<a href=\"winebottlerhide://predefinedExplanation\"><img class=\"explanation\" src=\"kill.png\" /></a>
+			<a href=\"winebottlerhide://predefinedExplanation\"><img class=\"explanation\" src=\"kill.tiff\" /></a>
 		</div>";
 
 "WBottlerController:predefined:item" = "<div class=\"app\"><img class=\"icon\" src=\"%@\" onerror=\"this.src='Application.icns'\" /><a class=\"title\" href=\"%@\">%@</a>%@ %@<a class=\"install\" href=\"winebottlerinstall://%@\">INSTALL</a></div>";
@@ -31,11 +31,11 @@
 			This is an overview of all Windows Programs installed by WineBottler. These Programs consist of two parts: The Application and the Application data.<br />
 			<br />
 			<b>If you want to remove a Program, we suggest, you do it from here.</b><br />WineBottler takes care of removing all the Application related Data, which can take a lot of space.
-			<a href=\"winebottlerhide://prefixExplanation\"><img class=\"explanation\" src=\"kill.png\" /></a>
+			<a href=\"winebottlerhide://prefixExplanation\"><img class=\"explanation\" src=\"kill.tiff\" /></a>
 		</div>";
 
-"WBottlerController:prefix:item" = "<div class=\"iapp\"><a class=\"title\" href=\"winebottlerrunapp://%@\" title=\"Run App\"><img class=\"icon\" src=\"%@\" />%@</a><a href=\"winebottlershowinfinder://%@\" title=\"Show in Finder\"><img src=\"mFinder.png\" class=\"miniicon\" /></a> <div><a class=\"install\" href=\"winebottlerreset://%@\">RESET</a> <a class=\"install\" href=\"winebottlerremove://%@\">REMOVE</a></div></div>";
-"WBottlerController:prefix:prefix" = "<div class=\"iapp\"><a class=\"path\" title=\"Run App\"><img class=\"icon\" src=\"%@\" />%@</a><a href=\"winebottlershowinfinder://%@\" title=\"Show in Finder\"><img src=\"mFinder.png\" class=\"miniicon\" /></a> <div><a class=\"install\" href=\"winebottlerremove://%@\">REMOVE</a></div></div>";
+"WBottlerController:prefix:item" = "<div class=\"iapp\"><a class=\"title\" href=\"winebottlerrunapp://%@\" title=\"Run App\"><img class=\"icon\" src=\"%@\" />%@</a><a href=\"winebottlershowinfinder://%@\" title=\"Show in Finder\"><img src=\"mFinder.tiff\" class=\"miniicon\" /></a> <div><a class=\"install\" href=\"winebottlerreset://%@\">RESET</a> <a class=\"install\" href=\"winebottlerremove://%@\">REMOVE</a></div></div>";
+"WBottlerController:prefix:prefix" = "<div class=\"iapp\"><a class=\"path\" title=\"Run App\"><img class=\"icon\" src=\"%@\" />%@</a><a href=\"winebottlershowinfinder://%@\" title=\"Show in Finder\"><img src=\"mFinder.tiff\" class=\"miniicon\" /></a> <div><a class=\"install\" href=\"winebottlerremove://%@\">REMOVE</a></div></div>";
 
 
 "WBottlerController:prefixDelete:setMessageText" = "Remove \"%@\"?";
