@@ -39,6 +39,7 @@ echo "PWD..........................: '"$(PWD)"'"
 echo "PATH.........................: $PATH"
 echo "USER.........................: $USER"
 echo "HOME.........................: $HOME"
+echo "COMPUTERNAME.................: $COMPUTERNAME"
 echo "BUNDLERESOURCEPATH...........: $BUNDLERESOURCEPATH"
 echo "WINEPATH.....................: $WINEPATH"
 echo "LD_LIBRARY_PATH..............: $LD_LIBRARY_PATH"
@@ -256,7 +257,8 @@ export DYLD_FALLBACK_LIBRARY_PATH="/usr/lib:\$WINEUSRPATH/lib"
 export FONTCONFIG_FILE="\$WINEUSRPATH/etc/fonts/fonts.conf"
 export WINEPATH="\$WINEUSRPATH/bin"
 
-
+#some default windows vars that might be missing ( http://ss64.com/nt/syntax-variables.html )
+[ -z "\$COMPUTERNAME" ] && export COMPUTERNAME="\$(/usr/sbin/scutil --get ComputerName)"
 
 # start wine and program, if possible in the programs root directory, change to forwardslashes
 BIN_FILE="\$(sed 's|\\\\|/|g' <<< "\$(defaults read "\$BUNDLERESOURCEPATH/../Info" WineProgramPath)")"

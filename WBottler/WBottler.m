@@ -252,6 +252,7 @@
 							   [NSString stringWithFormat:@"%@/etc/fonts/fonts.conf", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // FONTCONFIG_FILE
 							   NSUserName(),									// USER
 							   NSHomeDirectory(),								// HOME
+							   [(NSString*)CSCopyMachineName() autorelease],    // COMPUTERNAME
 							   
 							   [[NSBundle bundleForClass:[self class]] resourcePath], // BUNDLERESOURCEPATH
 							   [tFilename path],								// BOTTLE
@@ -278,6 +279,7 @@
 							   @"FONTCONFIG_FILE",
 							   @"USER",
 							   @"HOME",
+							   @"COMPUTERNAME",
 							   
 							   @"BUNDLERESOURCEPATH",
 							   @"BOTTLE",

@@ -117,7 +117,8 @@
     [self showPredefinedWeb:self];
     
     [progressIndicator setUsesThreadedAnimation:YES];
-    [progressIndicator setDoubleValue:0];
+    [progressIndicator setIndeterminate:YES];
+    [progressIndicator startAnimation:self];
     
     // update showcase
     string = [self stringWithContentsOfURLNoCache:[NSURL URLWithString:[NSString stringWithFormat:@"%@winebottler.plist", PREDEFINED_URL ]]];
@@ -126,7 +127,6 @@
     } else {
         NSLog(@"Can't update winebottler.plist");
     }
-    [progressIndicator setDoubleValue:[progressIndicator doubleValue] + 25.0];
     
     // update metadata
     string = [self stringWithContentsOfURLNoCache:[NSURL URLWithString:[NSString stringWithFormat:@"%@metadata.plist", PREDEFINED_URL ]]];
@@ -135,13 +135,11 @@
     } else {
         NSLog(@"Can't update metadata.plist");
     }
-    [progressIndicator setDoubleValue:[progressIndicator doubleValue] + 25.0];
 }
 
 
 -(void) revealBottlerWindow:(id)sender
 {
-    [progressIndicator setDoubleValue:[progressIndicator doubleValue] + 50.0];
     [predefinedSearchField setAutoresizingMask:NSViewMinXMargin];
     [toolbarButton1.image setTemplate:YES];
     [toolbarButton2.image setTemplate:YES];
@@ -156,7 +154,6 @@
     predefinedApps = [[NSDictionary alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@winebottler.plist", APPSUPPORT_WINEBOTTLER]]];
     [bottlerViewPredefined setDrawsBackground:NO];
 	[self predefinedUpdated:self];
-    //[self showPredefinedWeb:self];
     
     [bottlerWindow makeKeyAndOrderFront:self];
     [updatePanel orderOut:self];

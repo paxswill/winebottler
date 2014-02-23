@@ -58,10 +58,10 @@
 		270BB98711B2A829000E25A2 /* applywinetricks.sh in Resources */ = {isa = PBXBuildFile; fileRef = 27ECB2FB0FCD62910050C76A /* applywinetricks.sh */; };
 		270BB98811B2A831000E25A2 /* icon.sh in Resources */ = {isa = PBXBuildFile; fileRef = 277D3C59107A1A9B004611C3 /* icon.sh */; };
 		270BB9AD11B2A9BA000E25A2 /* WBottler.h in Headers */ = {isa = PBXBuildFile; fileRef = 27C52C251095F87800303AA6 /* WBottler.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2721D4740FA0BF64003802D1 /* kill.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4660FA0BF64003802D1 /* kill.png */; };
+		2721D4740FA0BF64003802D1 /* killIconTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4660FA0BF64003802D1 /* killIconTemplate.png */; };
 		2721D4750FA0BF64003802D1 /* killwine.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4670FA0BF64003802D1 /* killwine.sh */; };
-		2721D4760FA0BF64003802D1 /* mDelete.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4680FA0BF64003802D1 /* mDelete.png */; };
-		2721D4770FA0BF64003802D1 /* mFinder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4690FA0BF64003802D1 /* mFinder.png */; };
+		2721D4760FA0BF64003802D1 /* deleteIconTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4680FA0BF64003802D1 /* deleteIconTemplate.png */; };
+		2721D4770FA0BF64003802D1 /* finderIconTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4690FA0BF64003802D1 /* finderIconTemplate.png */; };
 		27526E3911B4C79800EE1AEB /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 27526E3811B4C79800EE1AEB /* Credits.html */; };
 		27596AA915AFEF6500B14674 /* WTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 27596AA815AFEF6500B14674 /* WTask.m */; };
 		27596AB115AFEFA800B14674 /* WHLnk.m in Sources */ = {isa = PBXBuildFile; fileRef = 27596AAC15AFEFA700B14674 /* WHLnk.m */; };
@@ -98,12 +98,12 @@
 		27C52A4810930FF800303AA6 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 27C52A4210930FF800303AA6 /* Credits.html */; };
 		27C52A4910930FF800303AA6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27C52A4410930FF800303AA6 /* InfoPlist.strings */; };
 		27C52A4A10930FF800303AA6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27C52A4610930FF800303AA6 /* MainMenu.xib */; };
-		27C52A4F1093106100303AA6 /* kill.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4660FA0BF64003802D1 /* kill.png */; };
+		27C52A4F1093106100303AA6 /* killIconTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4660FA0BF64003802D1 /* killIconTemplate.png */; };
 		27C52A501093106100303AA6 /* killwine.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4670FA0BF64003802D1 /* killwine.sh */; };
-		27C52A511093106100303AA6 /* mDelete.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4680FA0BF64003802D1 /* mDelete.png */; };
-		27C52A521093106100303AA6 /* mFinder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4690FA0BF64003802D1 /* mFinder.png */; };
+		27C52A511093106100303AA6 /* deleteIconTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4680FA0BF64003802D1 /* deleteIconTemplate.png */; };
+		27C52A521093106100303AA6 /* finderIconTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4690FA0BF64003802D1 /* finderIconTemplate.png */; };
 		27C52A531093106100303AA6 /* WineFolder.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4700FA0BF64003802D1 /* WineFolder.icns */; };
-		27C52A591093110B00303AA6 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D46F0FA0BF64003802D1 /* reload.png */; };
+		27C52A591093110B00303AA6 /* reloadIconTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D46F0FA0BF64003802D1 /* reloadIconTemplate.png */; };
 		27C52A5A1093113600303AA6 /* options_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 27029B2F107292740071F80B /* options_bg.png */; };
 		27C52A5D109311A500303AA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C52A5B109311A500303AA6 /* main.m */; };
 		27C52A74109332E100303AA6 /* WSController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C52A73109332E100303AA6 /* WSController.m */; };
@@ -119,17 +119,16 @@
 		27C52BFA1095F55F00303AA6 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 27C52BF91095F55F00303AA6 /* Credits.html */; };
 		27C52E7E109643C900303AA6 /* Sparkle.icns in Resources */ = {isa = PBXBuildFile; fileRef = 27C52E7D109643C900303AA6 /* Sparkle.icns */; };
 		27C52E7F109643C900303AA6 /* Sparkle.icns in Resources */ = {isa = PBXBuildFile; fileRef = 27C52E7D109643C900303AA6 /* Sparkle.icns */; };
-		27D694A118B7C5CF00534E70 /* WineStatusIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A018B7C5CF00534E70 /* WineStatusIcon.pdf */; };
-		27D694A618B7C9C800534E70 /* kill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A218B7C9C800534E70 /* kill@2x.png */; };
-		27D694A718B7C9C800534E70 /* kill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A218B7C9C800534E70 /* kill@2x.png */; };
-		27D694A818B7C9C800534E70 /* mDelete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A318B7C9C800534E70 /* mDelete@2x.png */; };
-		27D694A918B7C9C800534E70 /* mDelete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A318B7C9C800534E70 /* mDelete@2x.png */; };
-		27D694AA18B7C9C800534E70 /* mFinder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A418B7C9C800534E70 /* mFinder@2x.png */; };
-		27D694AB18B7C9C800534E70 /* mFinder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A418B7C9C800534E70 /* mFinder@2x.png */; };
-		27D694AC18B7C9C800534E70 /* reload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A518B7C9C800534E70 /* reload@2x.png */; };
+		27D694A118B7C5CF00534E70 /* WineStatusIconTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A018B7C5CF00534E70 /* WineStatusIconTemplate.pdf */; };
+		27D694A618B7C9C800534E70 /* killIconTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A218B7C9C800534E70 /* killIconTemplate@2x.png */; };
+		27D694A718B7C9C800534E70 /* killIconTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A218B7C9C800534E70 /* killIconTemplate@2x.png */; };
+		27D694A818B7C9C800534E70 /* deleteIconTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A318B7C9C800534E70 /* deleteIconTemplate@2x.png */; };
+		27D694A918B7C9C800534E70 /* deleteIconTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A318B7C9C800534E70 /* deleteIconTemplate@2x.png */; };
+		27D694AA18B7C9C800534E70 /* finderIconTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A418B7C9C800534E70 /* finderIconTemplate@2x.png */; };
+		27D694AB18B7C9C800534E70 /* finderIconTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A418B7C9C800534E70 /* finderIconTemplate@2x.png */; };
+		27D694AC18B7C9C800534E70 /* reloadIconTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A518B7C9C800534E70 /* reloadIconTemplate@2x.png */; };
 		27E4FCA9172EDFA800EA1DAF /* bitcoinLogo.svg in Resources */ = {isa = PBXBuildFile; fileRef = 27E4FCA8172EDFA800EA1DAF /* bitcoinLogo.svg */; };
 		27F3B6E711A5BF5500B11B00 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F3B6E611A5BF5500B11B00 /* WebKit.framework */; };
-		27F3B8AE11A6109200B11B00 /* WineStatusIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 27F3B8AD11A6109200B11B00 /* WineStatusIcon.png */; };
 		27F3B97811A619A900B11B00 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 27ECB3000FCD62EB0050C76A /* Icon.icns */; };
 		27F3B9E111A6A29900B11B00 /* predefined.html in Resources */ = {isa = PBXBuildFile; fileRef = 27F3B9E011A6A29900B11B00 /* predefined.html */; };
 		27F3BCB811AA9DF600B11B00 /* WBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F3BCB711AA9DF600B11B00 /* WBWebViewController.m */; };
@@ -287,11 +286,11 @@
 		271B30170F9F435C003C41D7 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
 		2721D4640FA0BF64003802D1 /* bottler.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = bottler.sh; path = WBottler/Resources/bottler.sh; sourceTree = "<group>"; };
 		2721D4650FA0BF64003802D1 /* customprefix.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = customprefix.sh; path = WBottler/Resources/customprefix.sh; sourceTree = "<group>"; };
-		2721D4660FA0BF64003802D1 /* kill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kill.png; path = "Shared Resources/kill.png"; sourceTree = "<group>"; };
+		2721D4660FA0BF64003802D1 /* killIconTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = killIconTemplate.png; path = "Shared Resources/killIconTemplate.png"; sourceTree = "<group>"; };
 		2721D4670FA0BF64003802D1 /* killwine.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = killwine.sh; path = "Shared Resources/killwine.sh"; sourceTree = "<group>"; };
-		2721D4680FA0BF64003802D1 /* mDelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mDelete.png; path = "Shared Resources/mDelete.png"; sourceTree = "<group>"; };
-		2721D4690FA0BF64003802D1 /* mFinder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mFinder.png; path = "Shared Resources/mFinder.png"; sourceTree = "<group>"; };
-		2721D46F0FA0BF64003802D1 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reload.png; path = "Shared Resources/reload.png"; sourceTree = "<group>"; };
+		2721D4680FA0BF64003802D1 /* deleteIconTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = deleteIconTemplate.png; path = "Shared Resources/deleteIconTemplate.png"; sourceTree = "<group>"; };
+		2721D4690FA0BF64003802D1 /* finderIconTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = finderIconTemplate.png; path = "Shared Resources/finderIconTemplate.png"; sourceTree = "<group>"; };
+		2721D46F0FA0BF64003802D1 /* reloadIconTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reloadIconTemplate.png; path = "Shared Resources/reloadIconTemplate.png"; sourceTree = "<group>"; };
 		2721D4700FA0BF64003802D1 /* WineFolder.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = WineFolder.icns; path = "Shared Resources/WineFolder.icns"; sourceTree = "<group>"; };
 		27526E3811B4C79800EE1AEB /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Credits.html; path = WBottler/Resources/Credits.html; sourceTree = "<group>"; };
 		27596AA715AFEF6500B14674 /* WTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WTask.h; path = WineStatus/WTask.h; sourceTree = "<group>"; };
@@ -348,11 +347,11 @@
 		27C52C2D1095F87800303AA6 /* WWinetricksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WWinetricksController.h; path = WBottler/WWinetricksController.h; sourceTree = "<group>"; };
 		27C52C2E1095F87800303AA6 /* WWinetricksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WWinetricksController.m; path = WBottler/WWinetricksController.m; sourceTree = "<group>"; };
 		27C52E7D109643C900303AA6 /* Sparkle.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Sparkle.icns; path = "Shared Resources/Sparkle.icns"; sourceTree = "<group>"; };
-		27D694A018B7C5CF00534E70 /* WineStatusIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = WineStatusIcon.pdf; path = WineStatus/Resources/WineStatusIcon.pdf; sourceTree = "<group>"; };
-		27D694A218B7C9C800534E70 /* kill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "kill@2x.png"; path = "Shared Resources/kill@2x.png"; sourceTree = "<group>"; };
-		27D694A318B7C9C800534E70 /* mDelete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mDelete@2x.png"; path = "Shared Resources/mDelete@2x.png"; sourceTree = "<group>"; };
-		27D694A418B7C9C800534E70 /* mFinder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mFinder@2x.png"; path = "Shared Resources/mFinder@2x.png"; sourceTree = "<group>"; };
-		27D694A518B7C9C800534E70 /* reload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reload@2x.png"; path = "Shared Resources/reload@2x.png"; sourceTree = "<group>"; };
+		27D694A018B7C5CF00534E70 /* WineStatusIconTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = WineStatusIconTemplate.pdf; path = WineStatus/Resources/WineStatusIconTemplate.pdf; sourceTree = "<group>"; };
+		27D694A218B7C9C800534E70 /* killIconTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "killIconTemplate@2x.png"; path = "Shared Resources/killIconTemplate@2x.png"; sourceTree = "<group>"; };
+		27D694A318B7C9C800534E70 /* deleteIconTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "deleteIconTemplate@2x.png"; path = "Shared Resources/deleteIconTemplate@2x.png"; sourceTree = "<group>"; };
+		27D694A418B7C9C800534E70 /* finderIconTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "finderIconTemplate@2x.png"; path = "Shared Resources/finderIconTemplate@2x.png"; sourceTree = "<group>"; };
+		27D694A518B7C9C800534E70 /* reloadIconTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reloadIconTemplate@2x.png"; path = "Shared Resources/reloadIconTemplate@2x.png"; sourceTree = "<group>"; };
 		27E1421C15BB487F009542BB /* MASWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MASWindow.h; path = WineBottler/MASWindow.h; sourceTree = "<group>"; };
 		27E1421D15BB487F009542BB /* MASWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MASWindow.m; path = WineBottler/MASWindow.m; sourceTree = "<group>"; };
 		27E4FCA8172EDFA800EA1DAF /* bitcoinLogo.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = bitcoinLogo.svg; path = WineBottler/Resources/bitcoinLogo.svg; sourceTree = "<group>"; };
@@ -360,7 +359,6 @@
 		27ECB3000FCD62EB0050C76A /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = "Shared Resources/Icon.icns"; sourceTree = "<group>"; };
 		27F1C626184F33A000EBBDFB /* WineBottler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = WineBottler.entitlements; path = WineBottler/WineBottler.entitlements; sourceTree = "<group>"; };
 		27F3B6E611A5BF5500B11B00 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		27F3B8AD11A6109200B11B00 /* WineStatusIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WineStatusIcon.png; path = WineStatus/Resources/WineStatusIcon.png; sourceTree = "<group>"; };
 		27F3B9E011A6A29900B11B00 /* predefined.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = predefined.html; path = WineBottler/Resources/predefined.html; sourceTree = "<group>"; };
 		27F3BCB611AA9DF600B11B00 /* WBWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBWebViewController.h; path = WineBottler/WBWebViewController.h; sourceTree = "<group>"; };
 		27F3BCB711AA9DF600B11B00 /* WBWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBWebViewController.m; path = WineBottler/WBWebViewController.m; sourceTree = "<group>"; };
@@ -559,8 +557,7 @@
 		27C52A3910930E6C00303AA6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				27D694A018B7C5CF00534E70 /* WineStatusIcon.pdf */,
-				27F3B8AD11A6109200B11B00 /* WineStatusIcon.png */,
+				27D694A018B7C5CF00534E70 /* WineStatusIconTemplate.pdf */,
 				27C52A4210930FF800303AA6 /* Credits.html */,
 				27C52A4310930FF800303AA6 /* English.lproj */,
 			);
@@ -722,21 +719,21 @@
 		29B97317FDCFA39411CA2CEA /* Shared Resources */ = {
 			isa = PBXGroup;
 			children = (
-				27D694A218B7C9C800534E70 /* kill@2x.png */,
-				27D694A318B7C9C800534E70 /* mDelete@2x.png */,
-				27D694A418B7C9C800534E70 /* mFinder@2x.png */,
-				27D694A518B7C9C800534E70 /* reload@2x.png */,
+				2721D4660FA0BF64003802D1 /* killIconTemplate.png */,
+				27D694A218B7C9C800534E70 /* killIconTemplate@2x.png */,
+				2721D4680FA0BF64003802D1 /* deleteIconTemplate.png */,
+				27D694A318B7C9C800534E70 /* deleteIconTemplate@2x.png */,
+				2721D4690FA0BF64003802D1 /* finderIconTemplate.png */,
+				27D694A418B7C9C800534E70 /* finderIconTemplate@2x.png */,
+				2721D46F0FA0BF64003802D1 /* reloadIconTemplate.png */,
+				27D694A518B7C9C800534E70 /* reloadIconTemplate@2x.png */,
 				27C52E7D109643C900303AA6 /* Sparkle.icns */,
 				277D3D61107A3D00004611C3 /* dsapubkey.pem */,
 				27029B2F107292740071F80B /* options_bg.png */,
 				27C3E1CB0FD01A93006D9B75 /* Msi.icns */,
 				27C3E1C90FD01A81006D9B75 /* BottleStarter.icns */,
 				27ECB3000FCD62EB0050C76A /* Icon.icns */,
-				2721D4660FA0BF64003802D1 /* kill.png */,
 				2721D4670FA0BF64003802D1 /* killwine.sh */,
-				2721D4680FA0BF64003802D1 /* mDelete.png */,
-				2721D4690FA0BF64003802D1 /* mFinder.png */,
-				2721D46F0FA0BF64003802D1 /* reload.png */,
 				2721D4700FA0BF64003802D1 /* WineFolder.icns */,
 			);
 			name = "Shared Resources";
@@ -953,25 +950,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27D694A118B7C5CF00534E70 /* WineStatusIcon.pdf in Resources */,
+				27D694A118B7C5CF00534E70 /* WineStatusIconTemplate.pdf in Resources */,
 				27F3B97811A619A900B11B00 /* Icon.icns in Resources */,
 				27C52A4910930FF800303AA6 /* InfoPlist.strings in Resources */,
-				27D694AC18B7C9C800534E70 /* reload@2x.png in Resources */,
+				27D694AC18B7C9C800534E70 /* reloadIconTemplate@2x.png in Resources */,
 				27C52A4A10930FF800303AA6 /* MainMenu.xib in Resources */,
-				27D694AA18B7C9C800534E70 /* mFinder@2x.png in Resources */,
-				27D694A618B7C9C800534E70 /* kill@2x.png in Resources */,
+				27D694AA18B7C9C800534E70 /* finderIconTemplate@2x.png in Resources */,
+				27D694A618B7C9C800534E70 /* killIconTemplate@2x.png in Resources */,
 				27C52A4810930FF800303AA6 /* Credits.html in Resources */,
-				27C52A4F1093106100303AA6 /* kill.png in Resources */,
+				27C52A4F1093106100303AA6 /* killIconTemplate.png in Resources */,
 				27C52A501093106100303AA6 /* killwine.sh in Resources */,
-				27C52A511093106100303AA6 /* mDelete.png in Resources */,
-				27C52A521093106100303AA6 /* mFinder.png in Resources */,
-				27C52A591093110B00303AA6 /* reload.png in Resources */,
+				27C52A511093106100303AA6 /* deleteIconTemplate.png in Resources */,
+				27C52A521093106100303AA6 /* finderIconTemplate.png in Resources */,
+				27C52A591093110B00303AA6 /* reloadIconTemplate.png in Resources */,
 				27C52A531093106100303AA6 /* WineFolder.icns in Resources */,
 				27C52A5A1093113600303AA6 /* options_bg.png in Resources */,
 				27C52A3D10930F6F00303AA6 /* dsapubkey.pem in Resources */,
 				27C52E7E109643C900303AA6 /* Sparkle.icns in Resources */,
-				27D694A818B7C9C800534E70 /* mDelete@2x.png in Resources */,
-				27F3B8AE11A6109200B11B00 /* WineStatusIcon.png in Resources */,
+				27D694A818B7C9C800534E70 /* deleteIconTemplate@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -992,16 +988,16 @@
 				278CECAF11F5FB4C0082CD2C /* Winetricks.app in Resources */,
 				277D3D13107A3450004611C3 /* BottleStarter.icns in Resources */,
 				27C3E1D00FD01D9C006D9B75 /* Msi.icns in Resources */,
-				2721D4740FA0BF64003802D1 /* kill.png in Resources */,
-				27D694AB18B7C9C800534E70 /* mFinder@2x.png in Resources */,
+				2721D4740FA0BF64003802D1 /* killIconTemplate.png in Resources */,
+				27D694AB18B7C9C800534E70 /* finderIconTemplate@2x.png in Resources */,
 				2721D4750FA0BF64003802D1 /* killwine.sh in Resources */,
-				2721D4760FA0BF64003802D1 /* mDelete.png in Resources */,
-				2721D4770FA0BF64003802D1 /* mFinder.png in Resources */,
+				2721D4760FA0BF64003802D1 /* deleteIconTemplate.png in Resources */,
+				2721D4770FA0BF64003802D1 /* finderIconTemplate.png in Resources */,
 				27029B30107292740071F80B /* options_bg.png in Resources */,
 				277D3D62107A3D00004611C3 /* dsapubkey.pem in Resources */,
 				27C52BF71095F4FC00303AA6 /* InfoPlist.strings in Resources */,
 				27C52BF81095F4FC00303AA6 /* MainMenu.xib in Resources */,
-				27D694A918B7C9C800534E70 /* mDelete@2x.png in Resources */,
+				27D694A918B7C9C800534E70 /* deleteIconTemplate@2x.png in Resources */,
 				27C52BFA1095F55F00303AA6 /* Credits.html in Resources */,
 				27C52E7F109643C900303AA6 /* Sparkle.icns in Resources */,
 				27F3B9E111A6A29900B11B00 /* predefined.html in Resources */,
@@ -1020,7 +1016,7 @@
 				278A5E6B15D9240A003246BC /* cup_smoke_2.png in Resources */,
 				278A5E6C15D9240A003246BC /* cup_smoke_3.png in Resources */,
 				278A5E6D15D9240A003246BC /* icon_cup_256.png in Resources */,
-				27D694A718B7C9C800534E70 /* kill@2x.png in Resources */,
+				27D694A718B7C9C800534E70 /* killIconTemplate@2x.png in Resources */,
 				27E4FCA9172EDFA800EA1DAF /* bitcoinLogo.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

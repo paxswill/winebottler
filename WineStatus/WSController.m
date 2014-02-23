@@ -78,7 +78,7 @@
 		statusItem = [statusBar statusItemWithLength:NSVariableStatusItemLength];
 		[statusItem retain];
 		[statusItem setHighlightMode:YES];
-		[statusItem setImage:[NSImage imageNamed:@"WineStatusIcon.pdf"]];
+		[statusItem setImage:[NSImage imageNamed:@"WineStatusIconTemplate.pdf"]];
 
 		// Logfile
 		[self toggleLogFile];
@@ -205,7 +205,7 @@
 	for (i = 0; i < [runningExes count]; i++) {
 		menuItem = [[NSMenuItem alloc] initWithTitle:[[runningExes objectAtIndex:i] objectForKey:@"path"] action:@selector(kill:) keyEquivalent:@""];
 		[menuItem setTag:[[[runningExes objectAtIndex:i] objectForKey:@"pid"] intValue]];
-		[menuItem setImage:[NSImage imageNamed:@"kill.tiff"]];
+		[menuItem setImage:[NSImage imageNamed:@"killIconTemplate.tiff"]];
 		[menuProcesses insertItem:menuItem atIndex:i];
 		[menuItem release];
 	}

@@ -39,8 +39,8 @@
 
     if ((self = [super initWithCoder: decoder]))
     {
-        wDeleteIcon = [NSImage imageNamed: @"mDelete.tiff"];
-        wFinderIcon = [NSImage imageNamed: @"mFinder.tiff"];
+        wDeleteIcon = [NSImage imageNamed: @"deleteIconTemplate.tiff"];
+        wFinderIcon = [NSImage imageNamed: @"finderIconTemplate.tiff"];
         icon_width = [wDeleteIcon size].width;
         icon_height = [wDeleteIcon size].height;
 		[wFinderIcon setFlipped:YES];

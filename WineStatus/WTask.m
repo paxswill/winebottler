@@ -86,6 +86,7 @@
 							   wineDebug,																		// WINEDEBUG
 							   NSUserName(),																	// USER
 							   NSHomeDirectory(),																// HOME
+							   [(NSString*)CSCopyMachineName() autorelease],                                    // COMPUTERNAME
 							   nil]
 														   forKeys:
 							  [NSArray arrayWithObjects:
@@ -98,6 +99,7 @@
 							   @"WINEDEBUG",
 							   @"USER",
 							   @"HOME",
+							   @"COMPUTERNAME",
 							   nil]]];
 		
 		// Wine
